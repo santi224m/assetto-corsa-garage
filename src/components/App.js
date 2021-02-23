@@ -13,6 +13,7 @@ class App extends React.Component {
     render() {
         return (
             <div className="ui container">
+                <div className="nav-placeholder" style={{ width: '100%', height: '60px' }}></div>
                 <BrowserRouter>
                 <Header />
                 <div>

@@ -17,7 +17,8 @@ const Header = () => {
     }, [])
     
     return (
-        <div ref={ref} className="ui menu secondary pointing">
+        <div ref={ref} className="ui menu secondary pointing fixed">
+            <div className="ui container">
             <Link to="/" className="item">Assetto Corsa Garage</Link>
             <div className="right menu">
                 <Link className="item" to="/">Home</Link>
@@ -39,6 +40,7 @@ const Header = () => {
                     </div>
                     <div className="results"></div>
                 </div>
+            </div>
             </div>
 
         </div>

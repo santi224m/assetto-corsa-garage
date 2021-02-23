@@ -5,8 +5,9 @@
        "year":"1994",
        "picture_location":"img/cars/acuraNSX.jpg",
        "link":"https://www.racedepartment.com/downloads/honda-nsx.4768/",
-       "transmission":"manual",
-       "car_type":"road"
+       "transmission":"Manual",
+       "car_type":"Road",
+       "id":"1"
     },
     {
        "brand":"Alfa Romeo",
@@ -14,8 +15,9 @@
        "year":"1970",
        "picture_location":"img/cars/alfaRomeoGTAM.jpg",
        "link":"https://www.racedepartment.com/downloads/1970-alfa-romeo-gtam.28717/",
-       "transmission":"manual",
-       "car_type":"race"
+       "transmission":"Manual",
+       "car_type":"Race",
+       "id":"2"
     },
     {
        "brand":"Austin",
@@ -23,8 +25,9 @@
        "year":"1964",
        "picture_location":"img/cars/miniCooperS.jpg",
        "link":"https://www.racedepartment.com/downloads/austin-mini-cooper-s-fia-app-k-historic-racing.27875/",
-       "transmission":"manual",
-       "car_type":"road"
+       "transmission":"Manual",
+       "car_type":"Road",
+       "id":"3"
     },
     {
        "brand":"Caterham",
@@ -32,8 +35,9 @@
        "year":"1995",
        "picture_location":"img/cars/caterhamSuper7.jpg",
        "link":"https://www.racedepartment.com/downloads/caterham-7-super-sprint-1995.16143/",
-       "transmission":"manual",
-       "car_type":"road"
+       "transmission":"Manual",
+       "car_type":"Road",
+       "id":"4"
     },
     {
        "brand":"Chevrolet",
@@ -41,8 +45,9 @@
        "year":"1959",
        "picture_location":"img/cars/c1.jpg",
        "link":"https://www.racedepartment.com/downloads/1959-corvette-c1.37625/",
-       "transmission":"manual",
-       "car_type":"road"
+       "transmission":"Manual",
+       "car_type":"Road",
+       "id":"5"
     },
     {
        "brand":"Chevrolet",
@@ -50,8 +55,9 @@
        "year":"1990",
        "picture_location":"img/cars/chevroletCorvetteC4.jpg",
        "link":"https://www.racedepartment.com/downloads/nfs-tournament-class-b.20228/",
-       "transmission":"manual",
-       "car_type":"road"
+       "transmission":"Manual",
+       "car_type":"Road",
+       "id":"6"
     },
     {
        "brand":"Chevrolet",
@@ -59,8 +65,9 @@
        "year":"2014",
        "picture_location":"img/cars/dallaraCorvetteDP.jpg",
        "link":"https://www.racedepartment.com/downloads/ier-car-pack-1-uscc-mod.7348/",
-       "transmission":"paddleShifter",
-       "car_type":"prototype"
+       "transmission":"Paddle Shifter",
+       "car_type":"Prototype",
+       "id":"7"
     },
     {
        "brand":"Chevrolet",
@@ -68,8 +75,9 @@
        "year":"2009",
        "picture_location":"img/cars/corvetteC6.jpg",
        "link":"https://www.racedepartment.com/downloads/corvette-c6r-2013.2852/",
-       "transmission":"paddleShifter",
-       "car_type":"race"
+       "transmission":"Paddle Shifter",
+       "car_type":"Race",
+       "id":"8"
     },
     {
        "brand":"Dallara",
@@ -77,8 +85,9 @@
        "year":"2013",
        "picture_location":"img/cars/dallaryF3.jpg",
        "link":"https://www.racedepartment.com/downloads/rsr-formula-3.8040/",
-       "transmission":"paddleShifter",
-       "car_type":"openWheel"
+       "transmission":"Paddle Shifter",
+       "car_type":"Open Wheel",
+       "id":"9"
     },
     {
        "brand":"Dogde",
@@ -86,8 +95,9 @@
        "year":"1995",
        "picture_location":"img/cars/dodgeViperRT10.jpg",
        "link":"https://www.racedepartment.com/downloads/nfs-tournament-class-b.20228/",
-       "transmission":"manual",
-       "car_type":"road"
+       "transmission":"Manual",
+       "car_type":"Road",
+       "id":"10"
     },
     {
        "brand":"Ferrari",
@@ -95,8 +105,9 @@
        "year":"1994",
        "picture_location":"img/cars/ferrariTR.jpg",
        "link":"https://www.racedepartment.com/downloads/nfs-tournament-class-a.16905/",
-       "transmission":"manual",
-       "car_type":"road"
+       "transmission":"Manual",
+       "car_type":"Road",
+       "id":"11"
     },
     {
        "brand":"Ferrari",
@@ -104,8 +115,9 @@
        "year":"2002",
        "picture_location":"img/cars/ferrariF2002.jpg",
        "link":"https://www.racedepartment.com/downloads/ferrari-f2002.8703/",
-       "transmission":"paddleShifter",
-       "car_type":"openWheel"
+       "transmission":"Paddle Shifter",
+       "car_type":"Open Wheel",
+       "id":"12"
     },
     {
        "brand":"Ferrari",
@@ -113,8 +125,9 @@
        "year":"2007",
        "picture_location":"img/cars/ferrariF2007.jpg",
        "link":"https://www.racedepartment.com/downloads/vrc-2007-ferrari-f2007.21859/",
-       "transmission":"paddleShifter",
-       "car_type":"openWheel"
+       "transmission":"Paddle Shifter",
+       "car_type":"Open Wheel",
+       "id":"13"
     },
     {
        "brand":"Ford",
@@ -122,8 +135,9 @@
        "year":"2005",
        "picture_location":"img/cars/fordTransit.jpg",
        "link":"https://www.racedepartment.com/downloads/2005-ford-transit.22336/",
-       "transmission":"manual",
-       "car_type":"road"
+       "transmission":"Manual",
+       "car_type":"Road",
+       "id":"14"
     },
     {
        "brand":"Ford",
@@ -131,8 +145,9 @@
        "year":"1970",
        "picture_location":"img/cars/fordMustangBoss302.jpg",
        "link":"https://www.racedepartment.com/downloads/1970s-performance-mustangs.19574/",
-       "transmission":"manual",
-       "car_type":"road"
+       "transmission":"Manual",
+       "car_type":"Road",
+       "id":"15"
     },
     {
        "brand":"Ginetta",
@@ -140,8 +155,9 @@
        "year":"2017",
        "picture_location":"img/cars/ginettaG5.jpg",
        "link":"https://www.racedepartment.com/downloads/ginetta-supercup-2017.17522/",
-       "transmission":"paddleShifter",
-       "car_type":"race"
+       "transmission":"Paddle Shifter",
+       "car_type":"Race",
+       "id":"16"
     },
     {
        "brand":"Henry Clay Motorsports",
@@ -149,8 +165,9 @@
        "year":"2016",
        "picture_location":"img/cars/veloceGTS.jpg",
        "link":"https://www.racedepartment.com/downloads/veloce-gts-8.9828/",
-       "transmission":"manual",
-       "car_type":"road"
+       "transmission":"Manual",
+       "car_type":"Road",
+       "id":"17"
     },
     {
        "brand":"Jordan",
@@ -158,8 +175,9 @@
        "year":"1991",
        "picture_location":"img/cars/jordan191.jpg",
        "link":"https://www.racedepartment.com/downloads/vrc-1991-jordan-191.15281/",
-       "transmission":"manual",
-       "car_type":"openWheel"
+       "transmission":"Manual",
+       "car_type":"Open Wheel",
+       "id":"18"
     },
     {
        "brand":"Lamborghini",
@@ -167,8 +185,9 @@
        "year":"1995",
        "picture_location":"img/cars/lamboDiablo.jpg",
        "link":"https://www.racedepartment.com/downloads/lamborghini-diablo-se30-jota.15708/",
-       "transmission":"manual",
-       "car_type":"road"
+       "transmission":"Manual",
+       "car_type":"Road",
+       "id":"19"
     },
     {
        "brand":"Lamborghini",
@@ -176,8 +195,9 @@
        "year":"1995",
        "picture_location":"img/cars/lamboDiabloVT.jpg",
        "link":"https://www.racedepartment.com/downloads/nfs-tournament-class-a.16905/",
-       "transmission":"manual",
-       "car_type":"road"
+       "transmission":"Manual",
+       "car_type":"Road",
+       "id":"20"
     },
     {
        "brand":"Lancia",
@@ -185,8 +205,9 @@
        "year":"1963",
        "picture_location":"img/cars/lanciaFulvia.jpg",
        "link":"https://www.racedepartment.com/downloads/lancia-fulvia-1-6-hf.9317/",
-       "transmission":"manual",
-       "car_type":"road"
+       "transmission":"Manual",
+       "car_type":"Road",
+       "id":"21"
     },
     {
        "brand":"Lola",
@@ -194,8 +215,9 @@
        "year":"1966",
        "picture_location":"img/cars/lolaT70.jpg",
        "link":"https://www.racedepartment.com/downloads/lola-t70-mkii-spyder-rf2.16043/",
-       "transmission":"manual",
-       "car_type":"race"
+       "transmission":"Manual",
+       "car_type":"Race",
+       "id":"22"
     },
     {
        "brand":"McLaren",
@@ -203,8 +225,9 @@
        "year":"2007",
        "picture_location":"img/cars/mclarenMP4.jpg",
        "link":"https://www.racedepartment.com/downloads/vrc-2007-mclaren-mp4-22.19623/",
-       "transmission":"paddleShifter",
-       "car_type":"openWheel"
+       "transmission":"Paddle Shifter",
+       "car_type":"Open Wheel",
+       "id":"23"
     },
     {
        "brand":"McLaren",
@@ -212,8 +235,9 @@
        "year":"1998",
        "picture_location":"img/cars/mclarenMP4-13.jpg",
        "link":"https://www.racedepartment.com/downloads/mclaren-mp4-13.6061/",
-       "transmission":"paddleShifter",
-       "car_type":"openWheel"
+       "transmission":"Paddle Shifter",
+       "car_type":"Open Wheel",
+       "id":"24"
     },
     {
        "brand":"Mitsubishi",
@@ -221,8 +245,9 @@
        "year":"2016",
        "picture_location":"img/cars/mitsubishiLancerEvo.jpg",
        "link":"https://www.racedepartment.com/downloads/mitsubishi-lancer-evo-viii-time-attack.26972/",
-       "transmission":"sequential",
-       "car_type":"race"
+       "transmission":"Sequential",
+       "car_type":"Race",
+       "id":"25"
     },
     {
        "brand":"Nissan",
@@ -230,8 +255,9 @@
        "year":"1999",
        "picture_location":"img/cars/nissanBTC.jpg",
        "link":"https://www.racedepartment.com/downloads/1999-nissan-primera-btcc.3828/",
-       "transmission":"sequential",
-       "car_type":"race"
+       "transmission":"Sequential",
+       "car_type":"Race",
+       "id":"26"
     },
     {
        "brand":"Oreca",
@@ -239,8 +265,9 @@
        "year":"2009",
        "picture_location":"img/cars/orecaFLM09.jpg",
        "link":"https://www.racedepartment.com/downloads/ier-car-pack-1-uscc-mod.7348/",
-       "transmission":"paddleShifter",
-       "car_type":"prototype"
+       "transmission":"Paddle Shifter",
+       "car_type":"Prototype",
+       "id":"27"
     },
     {
        "brand":"Peugeot",
@@ -248,8 +275,9 @@
        "year":"1977",
        "picture_location":"img/cars/peugeot504TN.jpg",
        "link":"https://www.racedepartment.com/downloads/peugeot-504.7890/",
-       "transmission":"manual",
-       "car_type":"road"
+       "transmission":"Manual",
+       "car_type":"Road",
+       "id":"28"
     },
     {
        "brand":"Porsche",
@@ -257,8 +285,9 @@
        "year":"2019",
        "picture_location":"img/cars/porscheSinger.jpg",
        "link":"https://www.racedepartment.com/downloads/porsche-911-singer.29318/",
-       "transmission":"manual",
-       "car_type":"road"
+       "transmission":"Manual",
+       "car_type":"Road",
+       "id":"29"
     },
     {
        "brand":"Porsche",
@@ -266,8 +295,9 @@
        "year":"1996",
        "picture_location":"img/cars/porsche911Turbo993.jpg",
        "link":"https://www.racedepartment.com/downloads/porsche-911-993-turbo.29842/",
-       "transmission":"manual",
-       "car_type":"road"
+       "transmission":"Manual",
+       "car_type":"Road",
+       "id":"30"
     },
     {
        "brand":"Porsche",
@@ -275,8 +305,9 @@
        "year":"2015",
        "picture_location":"img/cars/porsche911GTAmerica.jpg",
        "link":"https://www.racedepartment.com/downloads/porsche-911-gt-america-ier-simulations-uscc-mod.27798/",
-       "transmission":"paddleShifter",
-       "car_type":"race"
+       "transmission":"Paddle Shifter",
+       "car_type":"Race",
+       "id":"31"
     },
     {
        "brand":"Race Sim Studio",
@@ -284,8 +315,9 @@
        "year":"2019",
        "picture_location":"img/cars/formulaRSS3.jpg",
        "link":"https://www.racedepartment.com/downloads/formula-rss-3-v6.26726/",
-       "transmission":"paddleShifter",
-       "car_type":"openWheel"
+       "transmission":"Paddle Shifter",
+       "car_type":"Open Wheel",
+       "id":"32"
     },
     {
        "brand":"Russell-Alexis",
@@ -293,8 +325,9 @@
        "year":"1967",
        "picture_location":"img/cars/formulaFord.jpg",
        "link":"https://www.racedepartment.com/downloads/formula-ford-russell-alexis-mk-14.24419/",
-       "transmission":"manual",
-       "car_type":"openWheel"
+       "transmission":"Manual",
+       "car_type":"Open Wheel",
+       "id":"33"
     },
     {
        "brand":"Seat Leon",
@@ -302,8 +335,9 @@
        "year":"2018",
        "picture_location":"img/cars/seatLeonTCR.jpg",
        "link":"https://www.racedepartment.com/downloads/seat-leon-tcr-2018.20109/",
-       "transmission":"paddleShifter",
-       "car_type":"race"
+       "transmission":"Paddle Shifter",
+       "car_type":"Race",
+       "id":"34"
     },
     {
        "brand":"Seat Leon",
@@ -311,8 +345,9 @@
        "year":"2015",
        "picture_location":"img/cars/seatLeonEuroCup.jpg",
        "link":"https://www.racedepartment.com/downloads/seat-leon-cup.15203/",
-       "transmission":"paddleShifter",
-       "car_type":"race"
+       "transmission":"Paddle Shifter",
+       "car_type":"Race",
+       "id":"35"
     },
     {
        "brand":"Skoda",
@@ -320,8 +355,9 @@
        "year":"1975",
        "picture_location":"img/cars/skoda130RS.jpg",
        "link":"https://www.racedepartment.com/downloads/skoda-130-rs.26700/",
-       "transmission":"manual",
-       "car_type":"race"
+       "transmission":"Manual",
+       "car_type":"Race",
+       "id":"36"
     },
     {
        "brand":"Subaru",
@@ -329,8 +365,9 @@
        "year":"2007",
        "picture_location":"img/cars/subaruImpreza.jpg",
        "link":"https://www.racedepartment.com/downloads/2007-subaru-impreza-wrx-gd-tuned.33356/",
-       "transmission":"manual",
-       "car_type":"road"
+       "transmission":"Manual",
+       "car_type":"Road",
+       "id":"37"
     },
     {
        "brand":"Toyota",
@@ -338,8 +375,9 @@
        "year":"1994",
        "picture_location":"img/cars/toyotaSera.jpg",
        "link":"https://www.racedepartment.com/downloads/toyota-sera-stock-trd-gt.17038/",
-       "transmission":"manual",
-       "car_type":"road"
+       "transmission":"Manual",
+       "car_type":"Road",
+       "id":"38"
     },
     {
        "brand":"Williams",
@@ -347,8 +385,9 @@
        "year":"2002",
        "picture_location":"img/cars/williamsFW24.jpg",
        "link":"https://www.racedepartment.com/downloads/msf-williams-fw24-f1-2002.15374/",
-       "transmission":"paddleShifter",
-       "car_type":"openWheel"
+       "transmission":"Paddle Shifter",
+       "car_type":"Open Wheel",
+       "id":"39"
     },
     {
        "brand":"BMW",
@@ -356,8 +395,9 @@
        "year":"1998",
        "picture_location":"img/cars/bmw320.jpg",
        "link":"https://www.racedepartment.com/downloads/1998-bmw-320i-stw-btcc.32489/",
-       "transmission":"sequential",
-       "car_type":"race"
+       "transmission":"Sequential",
+       "car_type":"Race",
+       "id":"40"
     },
     {
        "brand":"De Tomaso",
@@ -365,8 +405,9 @@
        "year":"1972",
        "picture_location":"img/cars/deTomasoPantera.jpg",
        "link":"https://www.racedepartment.com/downloads/de-tomaso-pantera-gr-4-gt4.29339/",
-       "transmission":"manual",
-       "car_type":"race"
+       "transmission":"Manual",
+       "car_type":"Race",
+       "id":"41"
     },
     {
        "brand":"Opel",
@@ -374,8 +415,9 @@
        "year":"1996",
        "picture_location":"img/cars/opelCalibra.jpg",
        "link":"https://www.racedepartment.com/downloads/opel-calibra-itc-1996.7943/",
-       "transmission":"paddleShifter",
-       "car_type":"race"
+       "transmission":"Paddle Shifter",
+       "car_type":"Race",
+       "id":"42"
     },
     {
        "brand":"Caterham",
@@ -383,7 +425,8 @@
        "year":"2017",
        "picture_location":"img/cars/caterhamAcademy.jpg",
        "link":"https://www.racedepartment.com/downloads/caterham-academy-2017.17855/",
-       "transmission":"manual",
-       "car_type":"race"
+       "transmission":"Manual",
+       "car_type":"Race",
+       "id":"43"
     }
  ]

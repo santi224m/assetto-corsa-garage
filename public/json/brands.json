@@ -2,156 +2,187 @@
     {
         "brand":"Acura",
         "link":"cars.html?page=1&filter=brand&brandName=Acura",
-        "img":"img/brands/Acura.png"
+        "img":"img/brands/Acura.png",
+        "id": "1"
     },
     {
         "brand":"Alfa Romeo",
         "link":"cars.html?page=1&filter=brand&brandName=Alfa%20Romeo",
-        "img":"img/brands/alfaRomeo.png"
+        "img":"img/brands/alfaRomeo.png",
+        "id": "2"
     },
     {
         "brand":"Austin",
         "link":"cars.html?page=1&filter=brand&brandName=Austin",
-        "img":"img/brands/austin.png"
+        "img":"img/brands/austin.png",
+        "id": "3"
     },
     {
         "brand":"BMW",
         "link":"cars.html?page=1&filter=brand&brandName=BMW",
-        "img":"img/brands/bmw.png"
+        "img":"img/brands/bmw.png",
+        "id": "4"
     },
     {
         "brand":"Caterham",
         "link":"cars.html?page=1&filter=brand&brandName=Caterham",
-        "img":"img/brands/Caterham.png"
+        "img":"img/brands/Caterham.png",
+        "id": "5"
     },
     {
         "brand":"Chevrolet",
         "link":"cars.html?page=1&filter=brand&brandName=Chevrolet",
-        "img":"img/brands/Chevrolet.png"
+        "img":"img/brands/Chevrolet.png",
+        "id": "6"
     },
     {
         "brand":"Dallara",
         "link":"cars.html?page=1&filter=brand&brandName=Dallara",
-        "img":"img/brands/Dallara.png"
+        "img":"img/brands/Dallara.png",
+        "id": "7"
     },
     {
         "brand":"De Tomaso",
         "link":"cars.html?page=1&filter=brand&brandName=De%20Tomaso",
-        "img":"img/brands/deTomaso.png"
+        "img":"img/brands/deTomaso.png",
+        "id": "8"
     },
     {
         "brand":"Dogde",
         "link":"cars.html?page=1&filter=brand&brandName=Dogde",
-        "img":"img/brands/Dogde.png"
+        "img":"img/brands/Dogde.png",
+        "id": "9"
     },
     {
         "brand":"Ferrari",
         "link":"cars.html?page=1&filter=brand&brandName=Ferrari",
-        "img":"img/brands/Ferrari.png"
+        "img":"img/brands/Ferrari.png",
+        "id": "10"
     },
     {
         "brand":"Ford",
         "link":"cars.html?page=1&filter=brand&brandName=Ford",
-        "img":"img/brands/Ford.png"
+        "img":"img/brands/Ford.png",
+        "id": "11"
     },
     {
         "brand":"Ginetta",
         "link":"cars.html?page=1&filter=brand&brandName=Ginetta",
-        "img":"img/brands/Ginetta.png"
+        "img":"img/brands/Ginetta.png",
+        "id": "12"
     },
     {
         "brand":"Henry Clay Motosports",
         "link":"cars.html?page=1&filter=brand&brandName=Henry%20Clay%20Motorsports",
-        "img":"img/brands/HenryClayMotorsports.png"
+        "img":"img/brands/HenryClayMotorsports.png",
+        "id": "13"
     },
     {
         "brand":"Jordan",
         "link":"cars.html?page=1&filter=brand&brandName=Jordan",
-        "img":"img/brands/Jordan.png"
+        "img":"img/brands/Jordan.png",
+        "id": "14"
     },
     {
         "brand":"Lamborghini",
         "link":"cars.html?page=1&filter=brand&brandName=Lamborghini",
-        "img":"img/brands/Lamborghini.png"
+        "img":"img/brands/Lamborghini.png",
+        "id": "15"
     },
     {
         "brand":"Lancia",
         "link":"cars.html?page=1&filter=brand&brandName=Lancia",
-        "img":"img/brands/Lancia.png"
+        "img":"img/brands/Lancia.png",
+        "id": "16"
     },
     {
         "brand":"Lola",
         "link":"cars.html?page=1&filter=brand&brandName=Lola",
-        "img":"img/brands/Lola.png"
+        "img":"img/brands/Lola.png",
+        "id": "17"
     },
     {
         "brand":"McLaren",
         "link":"cars.html?page=1&filter=brand&brandName=McLaren",
-        "img":"img/brands/McLaren.png"
+        "img":"img/brands/McLaren.png",
+        "id": "18"
     },
     {
         "brand":"Mitsubishi",
         "link":"cars.html?page=1&filter=brand&brandName=Mitsubishi",
-        "img":"img/brands/Mitsubishi.png"
+        "img":"img/brands/Mitsubishi.png",
+        "id": "19"
     },
     {
         "brand":"Nissan",
         "link":"cars.html?page=1&filter=brand&brandName=Nissan",
-        "img":"img/brands/Nissan.png"
+        "img":"img/brands/Nissan.png",
+        "id": "20"
     },
     {
         "brand":"Opel",
         "link":"cars.html?page=1&filter=brand&brandName=Opel",
-        "img":"img/brands/Opel.png"
+        "img":"img/brands/Opel.png",
+        "id": "21"
     },
     {
         "brand":"Oreca",
         "link":"cars.html?page=1&filter=brand&brandName=Oreca",
-        "img":"img/brands/Oreca.png"
+        "img":"img/brands/Oreca.png",
+        "id": "22"
     },
     {
         "brand":"Peugeot",
         "link":"cars.html?page=1&filter=brand&brandName=Peugeot",
-        "img":"img/brands/Peugeot.png"
+        "img":"img/brands/Peugeot.png",
+        "id": "23"
     },
     {
         "brand":"Porsche",
         "link":"cars.html?page=1&filter=brand&brandName=Porsche",
-        "img":"img/brands/porsche.png"
+        "img":"img/brands/porsche.png",
+        "id": "24"
     },
     {
         "brand":"Race Sim Studio",
         "link":"cars.html?page=1&filter=brand&brandName=Race%20Sim%20Studio",
-        "img":"img/brands/RaceSimStudio.png"
+        "img":"img/brands/RaceSimStudio.png",
+        "id": "25"
     },
     {
         "brand":"Russell-Alexis",
         "link":"cars.html?page=1&filter=brand&brandName=Russell-Alexis",
-        "img":"img/brands/Russell-Alexis.png"
+        "img":"img/brands/Russell-Alexis.png",
+        "id": "26"
     },
     {
         "brand":"Seat Leon",
         "link":"cars.html?page=1&filter=brand&brandName=Seat%20Leon",
-        "img":"img/brands/SeatLeon.png"
+        "img":"img/brands/SeatLeon.png",
+        "id": "27"
     },
     {
         "brand":"Skoda",
         "link":"cars.html?page=1&filter=brand&brandName=Skoda",
-        "img":"img/brands/Skoda.png"
+        "img":"img/brands/Skoda.png",
+        "id": "28"
     },
     {
         "brand":"Subaru",
         "link":"cars.html?page=1&filter=brand&brandName=Subaru",
-        "img":"img/brands/Subaru.png"
+        "img":"img/brands/Subaru.png",
+        "id": "29"
     },
     {
         "brand":"Toyota",
         "link":"cars.html?page=1&filter=brand&brandName=Toyota",
-        "img":"img/brands/Toyota.png"
+        "img":"img/brands/Toyota.png",
+        "id": "30"
     },
     {
         "brand":"Williams",
         "link":"cars.html?page=1&filter=brand&brandName=Williams",
-        "img":"img/brands/Williams.png"
+        "img":"img/brands/Williams.png",
+        "id": "31"
     }
 ]
