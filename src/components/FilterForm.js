@@ -1,7 +1,16 @@
 import React from 'react';
 import _ from 'lodash';
 import { connect } from 'react-redux';
-import { fetchBrands, openBrands, openClass, openDecades, openShifters, selectBrand, selectClass, selectDecade, selectShifter, resetFilters } from '../actions';
+import { fetchBrands,
+        openBrands,
+        openClass,
+        openDecades,
+        openShifters,
+        selectBrand,
+        selectClass,
+        selectDecade,
+        selectShifter,
+        resetFilters } from '../actions';
 
 class FilterForm extends React.Component {
 

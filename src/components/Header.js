@@ -1,7 +1,11 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Link, Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { filterSearch } from '../actions';
+import history from '../history';
 
-const Header = () => {
+const Header = (props) => {
+
     const [dropDownClicked, setDropDownClicked] = useState(false);
 
     const ref = useRef();
@@ -15,6 +19,21 @@ const Header = () => {
             setDropDownClicked(false);
         });
     }, [])
+
+    const onSearchSubmit = (e) => {
+        
+
+
+        if(e.key === 'Enter') {
+            if(window.location.pathname !== '/list') {
+                history.push('/list');
+            }
+        }
+
+        // if(e.target.value === '') {
+        //     props.filterSearch(null);
+        // }
+    }
     
     return (
         <div ref={ref} className="ui menu secondary pointing fixed">
@@ -35,8 +54,8 @@ const Header = () => {
                 </div>
                 <div className="ui search">
                     <div className="ui icon input">
-                        <input type="text" className="prompt" placeholder="Search" />
-                        <i className="search icon"></i>
+                        <input type="text" className="prompt" placeholder="Search" value={props.selectedFilters.searchTerm} onChange={(e) => props.filterSearch(e.target.value)} onKeyPress={e => onSearchSubmit(e)} />
+                        <i className="search icon" ></i>
                     </div>
                     <div className="results"></div>
                 </div>
@@ -47,4 +66,8 @@ const Header = () => {
     );
 }
 
-export default Header;
+const mapStateToProps = state => {
+    return { selectedFilters: state.selectedFilters };
+}
+
+export default connect(mapStateToProps, { filterSearch })(Header);

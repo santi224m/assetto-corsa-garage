@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Switch, Route } from 'react-router-dom'
+import { Router, Switch, Route } from 'react-router-dom'
 import Header from './Header';
 
 import Home from './Home';
@@ -8,13 +8,14 @@ import FilterClass from './filters/FilterClass';
 import FilterDecades from './filters/FilterDecades';
 import FilterShifters from './filters/FilterShifters';
 import ShowList from './ShowList';
+import history from '../history';
 
 class App extends React.Component {
     render() {
         return (
             <div className="ui container">
                 <div className="nav-placeholder" style={{ width: '100%', height: '60px' }}></div>
-                <BrowserRouter>
+                <Router history={history}>
                 <Header />
                 <div>
                     <Switch>
@@ -26,7 +27,7 @@ class App extends React.Component {
                         <Route path="/" exact component={Home} />           
                     </Switch>
                 </div>
-                </BrowserRouter>
+                </Router>
             </div>
         );
     }

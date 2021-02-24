@@ -7,10 +7,43 @@ import { openBrands, openClass, openDecades, openShifters, fetchBrands, selectBr
 import FilterCard from './FilterCard';
 
 class Home extends React.Component {
+    constructor(props) {
+        super(props);
+        this.brandsDropdownRef = React.createRef();
+        this.shifterDropdownRef = React.createRef();
+        this.classDropdownRef = React.createRef();
+        this.onDropdownClick = this.onDropdownClick.bind(this);
+    }
+
     componentDidMount() {
         if(this.props.brands.length === 0) {
             this.props.fetchBrands();
         }
+
+        document.body.addEventListener('click', this.onDropdownClick, false);
+    }
+
+    componentWillUnmount() {
+        document.body.removeEventListener('click', this.onDropdownClick, false);
+
+    }
+
+    onDropdownClick(e) {
+        if(this.brandsDropdownRef.current && this.brandsDropdownRef.current.contains(e.target)) {
+            return;
+        }
+
+        if(this.shifterDropdownRef.current && this.shifterDropdownRef.current.contains(e.target)) {
+            return;
+        }
+
+        if(this.classDropdownRef.current && this.classDropdownRef.current.contains(e.target)) {
+            return;
+        }
+
+        this.props.openBrands(false);
+        this.props.openClass(false);
+        this.props.openShifters(false);
     }
 
     renderBrandsList() {
@@ -36,7 +69,7 @@ class Home extends React.Component {
                 <div className="text">Find the best<br/>mods for you</div>
                 <div className="ui form">
 
-                    <div className="three wide field">
+                    <div ref={this.brandsDropdownRef} className="three wide field">
                         <label>Brand</label>
                         <div className={`ui selection dropdown ${this.props.filterDropdowns.brandsOpen ? 'active visible' : ''}`} onClick={() => this.props.openBrands(!this.props.filterDropdowns.brandsOpen)}>
                             <input type="hidden" name="brand"/>
@@ -48,7 +81,7 @@ class Home extends React.Component {
                         </div>
                     </div>
 
-                    <div className="three wide field">
+                    <div ref={this.shifterDropDownRef} className="three wide field">
                         <label>Shifter</label>
                         <div className={`ui selection dropdown ${this.props.filterDropdowns.shiftersOpen ? 'active visible' : ''}`} onClick={() => this.props.openShifters(!this.props.filterDropdowns.shiftersOpen)}>
                             <input type="hidden" name="shifters"/>
@@ -62,7 +95,7 @@ class Home extends React.Component {
                         </div>
                     </div>
 
-                    <div className="three wide field">
+                    <div ref={this.classDropDownRef} className="three wide field">
                         <label>Class</label>
                         <div className={`ui selection dropdown ${this.props.filterDropdowns.classOpen ? 'active visible' : ''}`} onClick={() => this.props.openClass(!this.props.filterDropdowns.classOpen)}>
                             <input type="hidden" name="class"/>

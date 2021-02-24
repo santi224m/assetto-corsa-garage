@@ -29,8 +29,11 @@ class ShowList extends React.Component {
             const classIsSelected = this.props.selectedFilters.selectedClass && this.props.selectedFilters.selectedClass !== car.car_type;
             const decadeIsSelected = this.props.selectedFilters.selectedDecade && !((this.props.selectedFilters.selectedDecade + 10) - car.year < 10 && (this.props.selectedFilters.selectedDecade + 10) - car.year > 0);
             const shifterIsSelected = this.props.selectedFilters.selectedShifter && this.props.selectedFilters.selectedShifter !== car.transmission;
+            const carSearchTerm = `${car.brand.toLowerCase()} ${car.model.toLowerCase()} ${car.link.toLowerCase()} ${car.year.toLowerCase()} ${car.transmission.toLowerCase()} ${car.car_type.toLowerCase()}`;
+            const searchTermFilter = this.props.selectedFilters.searchTerm && !(carSearchTerm.includes(this.props.selectedFilters.searchTerm.toLowerCase()));
+            // const searchTermFilter = this.props.selectedFilters.searchTerm && !(car.brand.includes(this.props.selectedFilters.searchTerm) || car.model.includes(this.props.selectedFilters.searchTerm) || car.link.includes(this.props.selectedFilters.searchTerm));
 
-            if(brandIsSelected || classIsSelected || decadeIsSelected || shifterIsSelected) {
+            if(brandIsSelected || classIsSelected || decadeIsSelected || shifterIsSelected || searchTermFilter) {
                 return;
             }    
             

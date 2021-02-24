@@ -82,3 +82,10 @@ export const resetFilters = () => {
 export const filterCars = () => {
         return { type: 'FILTER_CARS' };
 }
+
+export const filterSearch = searchTerm => {
+        return {
+                type: 'FILTER_SEARCH',
+                payload: searchTerm
+        }
+}
