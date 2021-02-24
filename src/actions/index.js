@@ -47,6 +47,13 @@ export const openShifters = (isOpen) => {
         }
 }
 
+export const openSort = (isOpen) => {
+        return {
+                type: 'OPEN_SORT',
+                payload: isOpen
+        }
+}
+
 export const selectBrand = brand => {
         return {
                 type: 'SELECT_BRAND',
@@ -87,5 +94,12 @@ export const filterSearch = searchTerm => {
         return {
                 type: 'FILTER_SEARCH',
                 payload: searchTerm
+        }
+}
+
+export const selectSort = sortName => {
+        return {
+                type: 'SELECT_SORT',
+                payload: sortName
         }
 }

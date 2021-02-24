@@ -5,6 +5,7 @@ import { fetchCars } from '../actions';
 
 import FilterForm from './FilterForm';
 import FilterBrands from './filters/FilterBrands';
+import SortDropdown from './SortDropdown';
 
 class ShowList extends React.Component {
 
@@ -14,16 +15,52 @@ class ShowList extends React.Component {
         }
     }
 
+    sortByBrand = (a, b) => {
+        if(a.brand < b.brand) {
+            return -1;
+        }
+        if(a.brand > b.brand) {
+            return 1;
+        }
+        return 0;
+    }
+
+    sortByYear = (a, b) => {
+        if(a.year < b.year) {
+            return -1;
+        }
+        if(a.year > b.year) {
+            return 1;
+        }
+        return 0;
+    }
+
+    sortByDateAdded = (a, b) => {
+        if(a.id < b.id) {
+            return -1;
+        }
+        if(a.id > b.id) {
+            return 1;
+        }
+        return 0;
+    }
+
 
     renderCars() {
         return this.props.cars.sort((a, b) => {
-            if(a.brand < b.brand) {
-                return -1;
+            if(this.props.sortName === 'nameDown') {
+                return this.sortByBrand(a, b);
+            } else if(this.props.sortName === 'nameUp') {
+                return this.sortByBrand(b, a);
+            } else if(this.props.sortName === 'yearOld') {
+                return this.sortByYear(a, b);
+            } else if(this.props.sortName === 'yearNew') {
+                return this.sortByYear(b, a);   
+            } else if(this.props.sortName === 'dateAddedOld') {
+                return this.sortByDateAdded(a, b);
+            } else if(this.props.sortName === 'dateAddedNew') {
+                return this.sortByDateAdded(b, a);
             }
-            if(a.brand > b.brand) {
-                return 1;
-            }
-            return 0;
         }).map(car => {
             const brandIsSelected = this.props.selectedFilters.selectedBrand && this.props.selectedFilters.selectedBrand !== car.brand;
             const classIsSelected = this.props.selectedFilters.selectedClass && this.props.selectedFilters.selectedClass !== car.car_type;
@@ -68,6 +105,7 @@ class ShowList extends React.Component {
         return (
             <div>
                 <FilterForm onClick={this.filterCars} />
+                <SortDropdown />
                 <div className="ui link cards" style={{marginTop: '5rem'}}>
                     {this.renderCars()}
                 </div>
@@ -77,7 +115,7 @@ class ShowList extends React.Component {
 }
 
 const mapStateToProps = state => {
-    return { cars: Object.values(state.cars), brands: Object.values(state.brands), selectedFilters: state.selectedFilters };
+    return { cars: Object.values(state.cars), brands: Object.values(state.brands), selectedFilters: state.selectedFilters, sortName: state.currentSort.sortName };
 }
 
 export default connect(mapStateToProps, { fetchCars })(ShowList);

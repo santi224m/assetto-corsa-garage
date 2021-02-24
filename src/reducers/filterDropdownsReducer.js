@@ -1,4 +1,4 @@
-export default (state = {brandsOpen: false, classOpen: false, decadesOpen: false, shiftersOpen: false}, action) => {
+export default (state = {brandsOpen: false, classOpen: false, decadesOpen: false, shiftersOpen: false, sortOpen: false}, action) => {
     switch (action.type) {
         case 'OPEN_BRANDS':
             return { ...state, brandsOpen: action.payload };
@@ -8,6 +8,8 @@ export default (state = {brandsOpen: false, classOpen: false, decadesOpen: false
             return { ...state, decadesOpen: action.payload };
         case 'OPEN_SHIFTERS':
             return { ...state, shiftersOpen: action.payload };
+        case 'OPEN_SORT':
+            return { ...state, sortOpen: action.payload };
         default:
             return state;
     }
