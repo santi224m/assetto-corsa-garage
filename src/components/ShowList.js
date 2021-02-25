@@ -101,6 +101,10 @@ class ShowList extends React.Component {
             if(this.filteredCarsArr && (this.filteredCarsArr.indexOf(car) < paginationStartIndex || this.filteredCarsArr.indexOf(car) > paginationEndIndex)) {
                 return;
             }
+
+            const baseWikiURL = 'https://en.wikipedia.org/wiki/';
+            const carToPathName = `${car.brand} ${car.model}`.replace(/ /g, '_');
+            const carWikiURL = baseWikiURL + carToPathName;
             
             return (
                 <div className="ui card" key={car.id}>
@@ -116,7 +120,7 @@ class ShowList extends React.Component {
                         <span>{car.year}</span>
                     </div>
                     <div className="extra content">
-                        <button className="ui basic button fluid">Learn More</button>
+                        <a href={carWikiURL} target="_blank" className="ui basic button fluid">Learn More</a>
                         <br/>
                         <a href={car.link} className="ui button fluid primary" target="_blank">Go to Mod</a>
                     </div>
