@@ -19,6 +19,8 @@ export const fetchBrandsCustom = (url) => async dispatch => {
         dispatch({ type: 'FETCH_BRANDS_CUSTOM', payload: data });
 }
 
+
+// Start Dropdown actions
 export const openBrands = (isOpen) => {
         return {
                 type: 'OPEN_BRANDS',
@@ -86,6 +88,8 @@ export const resetFilters = () => {
         return { type: 'RESET_FILTERS' };
 }
 
+// End Dropdown actions
+
 export const filterCars = () => {
         return { type: 'FILTER_CARS' };
 }
@@ -103,3 +107,69 @@ export const selectSort = sortName => {
                 payload: sortName
         }
 }
+
+// Pagination Actions
+export const updateTotalItems = num => {
+        return {
+                type: 'UPDATE_TOTAL_ITEMS',
+                payload: num
+        }
+}
+
+export const updateCurrentPage = num => {
+        return {
+                type: 'UPDATE_CURRENT_PAGE',
+                payload: num
+        }
+}
+
+export const updatePageSize = num => {
+        return {
+                type: 'UPDATE_PAGE_SIZE',
+                payload: num
+        }
+}
+
+export const updateTotalPages = num => {
+        return {
+                type: 'UPDATE_TOTAL_PAGES',
+                payload: num
+        }
+}
+
+export const updateStartPage = num => {
+        return {
+                type: 'UPDATE_START_PAGE',
+                payload: num
+        }
+}
+
+export const updateEndPage = num => {
+        return {
+                type: 'UPDATE_END_PAGE',
+                payload: num
+        }
+}
+
+export const updateStartIndex = num => {
+        return {
+                type: 'UPDATE_START_INDEX',
+                payload: num
+        }
+}
+
+export const updateEndIndex = num => {
+        return {
+                type: 'UPDATE_END_INDEX',
+                payload: num
+        }
+}
+
+export const updatePages = num => {
+        return {
+                type: 'UPDATE_PAGES',
+                payload: num
+        }
+}
+
+// End Pagination Actions

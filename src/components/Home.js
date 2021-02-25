@@ -2,9 +2,9 @@ import _ from 'lodash';
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { resetFilters } from '../actions';
 
 import HomeDropdown from './HomeDropdown';
-
 import FilterCard from './FilterCard';
 
 class Home extends React.Component {
@@ -33,4 +33,4 @@ class Home extends React.Component {
 
 
 
-export default connect(null)(Home);
+export default connect(null, { resetFilters })(Home);

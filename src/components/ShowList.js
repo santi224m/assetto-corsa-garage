@@ -1,17 +1,35 @@
 import _ from 'lodash';
 import React from 'react';
 import { connect } from 'react-redux';
-import { fetchCars } from '../actions';
+import { fetchCars, updateTotalItems, updatePages, updateCurrentPage, updateStartIndex, updateEndIndex } from '../actions';
 
 import FilterForm from './FilterForm';
 import FilterBrands from './filters/FilterBrands';
 import SortDropdown from './SortDropdown';
+import Pagination from './Pagination';
 
 class ShowList extends React.Component {
+    constructor(props) {
+        super(props);
+
+        this.filteredCarsArr = [];
+    }
 
     componentDidMount() {
         if(this.props.cars.length === 0) {
             this.props.fetchCars();
+        }
+    }
+
+    componentDidUpdate() {
+        if(this.props.pagination.totalItems !== this.filteredCarsArr.length) {
+            const newCarAmount = this.filteredCarsArr.length;
+            this.props.updateTotalItems(newCarAmount);
+            this.props.updatePages(Math.ceil(newCarAmount / this.props.pagination.pageSize));
+            this.props.updateCurrentPage(1);
+            // const newStartIndex = 1;
+            // this.props.updateStartIndex(newStartIndex);
+            // this.props.updateEndIndex(Math.min(newStartIndex + this.props.pagination.pageSize - 1, this.props.pagination.totalItems - 1))
         }
     }
 
@@ -47,7 +65,7 @@ class ShowList extends React.Component {
 
 
     renderCars() {
-        return this.props.cars.sort((a, b) => {
+        this.filteredCarsArr = this.props.cars.sort((a, b) => {
             if(this.props.sortName === 'nameDown') {
                 return this.sortByBrand(a, b);
             } else if(this.props.sortName === 'nameUp') {
@@ -61,18 +79,28 @@ class ShowList extends React.Component {
             } else if(this.props.sortName === 'dateAddedNew') {
                 return this.sortByDateAdded(b, a);
             }
-        }).map(car => {
+        }).filter(car => {
+
             const brandIsSelected = this.props.selectedFilters.selectedBrand && this.props.selectedFilters.selectedBrand !== car.brand;
             const classIsSelected = this.props.selectedFilters.selectedClass && this.props.selectedFilters.selectedClass !== car.car_type;
             const decadeIsSelected = this.props.selectedFilters.selectedDecade && !((this.props.selectedFilters.selectedDecade + 10) - car.year < 10 && (this.props.selectedFilters.selectedDecade + 10) - car.year > 0);
             const shifterIsSelected = this.props.selectedFilters.selectedShifter && this.props.selectedFilters.selectedShifter !== car.transmission;
             const carSearchTerm = `${car.brand.toLowerCase()} ${car.model.toLowerCase()} ${car.link.toLowerCase()} ${car.year.toLowerCase()} ${car.transmission.toLowerCase()} ${car.car_type.toLowerCase()}`;
             const searchTermFilter = this.props.selectedFilters.searchTerm && !(carSearchTerm.includes(this.props.selectedFilters.searchTerm.toLowerCase()));
-            // const searchTermFilter = this.props.selectedFilters.searchTerm && !(car.brand.includes(this.props.selectedFilters.searchTerm) || car.model.includes(this.props.selectedFilters.searchTerm) || car.link.includes(this.props.selectedFilters.searchTerm));
 
-            if(brandIsSelected || classIsSelected || decadeIsSelected || shifterIsSelected || searchTermFilter) {
+            if(!(brandIsSelected || classIsSelected || decadeIsSelected || shifterIsSelected || searchTermFilter)) {
+                return car;
+            } 
+        })
+        
+        return this.filteredCarsArr.map(car => {
+   
+            const paginationStartIndex = this.props.pagination.startIndex;
+            const paginationEndIndex = this.props.pagination.endIndex;
+
+            if(this.filteredCarsArr && (this.filteredCarsArr.indexOf(car) < paginationStartIndex || this.filteredCarsArr.indexOf(car) > paginationEndIndex)) {
                 return;
-            }    
+            }
             
             return (
                 <div className="ui card" key={car.id}>
@@ -97,25 +125,37 @@ class ShowList extends React.Component {
         })
     }
 
+    // Show a message when there are no cars matching search criteria
+    renderMessage() {
+        if(this.filteredCarsArr.length === 0) {
+            return (
+                <div className="ui negative message">
+                    <div className="header">No cars found</div>
+                    <p>Try another search</p>
+                </div>
+            );
+        }
+    }
 
 
     render() {
-        // console.log(this.props.selectedFilters.selectedClass)
-
         return (
             <div>
                 <FilterForm onClick={this.filterCars} />
                 <SortDropdown />
+                {this.renderMessage()}
                 <div className="ui link cards" style={{marginTop: '5rem'}}>
                     {this.renderCars()}
                 </div>
+                <br/>
+                <Pagination />
             </div>
         );
     }
 }
 
 const mapStateToProps = state => {
-    return { cars: Object.values(state.cars), brands: Object.values(state.brands), selectedFilters: state.selectedFilters, sortName: state.currentSort.sortName };
+    return { cars: Object.values(state.cars), brands: Object.values(state.brands), selectedFilters: state.selectedFilters, sortName: state.currentSort.sortName, pagination: state.pagination };
 }
 
-export default connect(mapStateToProps, { fetchCars })(ShowList);
+export default connect(mapStateToProps, { fetchCars, updateTotalItems, updatePages, updateCurrentPage, updateStartIndex, updateEndIndex })(ShowList);
