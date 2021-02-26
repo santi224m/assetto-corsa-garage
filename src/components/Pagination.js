@@ -35,6 +35,7 @@ class Pagination extends React.Component {
         this.props.updateStartIndex(newStartIndex);
         let newEndIndex = Math.min(newStartIndex + this.props.pagination.pageSize - 1, this.props.pagination.totalItems - 1)
         this.props.updateEndIndex(newEndIndex < this.props.pagination.pageSize - 1 ? this.props.pagination.pageSize : newEndIndex)
+        window.scrollTo(0, 0);
     }
 
     renderPreviousButtons() {
@@ -69,10 +70,12 @@ class Pagination extends React.Component {
         }
 
         return (
-            <div className="ui pagination menu">
-                {this.renderPreviousButtons()}
-                {this.renderNumbers()}
-                {this.renderNextButtons()}
+            <div className="pagination-container">
+                <div className="ui pagination menu">
+                    {this.renderPreviousButtons()}
+                    {this.renderNumbers()}
+                    {this.renderNextButtons()}
+                </div>
             </div>
         );
     }

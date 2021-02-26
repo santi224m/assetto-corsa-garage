@@ -20,7 +20,7 @@ class FilterBrands extends React.Component {
     render() {
         return (
             <div>
-                <div className="ui grid">
+                <div className="ui grid brands-grid">
                     {this.renderBrandCards()}
                 </div>
             </div>

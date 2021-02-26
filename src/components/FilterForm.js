@@ -137,7 +137,7 @@ class FilterForm extends React.Component {
                     </div>
 
                     <div className="field">
-                        <button className={`ui button`} onClick={() => this.props.resetFilters()}>Reset Filters</button>
+                        <button className={`ui button red`} onClick={() => this.props.resetFilters()}>Reset Filters</button>
                     </div>
 
                 </div>

@@ -5,6 +5,7 @@ import { filterSearch } from '../actions';
 import history from '../history';
 
 const Header = (props) => {
+    const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
     const [dropDownClicked, setDropDownClicked] = useState(false);
 
@@ -34,11 +35,16 @@ const Header = (props) => {
         //     props.filterSearch(null);
         // }
     }
+
+    const toggleSidebar = () => {
+        window.scrollTo(0, 0);
+        document.body.classList.toggle('show-sidebar');
+    }
     
     return (
-        <div ref={ref} className="ui menu secondary pointing fixed">
+        <div ref={ref} className="ui large top menu pointing fixed secondary">
             <div className="ui container">
-            <Link to="/" className="item">Assetto Corsa Garage</Link>
+            <Link to="/" className="item header">Assetto Corsa Garage</Link>
             <div className="right menu">
                 <Link className="item" to="/">Home</Link>
                 <Link className="item" to="/list">All Cars</Link>
@@ -58,6 +64,19 @@ const Header = (props) => {
                         <i className="search icon" ></i>
                     </div>
                     <div className="results"></div>
+                </div>
+            </div>
+            <div className="sidebar">
+                <i className="sidebar icon" onClick={() => toggleSidebar()}></i>
+                <div className="sidebar-links">
+                    <i className="close icon" onClick={() => document.body.classList.toggle('show-sidebar')}></i>
+                    <Link onClick={() => toggleSidebar()} className="item" to="/">Home</Link>
+                    <Link onClick={() => toggleSidebar()} className="item" to="/list">All Cars</Link>
+                    <div className="ui header">Filters</div>
+                    <Link onClick={() => toggleSidebar()} className="item" to="/filters/brands">Brands</Link>
+                    <Link onClick={() => toggleSidebar()} className="item" to="/filters/class">Class</Link>
+                    <Link onClick={() => toggleSidebar()} className="item" to="/filters/decades">Decades</Link>
+                    <Link onClick={() => toggleSidebar()} className="item" to="/filters/shifters">Shifters</Link>
                 </div>
             </div>
             </div>

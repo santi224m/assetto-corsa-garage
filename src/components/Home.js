@@ -12,21 +12,24 @@ class Home extends React.Component {
         return (
         <div>
             <div className="hero">
-                <div className="text">Find the best<br/>mods for you</div>
-                <HomeDropdown />
-                </div>
-                <div className="filter-pages">
-                    <div className="ui grid">
-
-                        <FilterCard link="/list" labelText="All Cars" imgSrc="./img/home/allCars.jpg" onClick={() => this.props.resetFilters()} />
-                        <FilterCard link="/filters/brands" labelText="Brands" imgSrc="./img/home/brands.jpg" onClick={() => this.props.resetFilters()} />
-                        <FilterCard link="/filters/class" labelText="Classes" imgSrc="./img/home/classes.jpg" onClick={() => this.props.resetFilters()} />
-                        <FilterCard link="/filters/decades" labelText="Decades" imgSrc="./img/home/decades.jpg" onClick={() => this.props.resetFilters()} />
-                        <FilterCard link="/filters/shifters" labelText="Shifters" imgSrc="./img/home/shifter.jpg" onClick={() => this.props.resetFilters()} />
-
-                    </div>
+                <div className="ui container">
+                    <div className="text title">Find the best<br/>mods for you</div>
+                    <HomeDropdown />
                 </div>
             </div>
+            <div className="hero-placeholder"></div>
+            <div className="filter-pages">
+                <div className="ui grid">
+
+                    <FilterCard link="/list" labelText="All Cars" imgSrc="./img/home/allCars.jpg" onClick={() => this.props.resetFilters()} />
+                    <FilterCard link="/filters/brands" labelText="Brands" imgSrc="./img/home/brands.jpg" onClick={() => this.props.resetFilters()} />
+                    <FilterCard link="/filters/class" labelText="Classes" imgSrc="./img/home/classes.jpg" onClick={() => this.props.resetFilters()} />
+                    <FilterCard link="/filters/decades" labelText="Decades" imgSrc="./img/home/decades.jpg" onClick={() => this.props.resetFilters()} />
+                    <FilterCard link="/filters/shifters" labelText="Shifters" imgSrc="./img/home/shifter.jpg" onClick={() => this.props.resetFilters()} />
+
+                </div>
+            </div>
+        </div>
         );
     }
 }

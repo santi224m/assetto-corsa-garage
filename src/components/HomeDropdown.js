@@ -117,7 +117,7 @@ class HomeDropdown extends React.Component {
                 </div>
             </div>
 
-            <Link to="/list" className="ui button" >Search</Link>
+            <Link to="/list" className="ui green button" >Search</Link>
 
         </div>
         );

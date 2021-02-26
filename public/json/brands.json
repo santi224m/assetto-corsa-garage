@@ -48,9 +48,9 @@
         "id": "8"
     },
     {
-        "brand":"Dogde",
+        "brand":"Dodge",
         "link":"cars.html?page=1&filter=brand&brandName=Dogde",
-        "img":"img/brands/Dogde.png",
+        "img":"img/brands/Dodge.png",
         "id": "9"
     },
     {

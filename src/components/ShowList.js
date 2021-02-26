@@ -120,9 +120,9 @@ class ShowList extends React.Component {
                         <span>{car.year}</span>
                     </div>
                     <div className="extra content">
-                        <a href={carWikiURL} target="_blank" className="ui basic button fluid">Learn More</a>
+                        <a href={carWikiURL} target="_blank" className="ui basic black button fluid">Learn More</a>
                         <br/>
-                        <a href={car.link} className="ui button fluid primary" target="_blank">Go to Mod</a>
+                        <a href={car.link} className="ui button fluid green" target="_blank">Go to Mod</a>
                     </div>
                 </div>
             );
@@ -144,11 +144,11 @@ class ShowList extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className="carsList-grid">
                 <FilterForm onClick={this.filterCars} />
                 <SortDropdown />
                 {this.renderMessage()}
-                <div className="ui link cards" style={{marginTop: '5rem'}}>
+                <div className="ui link cards" style={{marginTop: '3rem'}}>
                     {this.renderCars()}
                 </div>
                 <br/>
