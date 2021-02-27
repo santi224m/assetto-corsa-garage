@@ -60,7 +60,7 @@
     /* Hero Section */
     .hero {
         margin-top: 55px;
-        background: url('http://192.168.1.13:3000/img/home/hero.jpg') no-repeat 17% center/cover;
+        background: url('./img/hero.jpg') no-repeat 17% center/cover;
     }
 
     .hero .ui.container .text.title {

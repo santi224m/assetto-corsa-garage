@@ -5,13 +5,12 @@ import { filterSearch } from '../actions';
 import history from '../history';
 
 const Header = (props) => {
-    const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-
     const [dropDownClicked, setDropDownClicked] = useState(false);
 
     const ref = useRef();
 
     useEffect(() => {
+        // Close filters dropdown if user clicks on window
         document.body.addEventListener('click', e => {
             if(ref.current && ref.current.contains(e.target)) {
                 return;
@@ -22,20 +21,15 @@ const Header = (props) => {
     }, [])
 
     const onSearchSubmit = (e) => {
-        
-
-
+        // Redirect user to cars list page when they use search bar
         if(e.key === 'Enter') {
             if(window.location.pathname !== '/list') {
                 history.push('/list');
             }
         }
-
-        // if(e.target.value === '') {
-        //     props.filterSearch(null);
-        // }
     }
 
+    // Only available on mobile
     const toggleSidebar = () => {
         window.scrollTo(0, 0);
         document.body.classList.toggle('show-sidebar');
@@ -66,6 +60,7 @@ const Header = (props) => {
                     <div className="results"></div>
                 </div>
             </div>
+            {/* This sidebar is only available on mobile */}
             <div className="sidebar">
                 <i className="sidebar icon" onClick={() => toggleSidebar()}></i>
                 <div className="sidebar-links">

@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import { fetchCars, updateTotalItems, updatePages, updateCurrentPage, updateStartIndex, updateEndIndex } from '../actions';
 
 import FilterForm from './FilterForm';
-import FilterBrands from './filters/FilterBrands';
 import SortDropdown from './SortDropdown';
 import Pagination from './Pagination';
 
@@ -27,12 +26,10 @@ class ShowList extends React.Component {
             this.props.updateTotalItems(newCarAmount);
             this.props.updatePages(Math.ceil(newCarAmount / this.props.pagination.pageSize));
             this.props.updateCurrentPage(1);
-            // const newStartIndex = 1;
-            // this.props.updateStartIndex(newStartIndex);
-            // this.props.updateEndIndex(Math.min(newStartIndex + this.props.pagination.pageSize - 1, this.props.pagination.totalItems - 1))
         }
     }
 
+    // Sort options used by sort dropdown
     sortByBrand = (a, b) => {
         if(a.brand < b.brand) {
             return -1;
@@ -65,7 +62,20 @@ class ShowList extends React.Component {
 
 
     renderCars() {
-        this.filteredCarsArr = this.props.cars.sort((a, b) => {
+        this.filteredCarsArr = this.props.cars.filter(car => {
+
+            // Looks for which filters are currently selected
+            const brandIsSelected = this.props.selectedFilters.selectedBrand && this.props.selectedFilters.selectedBrand !== car.brand;
+            const classIsSelected = this.props.selectedFilters.selectedClass && this.props.selectedFilters.selectedClass !== car.car_type;
+            const decadeIsSelected = this.props.selectedFilters.selectedDecade && !((this.props.selectedFilters.selectedDecade + 10) - car.year < 10 && (this.props.selectedFilters.selectedDecade + 10) - car.year > 0);
+            const shifterIsSelected = this.props.selectedFilters.selectedShifter && this.props.selectedFilters.selectedShifter !== car.transmission;
+            const carSearchTerm = `${car.brand.toLowerCase()} ${car.model.toLowerCase()} ${car.link.toLowerCase()} ${car.year.toLowerCase()} ${car.transmission.toLowerCase()} ${car.car_type.toLowerCase()}`;
+            const searchTermFilter = this.props.selectedFilters.searchTerm && !(carSearchTerm.includes(this.props.selectedFilters.searchTerm.toLowerCase()));
+
+            if(!(brandIsSelected || classIsSelected || decadeIsSelected || shifterIsSelected || searchTermFilter)) {
+                return car;
+            } 
+        }).sort((a, b) => {
             if(this.props.sortName === 'nameDown') {
                 return this.sortByBrand(a, b);
             } else if(this.props.sortName === 'nameUp') {
@@ -79,18 +89,6 @@ class ShowList extends React.Component {
             } else if(this.props.sortName === 'dateAddedNew') {
                 return this.sortByDateAdded(b, a);
             }
-        }).filter(car => {
-
-            const brandIsSelected = this.props.selectedFilters.selectedBrand && this.props.selectedFilters.selectedBrand !== car.brand;
-            const classIsSelected = this.props.selectedFilters.selectedClass && this.props.selectedFilters.selectedClass !== car.car_type;
-            const decadeIsSelected = this.props.selectedFilters.selectedDecade && !((this.props.selectedFilters.selectedDecade + 10) - car.year < 10 && (this.props.selectedFilters.selectedDecade + 10) - car.year > 0);
-            const shifterIsSelected = this.props.selectedFilters.selectedShifter && this.props.selectedFilters.selectedShifter !== car.transmission;
-            const carSearchTerm = `${car.brand.toLowerCase()} ${car.model.toLowerCase()} ${car.link.toLowerCase()} ${car.year.toLowerCase()} ${car.transmission.toLowerCase()} ${car.car_type.toLowerCase()}`;
-            const searchTermFilter = this.props.selectedFilters.searchTerm && !(carSearchTerm.includes(this.props.selectedFilters.searchTerm.toLowerCase()));
-
-            if(!(brandIsSelected || classIsSelected || decadeIsSelected || shifterIsSelected || searchTermFilter)) {
-                return car;
-            } 
         })
         
         return this.filteredCarsArr.map(car => {
@@ -102,6 +100,7 @@ class ShowList extends React.Component {
                 return;
             }
 
+            // Create search link for wikipedia
             const baseWikiURL = 'https://en.wikipedia.org/wiki/';
             const carToPathName = `${car.brand} ${car.model}`.replace(/ /g, '_');
             const carWikiURL = baseWikiURL + carToPathName;

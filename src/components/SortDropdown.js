@@ -6,8 +6,10 @@ import { selectSort, openSort, updateCurrentPage } from '../actions';
 class SortDropdown extends React.Component {
     constructor(props) {
         super(props);
+        // Create refs for dropdown
         this.sortRef = React.createRef();
         this.onSortDropdownClick = this.onSortDropdownClick.bind(this);
+        this.selectedOptionName = '';
     }
 
     componentDidMount() {
@@ -18,6 +20,7 @@ class SortDropdown extends React.Component {
         document.body.removeEventListener('click', this.onSortDropdownClick, false);
     }
 
+    // Closedropdown when user clicks window
     onSortDropdownClick(e) {
         if(this.sortRef.current && this.sortRef.current.contains(e.target)) {
             return;
@@ -26,6 +29,7 @@ class SortDropdown extends React.Component {
         this.props.openSort(false);
     }
 
+    // Show selected option on dropdown
     renderSortName() {
         if(this.props.currentSort.sortName === 'nameDown') {
             return 'Brand Name ↓'
@@ -42,31 +46,38 @@ class SortDropdown extends React.Component {
         }
     }
 
+    // Update selected sort option
     onSelectedUpdate(newOption) {
         this.props.selectSort(newOption);
         this.props.updateCurrentPage(1);
         window.scrollTo(0, 0);
     }
 
-    render() {
+    renderDropdownOptions() {
         return (
-            <div className="ui form sort-dropdown">
-                {/* <span style={{ paddingRight: '1rem' }}>
-                Sort:
-                </span> */}
-                <div ref={this.sortRef} className={`ui selection dropdown ${this.props.filterDropdowns.sortOpen ? 'active visible' : ''}`} onClick={() => this.props.openSort(!this.props.filterDropdowns.sortOpen)}>
-                    <input type="hidden" name="brand"/>
-                    <i className="dropdown icon"></i>
-                    <div className={`text`}>{this.renderSortName()}</div>
-                    <div className={`menu transition ${this.props.filterDropdowns.sortOpen ? 'visible' : 'hidden'}`}>
-                        <div key="NameDown" className={`item ${this.props.currentSort.sortName === 'nameDown' ? 'active selected' : ''}`} data-value="nameDown" onClick={() => this.onSelectedUpdate('nameDown')} >Brand Name ↓</div>
-                        <div key="NameUp" className={`item ${this.props.currentSort.sortName === 'nameUp' ? 'active selected' : ''}`} data-value="nameUp" onClick={() => this.onSelectedUpdate('nameUp')} >Brand Name ↑</div>
-                        <div key="YearNew" className={`item ${this.props.currentSort.sortName === 'yearNew' ? 'active selected' : ''}`} data-value="yearNew" onClick={() => this.onSelectedUpdate('yearNew')} >Year: Newest</div>
-                        <div key="YearOld" className={`item ${this.props.currentSort.sortName === 'yearOld' ? 'active selected' : ''}`} data-value="yearOld" onClick={() => this.onSelectedUpdate('yearOld')} >Year: Oldest</div>
-                        <div key="DateAddedNew" className={`item ${this.props.currentSort.sortName === 'dateAddedNew' ? 'active selected' : ''}`} data-value="dateAddedNew" onClick={() => this.onSelectedUpdate('dateAddedNew')} >Date Added: Newest</div>
-                        <div key="DateAddedOld" className={`item ${this.props.currentSort.sortName === 'dateAddedOld' ? 'active selected' : ''}`} data-value="dateAddedOld" onClick={() => this.onSelectedUpdate('dateAddedOld')} >Date Added: Oldest</div>
-                    </div>
-                </div>
+            <>
+                <div key="NameDown" className={`item ${this.props.currentSort.sortName === 'nameDown' ? 'active selected' : ''}`} data-value="nameDown" onClick={() => this.onSelectedUpdate('nameDown')} >Brand Name ↓</div>
+                <div key="NameUp" className={`item ${this.props.currentSort.sortName === 'nameUp' ? 'active selected' : ''}`} data-value="nameUp" onClick={() => this.onSelectedUpdate('nameUp')} >Brand Name ↑</div>
+                <div key="YearNew" className={`item ${this.props.currentSort.sortName === 'yearNew' ? 'active selected' : ''}`} data-value="yearNew" onClick={() => this.onSelectedUpdate('yearNew')} >Year: Newest</div>
+                <div key="YearOld" className={`item ${this.props.currentSort.sortName === 'yearOld' ? 'active selected' : ''}`} data-value="yearOld" onClick={() => this.onSelectedUpdate('yearOld')} >Year: Oldest</div>
+                <div key="DateAddedNew" className={`item ${this.props.currentSort.sortName === 'dateAddedNew' ? 'active selected' : ''}`} data-value="dateAddedNew" onClick={() => this.onSelectedUpdate('dateAddedNew')} >Date Added: Newest</div>
+                <div key="DateAddedOld" className={`item ${this.props.currentSort.sortName === 'dateAddedOld' ? 'active selected' : ''}`} data-value="dateAddedOld" onClick={() => this.onSelectedUpdate('dateAddedOld')} >Date Added: Oldest</div>
+            </>
+        );
+    }
+
+    render() {
+        this.selectedOptionName = this.renderSortName();
+        return (
+            <div ref={this.sortRef} className="ui form sort-dropdown">
+                <Dropdown
+                    isDropdownOpen={this.props.filterDropdowns.sortOpen}
+                    onClick={() => this.props.openSort(!this.props.filterDropdowns.sortOpen)}
+                    inputName="Sort"
+                    selectedValue={this.selectedOptionName}
+                >
+                {this.renderDropdownOptions()}
+                </Dropdown>
             </div>
         );
     }
@@ -77,3 +88,4 @@ const mapStateToProps = state => {
 }
 
 export default connect(mapStateToProps, { selectSort, openSort, updateCurrentPage })(SortDropdown);
+

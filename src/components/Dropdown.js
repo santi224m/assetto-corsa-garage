@@ -1,16 +1,18 @@
 import React from 'react';
 
-const Dropdown = ({ isDropdownOpen, onClick, selectedValue, renderOptions }) => {
-    return (
-        <div className={`ui selection dropdown ${isDropdownOpen ? 'active visible' : ''}`} onClick={onClick}>
-            <input type="hidden" name="brand"/>
-            <i className="dropdown icon"></i>
-            <div className={`${selectedValue ? '' : 'default'} text`}>{selectedValue ? selectedValue : 'Brand'}</div>
-            <div className={`menu transition ${isDropdownOpen ? 'visible' : 'hidden'}`}>
-                {renderOptions}
+class Dropdown extends React.Component {
+    render() {
+        return (
+            <div ref={this.props.ref} className={`ui selection dropdown ${this.props.isDropdownOpen ? 'active visible' : ''}`} onClick={this.props.onClick}>
+                <input type="hidden" name={this.props.inputName}/>
+                <i className="dropdown icon"></i>
+                <div className={`${this.props.selectedValue ? '' : 'default'} text`}>{this.props.selectedValue ? this.props.selectedValue : this.props.inputName}</div>
+                <div className={`menu transition ${this.props.isDropdownOpen ? 'visible' : 'hidden'}`}>
+                    {this.props.children}
+                </div>
             </div>
-        </div>
-    );
+        );
+    }
 }
 
 export default Dropdown;
