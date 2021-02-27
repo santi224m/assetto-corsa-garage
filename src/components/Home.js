@@ -8,6 +8,11 @@ import HomeDropdown from './HomeDropdown';
 import FilterCard from './FilterCard';
 
 class Home extends React.Component {
+    onCardClick() {
+        this.props.resetFilters();
+        window.scrollTo(0, 0);
+    }
+
     render() {
         return (
         <div>
@@ -21,11 +26,11 @@ class Home extends React.Component {
             <div className="filter-pages">
                 <div className="ui grid">
 
-                    <FilterCard link="/list" labelText="All Cars" imgSrc="./img/home/allCars.jpg" onClick={() => this.props.resetFilters()} />
-                    <FilterCard link="/filters/brands" labelText="Brands" imgSrc="./img/home/brands.jpg" onClick={() => this.props.resetFilters()} />
-                    <FilterCard link="/filters/class" labelText="Classes" imgSrc="./img/home/classes.jpg" onClick={() => this.props.resetFilters()} />
-                    <FilterCard link="/filters/decades" labelText="Decades" imgSrc="./img/home/decades.jpg" onClick={() => this.props.resetFilters()} />
-                    <FilterCard link="/filters/shifters" labelText="Shifters" imgSrc="./img/home/shifter.jpg" onClick={() => this.props.resetFilters()} />
+                    <FilterCard link="/list" labelText="All Cars" imgSrc="./img/home/allCars.jpg" onClick={() => this.onCardClick()} />
+                    <FilterCard link="/filters/brands" labelText="Brands" imgSrc="./img/home/brands.jpg" onClick={() => this.onCardClick()} />
+                    <FilterCard link="/filters/class" labelText="Classes" imgSrc="./img/home/classes.jpg" onClick={() => this.onCardClick()} />
+                    <FilterCard link="/filters/decades" labelText="Decades" imgSrc="./img/home/decades.jpg" onClick={() => this.onCardClick()} />
+                    <FilterCard link="/filters/shifters" labelText="Shifters" imgSrc="./img/home/shifter.jpg" onClick={() => this.onCardClick()} />
 
                 </div>
             </div>

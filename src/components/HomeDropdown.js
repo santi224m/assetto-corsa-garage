@@ -140,7 +140,7 @@ class HomeDropdown extends React.Component {
                 </Dropdown>
             </div>
 
-            <Link to="/list" className="ui green button" >Search</Link>
+            <Link to="/list" className="ui green button" onClick={() => window.scrollTo(0, 0)} >Search</Link>
 
         </div>
         );
