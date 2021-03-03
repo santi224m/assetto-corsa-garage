@@ -6,31 +6,31 @@
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://www.assettocorsagarage.com/list/</loc>
+        <loc>https://www.assettocorsagarage.com/list</loc>
         <lastmod>2021-02-27T23:19:29Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://www.assettocorsagarage.com/filters/brands/</loc>
+        <loc>https://www.assettocorsagarage.com/filters/brands</loc>
         <lastmod>2021-02-27T23:19:29Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.4</priority>
     </url>
     <url>
-        <loc>https://www.assettocorsagarage.com/filters/class/</loc>
+        <loc>https://www.assettocorsagarage.com/filters/class</loc>
         <lastmod>2021-02-27T23:19:29Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.4</priority>
     </url>
     <url>
-        <loc>https://www.assettocorsagarage.com/filters/decades/</loc>
+        <loc>https://www.assettocorsagarage.com/filters/decades</loc>
         <lastmod>2021-02-27T23:19:29Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.4</priority>
     </url>
     <url>
-        <loc>https://www.assettocorsagarage.com/filters/shifters/</loc>
+        <loc>https://www.assettocorsagarage.com/filters/shifters</loc>
         <lastmod>2021-02-27T23:19:29Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.4</priority>
