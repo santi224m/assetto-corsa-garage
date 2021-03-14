@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Dropdown from './Dropdown';
-import { selectSort, openSort, updateCurrentPage } from '../../actions';
+import { selectSort, updateCurrentPage } from '../../actions';
 import { renderDropdownOptions } from '../../modules/renderDropdownOptions';
 
 class SortDropdown extends React.Component {
@@ -44,4 +44,4 @@ const mapStateToProps = state => {
     return { currentSort: state.currentSort };
 };
 
-export default connect(mapStateToProps, { selectSort, openSort, updateCurrentPage })(SortDropdown);
+export default connect(mapStateToProps, { selectSort, updateCurrentPage })(SortDropdown);

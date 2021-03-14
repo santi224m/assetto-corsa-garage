@@ -19,42 +19,6 @@ export const fetchBrandsCustom = url => async dispatch => {
     dispatch({ type: 'FETCH_BRANDS_CUSTOM', payload: data });
 };
 
-// Start Dropdown actions
-export const openBrands = isOpen => {
-    return {
-        type: 'OPEN_BRANDS',
-        payload: isOpen,
-    };
-};
-
-export const openClass = isOpen => {
-    return {
-        type: 'OPEN_CLASS',
-        payload: isOpen,
-    };
-};
-
-export const openDecades = isOpen => {
-    return {
-        type: 'OPEN_DECADES',
-        payload: isOpen,
-    };
-};
-
-export const openShifters = isOpen => {
-    return {
-        type: 'OPEN_SHIFTERS',
-        payload: isOpen,
-    };
-};
-
-export const openSort = isOpen => {
-    return {
-        type: 'OPEN_SORT',
-        payload: isOpen,
-    };
-};
-
 export const selectBrand = brand => {
     return {
         type: 'SELECT_BRAND',
@@ -167,6 +131,13 @@ export const updateEndIndex = num => {
 export const updatePages = num => {
     return {
         type: 'UPDATE_PAGES',
+        payload: num,
+    };
+};
+
+export const updateCarsLength = num => {
+    return {
+        type: 'UPDATE_CARS_LENGTH',
         payload: num,
     };
 };
