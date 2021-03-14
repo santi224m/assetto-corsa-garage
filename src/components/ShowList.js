@@ -18,16 +18,11 @@ class ShowList extends React.Component {
         if (this.props.cars.length === 0) {
             this.props.fetchCars();
         }
+        this.updatePagination();
     }
 
     componentDidUpdate() {
-        ('showlist Updated');
-        if (this.props.pagination.totalItems !== this.filteredCarsArr.length) {
-            const newCarAmount = this.filteredCarsArr.length;
-            this.props.updateTotalItems(newCarAmount);
-            this.props.updatePages(Math.ceil(newCarAmount / this.props.pagination.pageSize));
-            this.props.updateCurrentPage(1);
-        }
+        this.updatePagination();
     }
 
     componentWillUnmount() {
@@ -35,6 +30,15 @@ class ShowList extends React.Component {
         this.props.updateCurrentPage(1);
         this.props.updateStartIndex(0);
         this.props.updateEndIndex(11);
+    }
+
+    updatePagination() {
+        if (this.props.pagination.totalItems !== this.filteredCarsArr.length) {
+            const newCarAmount = this.filteredCarsArr.length;
+            this.props.updateTotalItems(newCarAmount);
+            this.props.updatePages(Math.ceil(newCarAmount / this.props.pagination.pageSize));
+            this.props.updateCurrentPage(1);
+        }
     }
 
     // Sort options used by sort dropdown

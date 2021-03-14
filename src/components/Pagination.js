@@ -4,7 +4,6 @@ import { updateCurrentPage, updateStartIndex, updateEndIndex } from '../actions'
 
 class Pagination extends React.Component {
     componentDidUpdate() {
-        console.log('pagination updated');
         if (this.props.pagination.currentPage === 1 && this.props.pagination.startIndex !== 0) {
             this.updatePage(1);
         }
