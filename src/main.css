@@ -11,6 +11,10 @@ body {
     position: relative;
 }
 
+.ui.dropdown .menu .selected.item, .ui.dropdown.selected {
+    color: rgba(0,0,0,.85);
+}
+
 /* Navbar */
 .ui.secondary.pointing.menu {
     background: #fff;

@@ -13,46 +13,19 @@ import history from '../history';
 
 class App extends React.Component {
     render() {
-        // return (
-        //     <div>
-        //         <div className="ui container">
-        //             <Router history={history}>
-        //             <Header />
-        //             <div className="header-placeholder"></div>
-        //             <div>
-        //                 <Switch>
-        //                     <Route path="/filters/brands" exact component={FilterBrands} />
-        //                     <Route path="/filters/class" exact component={FilterClass} />
-        //                     <Route path="/filters/decades" exact component={FilterDecades} />
-        //                     <Route path="/filters/shifters" exact component={FilterShifters} />
-        //                     <Route path="/list" exact component={ShowList} />
-        //                     <Route path="/" exact component={Home} />
-        //                 </Switch>
-        //             </div>
-        //             </Router>
-        //         </div>
-        //         <Router history={history}>
-        //             <Footer />
-        //         </Router>
-
-        //     </div>
-        // );
-
         return (
             <>
                 <Router history={history}>
                     <Header />
                     <div className='ui container'>
-                        <div>
-                            <Switch>
-                                <Route path='/filters/brands' exact component={FilterBrands} />
-                                <Route path='/filters/class' exact component={FilterClass} />
-                                <Route path='/filters/decades' exact component={FilterDecades} />
-                                <Route path='/filters/shifters' exact component={FilterShifters} />
-                                <Route path='/list' exact component={ShowList} />
-                                <Route path='/' exact component={Home} />
-                            </Switch>
-                        </div>
+                        <Switch>
+                            <Route path='/filters/brands' component={FilterBrands} />
+                            <Route path='/filters/class' component={FilterClass} />
+                            <Route path='/filters/decades' component={FilterDecades} />
+                            <Route path='/filters/shifters' component={FilterShifters} />
+                            <Route path='/list' component={ShowList} />
+                            <Route path='/' exact component={Home} />
+                        </Switch>
                     </div>
                     <Footer />
                 </Router>
