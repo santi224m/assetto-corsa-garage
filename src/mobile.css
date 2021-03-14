@@ -104,7 +104,7 @@
 
     /* Cars List Page */
     .carsList-grid {
-        padding-top: 1rem;
+        padding-top: 0rem;
     }
 
     .carsList-grid .ui.form .fields {

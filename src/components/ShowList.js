@@ -29,7 +29,6 @@ class ShowList extends React.Component {
         return (
             <div className='carsList-grid'>
                 <FilterForm onClick={this.filterCars} />
-                <SortDropdown />
                 <CarsList props={this.props} filteredCarsArr={this.filteredCarsArr} />
                 <SearchErrorMessage carListLength={this.props.pagination.carsLength} />
                 <Pagination />

@@ -4,8 +4,19 @@ import { fetchBrands, selectBrand, selectClass, selectDecade, selectShifter, res
 import { renderBrandsOptions, renderClassOptions, renderDecadesOptions, renderShifterOptions } from '../modules/renderDropdownOptions';
 
 import Dropdown from './dropdown/Dropdown';
+import SortDropdown from './dropdown/SortDropdown';
 
 class FilterForm extends React.Component {
+    constructor(props) {
+        super(props);
+
+        if (window.innerWidth > 767) {
+            this.state = { showFilters: true };
+        } else {
+            this.state = { showFilters: false };
+        }
+    }
+
     componentDidMount() {
         if (this.props.brands.length === 0) {
             this.props.fetchBrands();
@@ -17,41 +28,63 @@ class FilterForm extends React.Component {
         this.props.resetFilters();
     }
 
+    renderShowFiltersLink() {
+        if (this.state.showFilters) {
+            return (
+                <>
+                    Hide Filters <i className='angle up icon'></i>
+                </>
+            );
+        } else {
+            return (
+                <>
+                    Show Filters<i className='angle down icon'></i>
+                </>
+            );
+        }
+    }
+
     render() {
         return (
-            <div className='ui form'>
-                <div className='fields'>
-                    <div className='field'>
-                        <Dropdown inputName='Brand' selectedValue={this.props.selectedFilters.selectedBrand}>
-                            {renderBrandsOptions(this.props)}
-                        </Dropdown>
-                    </div>
-
-                    <div className='field'>
-                        <Dropdown inputName='Class' selectedValue={this.props.selectedFilters.selectedClass}>
-                            {renderClassOptions(this.props)}
-                        </Dropdown>
-                    </div>
-
-                    <div className='field'>
-                        <Dropdown inputName='Decade' selectedValue={this.props.selectedFilters.selectedDecade}>
-                            {renderDecadesOptions(this.props)}
-                        </Dropdown>
-                    </div>
-
-                    <div className='field'>
-                        <Dropdown inputName='Shifter' selectedValue={this.props.selectedFilters.selectedShifter}>
-                            {renderShifterOptions(this.props)}
-                        </Dropdown>
-                    </div>
-
-                    <div className='field'>
-                        <button className={`ui button red`} onClick={() => this.props.resetFilters()}>
-                            Reset Filters
-                        </button>
-                    </div>
+            <>
+                <div className='showList'>
+                    <a onClick={() => this.setState({ showFilters: !this.state.showFilters })}>{this.renderShowFiltersLink()}</a>
                 </div>
-            </div>
+                <div className={`ui form transition ${this.state.showFilters ? 'visible' : 'hidden'}`}>
+                    <div className='fields'>
+                        <div className='field'>
+                            <Dropdown inputName='Brand' selectedValue={this.props.selectedFilters.selectedBrand}>
+                                {renderBrandsOptions(this.props)}
+                            </Dropdown>
+                        </div>
+
+                        <div className='field'>
+                            <Dropdown inputName='Class' selectedValue={this.props.selectedFilters.selectedClass}>
+                                {renderClassOptions(this.props)}
+                            </Dropdown>
+                        </div>
+
+                        <div className='field'>
+                            <Dropdown inputName='Decade' selectedValue={this.props.selectedFilters.selectedDecade}>
+                                {renderDecadesOptions(this.props)}
+                            </Dropdown>
+                        </div>
+
+                        <div className='field'>
+                            <Dropdown inputName='Shifter' selectedValue={this.props.selectedFilters.selectedShifter}>
+                                {renderShifterOptions(this.props)}
+                            </Dropdown>
+                        </div>
+
+                        <div className='field'>
+                            <button className={`ui button red`} onClick={() => this.props.resetFilters()}>
+                                Reset Filters
+                            </button>
+                        </div>
+                    </div>
+                    <SortDropdown />
+                </div>
+            </>
         );
     }
 }
