@@ -4,6 +4,7 @@ import brandsReducer from './brandsReducer';
 import selectedFilterReducer from './selectedFilterReducer';
 import sortReducer from './sortReducer';
 import paginationReducer from './paginationReducer';
+import userReducer from './userReducer';
 
 export default combineReducers({
     cars: carsReducer,
@@ -11,4 +12,5 @@ export default combineReducers({
     selectedFilters: selectedFilterReducer,
     currentSort: sortReducer,
     pagination: paginationReducer,
+    user: userReducer,
 });

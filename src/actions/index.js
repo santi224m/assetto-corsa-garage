@@ -143,3 +143,20 @@ export const updateCarsLength = num => {
 };
 
 // End Pagination Actions
+
+// Auth actions
+export const signIn = (userId, userName) => {
+    return {
+        type: 'SIGN_IN',
+        payload: {
+            id: userId,
+            name: userName,
+        },
+    };
+};
+
+export const signOut = () => {
+    return {
+        type: 'SIGN_OUT',
+    };
+};
