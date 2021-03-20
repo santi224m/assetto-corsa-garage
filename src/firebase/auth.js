@@ -1,6 +1,8 @@
 import firebase from 'firebase/app';
 import 'firebase/auth';
+import 'firebase/database';
 import './config';
+import { db } from './config';
 
 var provider = new firebase.auth.GoogleAuthProvider();
 
@@ -19,14 +21,7 @@ export const googleSignIn = () => {
             // ...
         })
         .catch(error => {
-            // Handle Errors here.
-            var errorCode = error.code;
-            var errorMessage = error.message;
-            // The email of the user's account used.
-            var email = error.email;
-            // The firebase.auth.AuthCredential type that was used.
-            var credential = error.credential;
-            // ...
+            console.log(error);
         });
 };
 
@@ -64,7 +59,20 @@ export const updateUserSignedIn = props => {
     firebase.auth().onAuthStateChanged(function (user) {
         if (user) {
             // User is signed in.
-            props.signIn(user.uid, user.displayName);
+            db.ref('users/' + user.uid).on('value', snapshot => {
+                if (!snapshot.exists()) {
+                    // Add new users to database
+                    db.ref('users/' + user.uid).set({
+                        _id: user.uid,
+                        userName: user.displayName,
+                        modsVerified: 0,
+                    });
+                    props.signIn(user.uid, user.displayName, 0);
+                } else {
+                    const data = snapshot.val();
+                    props.signIn(data._id, data.userName, data.modsVerified);
+                }
+            });
         } else {
             // No user is signed in.
             props.signOut();

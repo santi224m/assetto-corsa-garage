@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { fetchBrands, selectBrand, selectClass, selectDecade, selectShifter, resetFilters } from '../actions';
+import * as actions from '../actions';
 import { renderBrandsOptions, renderClassOptions, renderDecadesOptions, renderShifterOptions } from '../modules/renderDropdownOptions';
 
 import Dropdown from './dropdown/Dropdown';
@@ -44,6 +44,11 @@ class FilterForm extends React.Component {
         }
     }
 
+    handleResetButton(props) {
+        props.resetFilters();
+        props.selectSort('nameDown');
+    }
+
     render() {
         return (
             <>
@@ -77,7 +82,7 @@ class FilterForm extends React.Component {
                         </div>
 
                         <div className='field'>
-                            <button className={`ui button red`} onClick={() => this.props.resetFilters()}>
+                            <button className={`ui button red`} onClick={() => this.handleResetButton(this.props)}>
                                 Reset Filters
                             </button>
                         </div>
@@ -93,11 +98,4 @@ const mapStateToProps = state => {
     return { brands: Object.values(state.brands), selectedFilters: state.selectedFilters };
 };
 
-export default connect(mapStateToProps, {
-    fetchBrands,
-    selectBrand,
-    selectClass,
-    selectDecade,
-    selectShifter,
-    resetFilters,
-})(FilterForm);
+export default connect(mapStateToProps, actions)(FilterForm);

@@ -9,6 +9,9 @@ import FilterClass from './filters/FilterClass';
 import FilterDecades from './filters/FilterDecades';
 import FilterShifters from './filters/FilterShifters';
 import ShowList from './ShowList';
+import NewMod from './addMod/NewMod';
+import NewModForm from './addMod/NewModForm';
+import VerifyMods from './VerifyMods';
 import history from '../history';
 
 class App extends React.Component {
@@ -24,6 +27,9 @@ class App extends React.Component {
                             <Route path='/filters/decades' component={FilterDecades} />
                             <Route path='/filters/shifters' component={FilterShifters} />
                             <Route path='/list' component={ShowList} />
+                            <Route path='/newmod/form' exact component={NewModForm} />
+                            <Route path='/newmod' exact component={NewMod} />
+                            <Route path='/verifymods' exact component={VerifyMods} />
                             <Route path='/' exact component={Home} />
                         </Switch>
                     </div>

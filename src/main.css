@@ -11,8 +11,9 @@ body {
     position: relative;
 }
 
-.ui.dropdown .menu .selected.item, .ui.dropdown.selected {
-    color: rgba(0,0,0,.85);
+.ui.dropdown .menu .selected.item,
+.ui.dropdown.selected {
+    color: rgba(0, 0, 0, 0.85);
 }
 
 /* Navbar */
@@ -211,8 +212,31 @@ body {
     font-size: 1.1rem;
     color: #4e5969;
     /* The CSS below stops users from being able to select text. */
-    -webkit-user-select: none; /* Safari */        
+    -webkit-user-select: none; /* Safari */
     -moz-user-select: none; /* Firefox */
     -ms-user-select: none; /* IE10+/Edge */
     user-select: none; /* Standard */
+}
+
+/* Mod Form */
+.ui.form.mod-form {
+    max-width: 50rem;
+    margin: 0 auto;
+}
+
+.form-review .mod-preview {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mods-list .contribution {
+    width: 100%;
+    border-bottom: 2px solid #444;
+    padding-top: 2rem;
+    padding-bottom: 1rem;
+}
+
+.preview-img img {
+    max-width: 30rem;
 }

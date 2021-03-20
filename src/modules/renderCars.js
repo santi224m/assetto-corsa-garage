@@ -1,5 +1,4 @@
 import Car from '../components/Car';
-import { sortByBrand, sortByYear, sortByDateAdded } from './sort';
 
 export const renderCars = (props, filteredCarsArr) => {
     return filteredCarsArr.map(car => {
@@ -21,8 +20,8 @@ export const renderCars = (props, filteredCarsArr) => {
                 key={car.id}
                 brand={car.brand}
                 model={car.model}
-                img={car.picture_location}
-                link={car.link}
+                img={car.imgURL}
+                link={car.modURL}
                 transmission={car.transmission}
                 year={car.year}
                 wikiLink={carWikiURL}

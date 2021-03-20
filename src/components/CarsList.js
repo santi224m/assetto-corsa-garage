@@ -21,15 +21,18 @@ const CarsList = ({ props }) => {
 
     // Create new array of cars with filtered cars
     filteredCarsArr = props.cars
+        .filter(car => car.verified === true)
         .filter(car => {
             // Looks for which filters are currently selected
             const brandIsSelected = props.selectedFilters.selectedBrand && props.selectedFilters.selectedBrand !== car.brand;
-            const classIsSelected = props.selectedFilters.selectedClass && props.selectedFilters.selectedClass !== car.car_type;
+            const classIsSelected = props.selectedFilters.selectedClass && props.selectedFilters.selectedClass !== car.carClass;
             const decadeIsSelected =
                 props.selectedFilters.selectedDecade &&
                 !(props.selectedFilters.selectedDecade + 10 - car.year < 10 && props.selectedFilters.selectedDecade + 10 - car.year > 0);
             const shifterIsSelected = props.selectedFilters.selectedShifter && props.selectedFilters.selectedShifter !== car.transmission;
-            const carSearchTerm = `${car.brand.toLowerCase()} ${car.model.toLowerCase()} ${car.link.toLowerCase()} ${car.year.toLowerCase()} ${car.transmission.toLowerCase()} ${car.car_type.toLowerCase()}`;
+            const carSearchTerm = `${car.brand.toLowerCase()} ${car.model.toLowerCase()} ${car.modURL.toLowerCase()} ${
+                car.year
+            } ${car.transmission.toLowerCase()} ${car.carClass.toLowerCase()}`;
             const searchTermFilter = props.selectedFilters.searchTerm && !carSearchTerm.includes(props.selectedFilters.searchTerm.toLowerCase());
 
             if (!(brandIsSelected || classIsSelected || decadeIsSelected || shifterIsSelected || searchTermFilter)) {

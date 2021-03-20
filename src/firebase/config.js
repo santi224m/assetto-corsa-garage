@@ -1,19 +1,26 @@
 import firebase from 'firebase/app';
 import 'firebase/analytics';
-import 'firebase/auth';
 import 'firebase/firestore';
+import 'firebase/database';
+import 'firebase/storage';
+import keys from '../config/keys';
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 var firebaseConfig = {
-    apiKey: 'AIzaSyBzKc8dYF4PxhxMxJnAsc92SEK55fH0s9c',
-    authDomain: 'assettocorsagarage.firebaseapp.com',
-    projectId: 'assettocorsagarage',
-    storageBucket: 'assettocorsagarage.appspot.com',
-    messagingSenderId: '220523058474',
-    appId: '1:220523058474:web:c21aef7bfe3e5139263a53',
-    measurementId: 'G-8Q4JQ8FJNX',
+    apiKey: keys.firebaseApiKey,
+    authDomain: keys.firebaseAuthDomain,
+    projectId: keys.firebaseProjectId,
+    databaseURL: keys.firebaseDatabaseURL,
+    storageBucket: keys.firebaseStorageBucket,
+    messagingSenderId: keys.firebaseMessagingSenderId,
+    appId: keys.firebaseAppId,
+    measurementId: keys.firebaseMeasurementId,
 };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 firebase.analytics();
+export const db = firebase.database();
+const fsStorage = firebase.storage();
+const storageRef = fsStorage.ref();
+export const imagesRef = storageRef.child('images/mods');

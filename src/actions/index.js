@@ -1,11 +1,21 @@
 import axios from 'axios';
 import _ from 'lodash';
+import firebase from 'firebase/app';
+import '../firebase/config';
+import { db } from '../firebase/config';
 
 export const fetchCars = () => async dispatch => {
-    let { data } = await axios.get('./json/cars.json');
-
-    dispatch({ type: 'FETCH_CARS', payload: data });
+    db.ref('cars/').on('value', snapshot => {
+        const data = snapshot.val();
+        dispatch({ type: 'FETCH_CARS', payload: data });
+    });
 };
+
+// export const fetchCars = () => async dispatch => {
+//     let { data } = await axios.get('./json/cars.json');
+
+//     dispatch({ type: 'FETCH_CARS', payload: data });
+// };
 
 export const fetchBrands = () => async dispatch => {
     let { data } = await axios.get('./json/brands.json');
@@ -145,12 +155,13 @@ export const updateCarsLength = num => {
 // End Pagination Actions
 
 // Auth actions
-export const signIn = (userId, userName) => {
+export const signIn = (userId, userName, modsVerified) => {
     return {
         type: 'SIGN_IN',
         payload: {
             id: userId,
             name: userName,
+            modsVerified: modsVerified,
         },
     };
 };
@@ -158,5 +169,82 @@ export const signIn = (userId, userName) => {
 export const signOut = () => {
     return {
         type: 'SIGN_OUT',
+    };
+};
+
+// new mod form actions
+export const setFormModLink = url => {
+    return {
+        type: 'SET_FORM_MOD_LINK',
+        payload: url,
+    };
+};
+
+export const setFormBrand = brand => {
+    return {
+        type: 'SET_FORM_BRAND',
+        payload: brand,
+    };
+};
+
+export const setFormModel = model => {
+    return {
+        type: 'SET_FORM_MODEL',
+        payload: model,
+    };
+};
+
+export const setFormYear = year => {
+    return {
+        type: 'SET_FORM_YEAR',
+        payload: year,
+    };
+};
+
+export const setFormTransmission = transmission => {
+    return {
+        type: 'SET_FORM_TRANSMISSION',
+        payload: transmission,
+    };
+};
+
+export const setFormCarClass = carClass => {
+    return {
+        type: 'SET_FORM_CAR_CLASS',
+        payload: carClass,
+    };
+};
+
+export const setFormImageURL = url => {
+    return {
+        type: 'SET_FORM_IMAGE_URL',
+        payload: url,
+    };
+};
+
+export const setFormCreatedBy = id => {
+    return {
+        type: 'SET_FORM_CREATED_BY',
+        payload: id,
+    };
+};
+
+export const setFormDateAdded = date => {
+    return {
+        type: 'SET_FORM_DATE_ADDED',
+        payload: date,
+    };
+};
+
+export const setFormShowReview = bool => {
+    return {
+        type: 'SET_FORM_SHOW_REVIEW',
+        payload: bool,
+    };
+};
+
+export const clearForm = () => {
+    return {
+        type: 'CLEAR_FORM',
     };
 };

@@ -20,10 +20,10 @@ export const sortByYear = (a, b) => {
 };
 
 export const sortByDateAdded = (a, b) => {
-    if (a.id < b.id) {
+    if (a.dateAdded < b.dateAdded) {
         return -1;
     }
-    if (a.id > b.id) {
+    if (a.dateAdded > b.dateAdded) {
         return 1;
     }
     return 0;
