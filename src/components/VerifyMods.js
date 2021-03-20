@@ -53,16 +53,16 @@ class VerifyMods extends React.Component {
 
     render() {
         console.log('NODE_ENV: ', process.env.NODE_ENV);
-        console.log('CONTEXT: ', process.env.CONTEXT);
-        console.log('FIREBASE_API_KEY: ', process.env.FIREBASE_API_KEY);
-        console.log('FIREBASE_AUTH_DOMAIN: ', process.env.FIREBASE_AUTH_DOMAIN);
-        console.log('FIREBASE_PROJECT_ID: ', process.env.FIREBASE_PROJECT_ID);
-        console.log('FIREBASE_STORAGE_BUCKET: ', process.env.FIREBASE_STORAGE_BUCKET);
-        console.log('FIREBASE_MESSAGING_SENDER_ID: ', process.env.FIREBASE_MESSAGING_SENDER_ID);
-        console.log('FIREBASE_APP_ID: ', process.env.FIREBASE_APP_ID);
-        console.log('FIREBASE_MEASUREMENT_ID: ', process.env.FIREBASE_MEASUREMENT_ID);
-        console.log('FIREBASE_DATABASE_URL: ', process.env.FIREBASE_DATABASE_URL);
-        console.log('ADMIN_ID: ', process.env.ADMIN_ID);
+        console.log('CONTEXT: ', process.env.REACT_APP_CONTEXT);
+        console.log('FIREBASE_API_KEY: ', process.env.REACT_APP_FIREBASE_API_KEY);
+        console.log('FIREBASE_AUTH_DOMAIN: ', process.env.REACT_APP_FIREBASE_AUTH_DOMAIN);
+        console.log('FIREBASE_PROJECT_ID: ', process.env.REACT_APP_FIREBASE_PROJECT_ID);
+        console.log('FIREBASE_STORAGE_BUCKET: ', process.env.REACT_APP_FIREBASE_STORAGE_BUCKET);
+        console.log('FIREBASE_MESSAGING_SENDER_ID: ', process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID);
+        console.log('FIREBASE_APP_ID: ', process.env.REACT_APP_FIREBASE_APP_ID);
+        console.log('FIREBASE_MEASUREMENT_ID: ', process.env.REACT_APP_FIREBASE_MEASUREMENT_ID);
+        console.log('FIREBASE_DATABASE_URL: ', process.env.REACT_APP_FIREBASE_DATABASE_URL);
+        console.log('ADMIN_ID: ', process.env.REACT_APP_ADMIN_ID);
         if (this.props.user.isSignedIn !== null && this.props.user.userId !== keys.adminId) {
             history.push('/');
         }
