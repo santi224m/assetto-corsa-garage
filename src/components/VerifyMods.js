@@ -52,6 +52,8 @@ class VerifyMods extends React.Component {
     }
 
     render() {
+        console.log('NODE_ENV: ', process.env.NODE_ENV);
+        console.log('CONTEXT: ', process.env.CONTEXT);
         if (this.props.user.isSignedIn !== null && this.props.user.userId !== keys.adminId) {
             history.push('/');
         }
