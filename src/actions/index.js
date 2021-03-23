@@ -251,3 +251,9 @@ export const setBrandFormName = name => {
         payload: name,
     };
 };
+
+export const clearBrandForm = () => {
+    return {
+        type: 'CLEAR_BRAND_FORM',
+    };
+};
