@@ -1,28 +1,44 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { selectBrand, fetchBrandsCustom } from '../../actions';
+import { selectBrand, fetchBrands } from '../../actions';
 
 import FilterCard from '../FilterCard';
 
 class FilterBrands extends React.Component {
     componentDidMount() {
-        if(this.props.brands.length === 0) {
-            this.props.fetchBrandsCustom('../json/brands.json');
+        if (this.props.brands.length === 0) {
+            this.props.fetchBrands();
         }
     }
 
     renderBrandCards() {
-        return this.props.brands.map(brand => {
-            return <FilterCard key={brand.id} link="/list" labelText={brand.brand} imgSrc={`../img/brands/${brand.brand}.png`} onClick={() => this.props.selectBrand(brand.brand)} />
-        });
+        return this.props.brands
+            .sort((a, b) => {
+                if (a.brandName > b.brandName) {
+                    return 1;
+                } else if (a.brandName < b.brandName) {
+                    return -1;
+                } else {
+                    return 0;
+                }
+            })
+            .map(brand => {
+                return (
+                    <FilterCard
+                        key={brand.id}
+                        link='/list'
+                        labelText={brand.brandName}
+                        imgSrc={brand.logoURl}
+                        onClick={() => this.props.selectBrand(brand.brandName)}
+                    />
+                );
+            });
     }
 
     render() {
         return (
             <div>
-                <div className="ui grid brands-grid">
-                    {this.renderBrandCards()}
-                </div>
+                <div className='ui grid brands-grid'>{this.renderBrandCards()}</div>
             </div>
         );
     }
@@ -30,6 +46,6 @@ class FilterBrands extends React.Component {
 
 const mapStateToProps = state => {
     return { selectedFilters: state.selectedFilters, brands: Object.values(state.brands) };
-}
+};
 
-export default connect(mapStateToProps, { selectBrand, fetchBrandsCustom })(FilterBrands);
+export default connect(mapStateToProps, { selectBrand, fetchBrands })(FilterBrands);

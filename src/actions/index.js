@@ -11,22 +11,11 @@ export const fetchCars = () => async dispatch => {
     });
 };
 
-// export const fetchCars = () => async dispatch => {
-//     let { data } = await axios.get('./json/cars.json');
-
-//     dispatch({ type: 'FETCH_CARS', payload: data });
-// };
-
 export const fetchBrands = () => async dispatch => {
-    let { data } = await axios.get('./json/brands.json');
-
-    dispatch({ type: 'FETCH_BRANDS', payload: data });
-};
-
-export const fetchBrandsCustom = url => async dispatch => {
-    let { data } = await axios.get(url);
-
-    dispatch({ type: 'FETCH_BRANDS_CUSTOM', payload: data });
+    db.ref('brands/').on('value', snapshot => {
+        const data = snapshot.val();
+        dispatch({ type: 'FETCH_BRANDS', payload: data });
+    });
 };
 
 export const selectBrand = brand => {
@@ -246,5 +235,19 @@ export const setFormShowReview = bool => {
 export const clearForm = () => {
     return {
         type: 'CLEAR_FORM',
+    };
+};
+
+export const setBrandFormImgURL = url => {
+    return {
+        type: 'SET_BRAND_FORM_IMG_URL',
+        payload: url,
+    };
+};
+
+export const setBrandFormName = name => {
+    return {
+        type: 'SET_BRAND_FORM_NAME',
+        payload: name,
     };
 };

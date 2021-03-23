@@ -5,8 +5,11 @@ import * as actions from '../../actions';
 import firebase from 'firebase/app';
 import '../../firebase/config';
 import { imagesRef } from '../../firebase/config';
+import { v4 as uuidv4 } from 'uuid';
+import { db } from '../../firebase/config';
 
 import Dropdown from '../dropdown/Dropdown';
+import NewBrand from './NewBrand';
 
 const ModForm = props => {
     useEffect(() => {
@@ -124,10 +127,22 @@ const ModForm = props => {
     };
 
     const handleSubmit = e => {
+        console.log(props);
         e.preventDefault();
         props.setFormCreatedBy(props.userId);
         props.setFormDateAdded(new Date().toJSON());
         props.setFormShowReview(true);
+        if (props.form.brand === 'New Brand') {
+            const brandId = uuidv4();
+
+            db.ref('brands/' + brandId).set({
+                id: brandId,
+                logoURl: props.newBrandForm.imgURL,
+                brandName: props.newBrandForm.brandName,
+            });
+
+            props.setFormBrand(props.newBrandForm.brandName);
+        }
     };
 
     return (
@@ -150,8 +165,19 @@ const ModForm = props => {
             </div>
             <div className='field'>
                 <label>Brand</label>
-                <Dropdown inputName='Select a brand' selectedValue={props.form.brand} children={renderBrandOptions()} />
+                <p className='info'>If the brand is not in the dropdown, select the "New Brand" option to add it to the database.</p>
+                <Dropdown inputName='Select a brand' selectedValue={props.form.brand}>
+                    <div
+                        className={`item ${props.form.brand === 'New Brand' ? 'active selected' : ''}`}
+                        // className={`item`}
+                        data-value='New Brand'
+                        onClick={() => props.setFormBrand('New Brand')}
+                        children={'New Brand'}
+                    />
+                    {renderBrandOptions()}
+                </Dropdown>
             </div>
+            {props.form.brand === 'New Brand' && <NewBrand />}
             <div className='field'>
                 <label>Car Model</label>
                 <input type='text' placeholder='Enter Car Model Name' value={props.form.model} onChange={e => props.setFormModel(e.target.value)} />
@@ -180,7 +206,7 @@ const ModForm = props => {
 };
 
 const mapStateToProps = state => {
-    return { brands: Object.values(state.brands), form: state.form, userId: state.oAuth.userId };
+    return { brands: Object.values(state.brands), form: state.form, userId: state.oAuth.userId, newBrandForm: state.newBrandForm };
 };
 
 export default connect(mapStateToProps, actions)(ModForm);
