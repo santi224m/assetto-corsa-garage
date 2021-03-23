@@ -13,7 +13,6 @@ const NewBrand = props => {
 
     const uploadBrandImg = e => {
         let selected = e.target.files[0];
-
         if (selected && imgTypes.includes(selected.type)) {
             setImgError(null);
             const ref = imgagesBrandsRef.child(selected.name);
@@ -69,6 +68,11 @@ const NewBrand = props => {
                 <label>Brand Logo</label>
                 <input type='file' name='brandLogo' id='brandLogo' onChange={uploadBrandImg} />
                 {imgError && <div className='ui negative message'>{imgError}</div>}
+                {props.showErrMsg && props.newBrandLogoErr && (
+                    <div className='ui negative message'>
+                        <p>{props.newBrandLogoErr}</p>
+                    </div>
+                )}
                 {props.newBrandForm.imgURL && (
                     <div className='preview-img'>
                         <img src={props.newBrandForm.imgURL} />
@@ -83,6 +87,11 @@ const NewBrand = props => {
                     value={props.newBrandForm.brandName}
                     onChange={e => props.setBrandFormName(e.target.value)}
                 />
+                {props.showErrMsg && props.newBrandNameErr && (
+                    <div className='ui negative message'>
+                        <p>{props.newBrandNameErr}</p>
+                    </div>
+                )}
             </div>
         </>
     );

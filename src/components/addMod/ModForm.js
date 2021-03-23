@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import * as actions from '../../actions';
@@ -14,13 +14,55 @@ import NewBrand from './NewBrand';
 const ModForm = props => {
     useEffect(() => {
         if (props.brands.length === 0) {
-            props.fetchBrandsCustom('../json/brands.json');
+            props.fetchBrands();
         }
     }, []);
 
+    const [hasErr, setHasErr] = useState(false);
+    const [showErrMsg, setShowErrMsg] = useState(false);
     const [imgError, setImgError] = useState(null);
+    const [linkErr, setlinkErr] = useState(null);
+    const [brandErr, setBrandErr] = useState(null);
+    const [modelErr, setModelErr] = useState(null);
+    const [yearErr, setYearErr] = useState(null);
+    const [transmissionErr, setTransmissionErr] = useState(null);
+    const [classErr, setClassErr] = useState(null);
+    const [newBrandLogoErr, setnewBrandLogoErr] = useState(null);
+    const [newBrandNameErr, setNewBrandNameErr] = useState(null);
 
     const imgTypes = ['image/png', 'image/jpeg'];
+
+    // Validate form
+    useEffect(() => {
+        // Car image
+        props.form.imgURL === null ? setImgError('Please upload an image of the car') : setImgError(null);
+        // Mod URL
+        props.form.modURL.length === 0 ? setlinkErr('Please enter a link to the mod') : setlinkErr(null);
+        // Brand Dropdown
+        props.form.brand === null ? setBrandErr('Please select a brand') : setBrandErr(null);
+        // Car model
+        props.form.model.length === 0 ? setModelErr('Please enter the car model') : setModelErr(null);
+        // Year
+        props.form.year.length === 0 ? setYearErr('Please enter the year of the car') : setYearErr(null);
+        // Transmission Dropdown
+        props.form.transmission === null ? setTransmissionErr('Please select a transmission') : setTransmissionErr(null);
+        // Car class
+        props.form.carClass === null ? setClassErr('Please select a car class') : setClassErr(null);
+        // Add a new brand - image
+        props.newBrandForm.imgURL === null && props.form.brand === 'New Brand'
+            ? setnewBrandLogoErr('Please upload an image of the brand logo')
+            : setnewBrandLogoErr(null);
+        // Add a new brand - image
+        props.newBrandForm.brandName.length === 0 && props.form.brand === 'New Brand'
+            ? setNewBrandNameErr('Please enter the brand name')
+            : setNewBrandNameErr(null);
+
+        if (linkErr || brandErr || imgError || modelErr || yearErr || transmissionErr || classErr || newBrandLogoErr || newBrandNameErr) {
+            setHasErr(true);
+        } else {
+            setHasErr(false);
+        }
+    }, [props.form, props.newBrandForm]);
 
     const changeHandler = e => {
         let selected = e.target.files[0];
@@ -84,11 +126,11 @@ const ModForm = props => {
             return (
                 <div
                     key={brand.id}
-                    className={`item ${props.form.brand === brand.brand ? 'active selected' : ''}`}
+                    className={`item ${props.form.brand === brand.brandName ? 'active selected' : ''}`}
                     // className={`item`}
-                    data-value={brand.brand}
-                    onClick={() => props.setFormBrand(brand.brand)}
-                    children={brand.brand}
+                    data-value={brand.brandName}
+                    onClick={() => props.setFormBrand(brand.brandName)}
+                    children={brand.brandName}
                 />
             );
         });
@@ -127,21 +169,25 @@ const ModForm = props => {
     };
 
     const handleSubmit = e => {
-        console.log(props);
         e.preventDefault();
-        props.setFormCreatedBy(props.userId);
-        props.setFormDateAdded(new Date().toJSON());
-        props.setFormShowReview(true);
-        if (props.form.brand === 'New Brand') {
-            const brandId = uuidv4();
 
-            db.ref('brands/' + brandId).set({
-                id: brandId,
-                logoURl: props.newBrandForm.imgURL,
-                brandName: props.newBrandForm.brandName,
-            });
+        if (hasErr) {
+            setShowErrMsg(true);
+        } else {
+            props.setFormCreatedBy(props.userId);
+            props.setFormDateAdded(new Date().toJSON());
+            props.setFormShowReview(true);
+            if (props.form.brand === 'New Brand') {
+                const brandId = uuidv4();
 
-            props.setFormBrand(props.newBrandForm.brandName);
+                db.ref('brands/' + brandId).set({
+                    id: brandId,
+                    logoURl: props.newBrandForm.imgURL,
+                    brandName: props.newBrandForm.brandName,
+                });
+
+                props.setFormBrand(props.newBrandForm.brandName);
+            }
         }
     };
 
@@ -151,7 +197,7 @@ const ModForm = props => {
                 <div className='field'>
                     <label>Mod Image</label>
                     <input type='file' name='modImage' id='modImage' onChange={changeHandler} />
-                    {imgError && <div className='ui negative message'>{imgError}</div>}
+                    {showErrMsg && imgError && <div className='ui negative message'>{imgError}</div>}
                     {props.form.imgURL && (
                         <div className='preview-img'>
                             <img src={props.form.imgURL} />
@@ -162,6 +208,11 @@ const ModForm = props => {
             <div className='field'>
                 <label>Mod Link</label>
                 <input type='text' placeholder='Enter mod link' value={props.form.modURL} onChange={e => props.setFormModLink(e.target.value)} />
+                {showErrMsg && linkErr && (
+                    <div className='ui negative message'>
+                        <p>{linkErr}</p>
+                    </div>
+                )}
             </div>
             <div className='field'>
                 <label>Brand</label>
@@ -176,23 +227,50 @@ const ModForm = props => {
                     />
                     {renderBrandOptions()}
                 </Dropdown>
+                {showErrMsg && brandErr && (
+                    <div className='ui negative message'>
+                        <p>{brandErr}</p>
+                    </div>
+                )}
             </div>
-            {props.form.brand === 'New Brand' && <NewBrand />}
+            {props.form.brand === 'New Brand' && (
+                <NewBrand showErrMsg={showErrMsg} newBrandLogoErr={newBrandLogoErr} newBrandNameErr={newBrandNameErr} />
+            )}
             <div className='field'>
                 <label>Car Model</label>
                 <input type='text' placeholder='Enter Car Model Name' value={props.form.model} onChange={e => props.setFormModel(e.target.value)} />
+                {showErrMsg && modelErr && (
+                    <div className='ui negative message'>
+                        <p>{modelErr}</p>
+                    </div>
+                )}
             </div>
             <div className='field'>
                 <label>Year</label>
                 <input type='number' placeholder='Enter Car Year' value={props.form.year} onChange={e => props.setFormYear(Number(e.target.value))} />
+                {showErrMsg && yearErr && (
+                    <div className='ui negative message'>
+                        <p>{yearErr}</p>
+                    </div>
+                )}
             </div>
             <div className='field'>
                 <label>Transmission</label>
                 <Dropdown inputName='Select transmission type' selectedValue={props.form.transmission} children={renderTransmissionOptions()} />
+                {showErrMsg && transmissionErr && (
+                    <div className='ui negative message'>
+                        <p>{transmissionErr}</p>
+                    </div>
+                )}
             </div>
             <div className='field'>
                 <label>Car Class</label>
                 <Dropdown inputName='Select car class' selectedValue={props.form.carClass} children={renderClassOptions()} />
+                {showErrMsg && classErr && (
+                    <div className='ui negative message'>
+                        <p>{classErr}</p>
+                    </div>
+                )}
             </div>
             <Link to='/newmod' className='ui button left floated negative' onClick={props.clearForm}>
                 Cancel
