@@ -18,7 +18,6 @@ const ModForm = props => {
         }
     }, []);
 
-    const [hasErr, setHasErr] = useState(false);
     const [showErrMsg, setShowErrMsg] = useState(false);
     const [imgError, setImgError] = useState(null);
     const [linkErr, setlinkErr] = useState(null);
@@ -56,19 +55,14 @@ const ModForm = props => {
         props.newBrandForm.brandName.length === 0 && props.form.brand === 'New Brand'
             ? setNewBrandNameErr('Please enter the brand name')
             : setNewBrandNameErr(null);
-
-        if (linkErr || brandErr || imgError || modelErr || yearErr || transmissionErr || classErr || newBrandLogoErr || newBrandNameErr) {
-            setHasErr(true);
-        } else {
-            setHasErr(false);
-        }
     }, [props.form, props.newBrandForm]);
 
     const changeHandler = e => {
         let selected = e.target.files[0];
+        const imgId = uuidv4();
 
         if (selected && imgTypes.includes(selected.type)) {
-            const ref = imagesRef.child(selected.name);
+            const ref = imagesRef.child(imgId);
 
             const uploadTask = ref.put(selected);
 
@@ -122,18 +116,28 @@ const ModForm = props => {
     };
 
     const renderBrandOptions = () => {
-        return props.brands.map(brand => {
-            return (
-                <div
-                    key={brand.id}
-                    className={`item ${props.form.brand === brand.brandName ? 'active selected' : ''}`}
-                    // className={`item`}
-                    data-value={brand.brandName}
-                    onClick={() => props.setFormBrand(brand.brandName)}
-                    children={brand.brandName}
-                />
-            );
-        });
+        return props.brands
+            .sort((a, b) => {
+                if (a.brandName > b.brandName) {
+                    return 1;
+                } else if (a.brandName < b.brandName) {
+                    return -1;
+                } else {
+                    return 0;
+                }
+            })
+            .map(brand => {
+                return (
+                    <div
+                        key={brand.id}
+                        className={`item ${props.form.brand === brand.brandName ? 'active selected' : ''}`}
+                        // className={`item`}
+                        data-value={brand.brandName}
+                        onClick={() => props.setFormBrand(brand.brandName)}
+                        children={brand.brandName}
+                    />
+                );
+            });
     };
 
     const renderTransmissionOptions = () => {
@@ -171,7 +175,7 @@ const ModForm = props => {
     const handleSubmit = e => {
         e.preventDefault();
 
-        if (hasErr) {
+        if (linkErr || brandErr || imgError || modelErr || yearErr || transmissionErr || classErr || newBrandLogoErr || newBrandNameErr) {
             setShowErrMsg(true);
         } else {
             props.setFormCreatedBy(props.userId);
