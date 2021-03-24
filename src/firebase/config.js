@@ -24,3 +24,4 @@ export const db = firebase.database();
 const fsStorage = firebase.storage();
 const storageRef = fsStorage.ref();
 export const imagesRef = storageRef.child('images/mods');
+export const imgagesBrandsRef = storageRef.child('images/brands');

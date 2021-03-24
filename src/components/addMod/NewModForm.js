@@ -8,6 +8,7 @@ import ModReview from './ModReview';
 class NewModForm extends React.Component {
     componentWillUnmount() {
         this.props.clearForm();
+        this.props.clearBrandForm();
     }
 
     renderContent() {

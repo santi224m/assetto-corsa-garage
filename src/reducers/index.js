@@ -6,6 +6,7 @@ import sortReducer from './sortReducer';
 import paginationReducer from './paginationReducer';
 import oAuthReducer from './oAuthReducer';
 import modFormReducer from './modFormReducer';
+import newBrandReducer from './newBrandReducer';
 
 export default combineReducers({
     cars: carsReducer,
@@ -15,4 +16,5 @@ export default combineReducers({
     pagination: paginationReducer,
     oAuth: oAuthReducer,
     form: modFormReducer,
+    newBrandForm: newBrandReducer,
 });

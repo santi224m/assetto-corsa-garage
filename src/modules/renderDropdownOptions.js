@@ -9,10 +9,10 @@ export const renderBrandsOptions = props => {
         props.brands
             // Sort alphabetically
             .sort((a, b) => {
-                if (a.brand < b.brand) {
+                if (a.brandName < b.brandName) {
                     return -1;
                 }
-                if (a.brand > b.brand) {
+                if (a.brandName > b.brandName) {
                     return 1;
                 }
                 return 0;
