@@ -32,6 +32,7 @@ class SortDropdown extends React.Component {
         this.selectedOptionName = this.updateSortName();
         return (
             <div className='ui form sort-dropdown'>
+                <label>Sort by</label>
                 <Dropdown inputName='Sort' selectedValue={this.selectedOptionName}>
                     {renderDropdownOptions(this.props)}
                 </Dropdown>

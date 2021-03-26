@@ -39,35 +39,25 @@ class Pagination extends React.Component {
 
     renderPreviousButtons() {
         if (this.props.pagination.currentPage === 1) {
-            return;
+            return <button className='ui button green btn-disabled'>Previous</button>;
         }
 
         return (
-            <React.Fragment>
-                <a className='item transition hiiden' onClick={() => this.updatePage(1)}>
-                    «
-                </a>
-                <a className='item' onClick={() => this.updatePage(this.props.pagination.currentPage - 1)}>
-                    ⟨
-                </a>
-            </React.Fragment>
+            <button className='ui button green' onClick={() => this.updatePage(this.props.pagination.currentPage - 1)}>
+                Previous
+            </button>
         );
     }
 
     renderNextButtons() {
         if (this.props.pagination.currentPage === this.props.pagination.pages) {
-            return;
+            return <button className='ui button green btn-disabled'>Next</button>;
         }
 
         return (
-            <React.Fragment>
-                <a className='item' onClick={() => this.updatePage(this.props.pagination.currentPage + 1)}>
-                    ⟩
-                </a>
-                <a className='item' onClick={() => this.updatePage(this.props.pagination.pages)}>
-                    »
-                </a>
-            </React.Fragment>
+            <button className='ui button green' onClick={() => this.updatePage(this.props.pagination.currentPage + 1)}>
+                Next
+            </button>
         );
     }
 

@@ -28,7 +28,7 @@ const CarsList = ({ props }) => {
             const classIsSelected = props.selectedFilters.selectedClass && props.selectedFilters.selectedClass !== car.carClass;
             const decadeIsSelected =
                 props.selectedFilters.selectedDecade &&
-                !(props.selectedFilters.selectedDecade + 10 - car.year < 10 && props.selectedFilters.selectedDecade + 10 - car.year > 0);
+                !(props.selectedFilters.selectedDecade + 10 - car.year <= 10 && props.selectedFilters.selectedDecade + 10 - car.year > 0);
             const shifterIsSelected = props.selectedFilters.selectedShifter && props.selectedFilters.selectedShifter !== car.transmission;
             const carSearchTerm = `${car.brand.toLowerCase()} ${car.model.toLowerCase()} ${car.modURL.toLowerCase()} ${
                 car.year
@@ -56,7 +56,7 @@ const CarsList = ({ props }) => {
             }
         });
 
-    return <div className='ui link cards'>{renderCars(props, filteredCarsArr)}</div>;
+    return <div className='ui cards'>{renderCars(props, filteredCarsArr)}</div>;
 };
 
 export default CarsList;

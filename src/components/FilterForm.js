@@ -4,7 +4,6 @@ import * as actions from '../actions';
 import { renderBrandsOptions, renderClassOptions, renderDecadesOptions, renderShifterOptions } from '../modules/renderDropdownOptions';
 
 import Dropdown from './dropdown/Dropdown';
-import SortDropdown from './dropdown/SortDropdown';
 
 class FilterForm extends React.Component {
     constructor(props) {
@@ -32,13 +31,13 @@ class FilterForm extends React.Component {
         if (this.state.showFilters) {
             return (
                 <>
-                    Hide Filters <i className='angle up icon'></i>
+                    Hide Filters <i className='filter icon'></i>
                 </>
             );
         } else {
             return (
                 <>
-                    Show Filters<i className='angle down icon'></i>
+                    Show Filters <i className='filter icon'></i>
                 </>
             );
         }
@@ -52,10 +51,16 @@ class FilterForm extends React.Component {
     render() {
         return (
             <>
-                <div className='showList'>
-                    <a onClick={() => this.setState({ showFilters: !this.state.showFilters })}>{this.renderShowFiltersLink()}</a>
+                <div className='show-filter-btn'>
+                    <a
+                        id='filter-button'
+                        className='ui button left floated secondary-color'
+                        onClick={() => this.setState({ showFilters: !this.state.showFilters })}
+                    >
+                        {this.renderShowFiltersLink()}
+                    </a>
                 </div>
-                <div className={`ui form transition ${this.state.showFilters ? 'visible' : 'hidden'}`}>
+                <div id='filters' className={`ui form transition ${this.state.showFilters ? 'visible' : 'hidden'}`}>
                     <div className='fields'>
                         <div className='field'>
                             <Dropdown inputName='Brand' selectedValue={this.props.selectedFilters.selectedBrand}>
@@ -87,7 +92,6 @@ class FilterForm extends React.Component {
                             </button>
                         </div>
                     </div>
-                    <SortDropdown />
                 </div>
             </>
         );

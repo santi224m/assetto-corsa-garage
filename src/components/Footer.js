@@ -30,7 +30,7 @@ class Footer extends React.Component {
                         </a>
                     </div>
                     <a className='ui right floated inverted scrollUpButton' onClick={() => this.animatedScrollTop()}>
-                        ↑
+                        <img src='/img/icons/footerUpArrow.svg' alt='' />
                     </a>
                 </div>
             </div>

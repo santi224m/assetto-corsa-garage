@@ -39,7 +39,15 @@ class VerifyMods extends React.Component {
             .map(car => {
                 return (
                     <div key={car.id} className='ui card'>
-                        <Car brand={car.brand} model={car.model} img={car.imgURL} link={car.modURL} transmission={car.transmission} year={car.year} />
+                        <Car
+                            brand={car.brand}
+                            model={car.model}
+                            img={car.imgURL}
+                            link={car.modURL}
+                            transmission={car.transmission}
+                            year={car.year}
+                            carClass={car.carClass}
+                        />
                         <button className='ui button positive' onClick={() => this.handleVerify(car, user)}>
                             Verify
                         </button>
@@ -55,7 +63,7 @@ class VerifyMods extends React.Component {
         if (this.props.user.isSignedIn !== null && this.props.user.userId !== keys.adminId) {
             history.push('/');
         }
-        return <div className='ui link cards'>{this.renderUnverifiedCars(this.props.cars, this.props.user)}</div>;
+        return <div className='ui cards'>{this.renderUnverifiedCars(this.props.cars, this.props.user)}</div>;
     }
 }
 

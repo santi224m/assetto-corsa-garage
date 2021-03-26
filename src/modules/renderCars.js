@@ -25,6 +25,7 @@ export const renderCars = (props, filteredCarsArr) => {
                 transmission={car.transmission}
                 year={car.year}
                 wikiLink={carWikiURL}
+                carClass={car.carClass}
             />
         );
     });

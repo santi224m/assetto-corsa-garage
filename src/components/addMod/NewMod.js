@@ -1,9 +1,9 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import history from '../../history';
 
 import ModsList from './ModsList';
+import BannerWithButton from '../BannerWithButton';
 
 class NewMod extends React.Component {
     componentDidUpdate() {
@@ -15,11 +15,10 @@ class NewMod extends React.Component {
     render() {
         return (
             <div>
-                <Link to='/newmod/form' className='positive ui button'>
-                    <span>Add New Mod</span>
-                    <i style={{ marginLeft: '15px', opacity: '1' }} className='cloud upload icon'></i>
-                </Link>
-                <ModsList />
+                <BannerWithButton />
+                <div className='ui container new-mod-page'>
+                    <ModsList />
+                </div>
             </div>
         );
     }

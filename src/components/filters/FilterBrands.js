@@ -37,7 +37,8 @@ class FilterBrands extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className='filter-page'>
+                <p className='filter-title'>Filter by Brand</p>
                 <div className='ui grid brands-grid'>{this.renderBrandCards()}</div>
             </div>
         );

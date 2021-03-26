@@ -61,14 +61,14 @@ class ModReview extends React.Component {
                         link={previewForm.modURL}
                         transmission={previewForm.transmission}
                         year={previewForm.year}
-                        // wikiLink={'google.com'}
+                        carClass={previewForm.carClass}
                     />
                 </div>
 
-                <button className='ui button basic primary' onClick={() => this.props.setFormShowReview(false)}>
+                <button className='ui button secondary-color' onClick={() => this.props.setFormShowReview(false)}>
                     Back
                 </button>
-                <button className='ui button positive right floated' onClick={() => this.uploadMod(this.props.form, this.props.user)}>
+                <button className='ui button green right floated' onClick={() => this.uploadMod(this.props.form, this.props.user)}>
                     Post Mod
                 </button>
             </div>

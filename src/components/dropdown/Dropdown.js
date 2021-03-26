@@ -28,12 +28,14 @@ class Dropdown extends React.Component {
     render() {
         return (
             <div
+                style={{ position: 'relative' }}
                 ref={this.dropdownRef}
                 className={`ui selection dropdown ${this.state.isDropdownOpen ? 'active visible' : ''}`}
                 onClick={() => this.setState({ isDropdownOpen: !this.state.isDropdownOpen })}
             >
                 <input type='hidden' name={this.props.inputName} />
-                <i className='dropdown icon'></i>
+                {/* <i className='dropdown icon'></i> */}
+                <img src='/img/icons/DownArrow.svg' className='asg-icon down-arrow' style={{ position: 'absolute', right: '20px', top: '45%' }} />
                 <div className={`${this.props.selectedValue ? '' : 'default'} text`}>
                     {this.props.selectedValue ? this.props.selectedValue : this.props.inputName}
                 </div>

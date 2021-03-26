@@ -46,6 +46,7 @@ export const renderDecadesOptions = props => {
             <DecadeOption props={props} value={1990} />
             <DecadeOption props={props} value={2000} />
             <DecadeOption props={props} value={2010} />
+            <DecadeOption props={props} value={2020} />
         </>
     );
 };
