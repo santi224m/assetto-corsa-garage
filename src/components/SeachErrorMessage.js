@@ -8,7 +8,7 @@ const SearchErrorMessage = ({ carListLength }) => {
     return (
         <div className='ui negative message'>
             <div className='header'>No cars found</div>
-            <p>Try another search</p>
+            <p>Try changing your filters</p>
         </div>
     );
 };

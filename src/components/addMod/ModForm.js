@@ -200,6 +200,9 @@ const ModForm = props => {
             <div className='fields'>
                 <div className='field'>
                     <label>Mod Image</label>
+                    <label className='input-file ui button fluid green' htmlFor='modImage'>
+                        Upload Image <i className='upload icon'></i>
+                    </label>
                     <input type='file' name='modImage' id='modImage' onChange={changeHandler} />
                     {showErrMsg && imgError && <div className='ui negative message'>{imgError}</div>}
                     {props.form.imgURL && (
@@ -220,7 +223,7 @@ const ModForm = props => {
             </div>
             <div className='field'>
                 <label>Brand</label>
-                <p className='info'>If the brand is not in the dropdown, select the "New Brand" option to add it to the database.</p>
+                <p className='info'>* If the brand is not in the dropdown, select the "New Brand" option to add it to the database.</p>
                 <Dropdown inputName='Select a brand' selectedValue={props.form.brand}>
                     <div
                         className={`item ${props.form.brand === 'New Brand' ? 'active selected' : ''}`}
@@ -279,7 +282,7 @@ const ModForm = props => {
             <Link to='/newmod' className='ui button left floated negative' onClick={props.clearForm}>
                 Cancel
             </Link>
-            <button type='submit' className='ui button right floated positive'>
+            <button type='submit' className='ui button right floated secondary-color'>
                 Next
                 <i className='arrow alternate circle right outline icon' style={{ opacity: '1' }}></i>
             </button>

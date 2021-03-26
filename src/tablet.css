@@ -1,0 +1,37 @@
+@media only screen and (max-width: 1199px) {
+    /* Navbar */
+    #navbar a.item[href='/newmod'] {
+        display: none;
+    }
+
+    /* Hero */
+    .hero .ui.container .underline {
+        max-width: 700px;
+    }
+
+    /* Car List Filters */
+    #filters .fields {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    #filters .fields .field {
+        margin-bottom: 10px;
+    }
+
+    /* Sort dropdown */
+    .carsList-grid .ui.form {
+        padding-right: 0;
+    }
+
+    /* Cars List Grid */
+    .ui.cards {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 0 60px;
+    }
+
+    /* Filter Cards Grid */
+    .ui.grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}

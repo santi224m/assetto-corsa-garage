@@ -28,11 +28,14 @@ class App extends React.Component {
                             <Route path='/filters/shifters' component={FilterShifters} />
                             <Route path='/list' component={ShowList} />
                             <Route path='/newmod/form' exact component={NewModForm} />
-                            <Route path='/newmod' exact component={NewMod} />
                             <Route path='/verifymods' exact component={VerifyMods} />
-                            <Route path='/' exact component={Home} />
                         </Switch>
                     </div>
+                    {/* For routes that don't need container class */}
+                    <Switch>
+                        <Route path='/newmod' exact component={NewMod} />
+                        <Route path='/' exact component={Home} />
+                    </Switch>
                     <Footer />
                 </Router>
             </>

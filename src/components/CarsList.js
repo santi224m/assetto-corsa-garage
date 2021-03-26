@@ -56,7 +56,7 @@ const CarsList = ({ props }) => {
             }
         });
 
-    return <div className='ui link cards'>{renderCars(props, filteredCarsArr)}</div>;
+    return <div className='ui cards'>{renderCars(props, filteredCarsArr)}</div>;
 };
 
 export default CarsList;

@@ -66,6 +66,9 @@ const NewBrand = props => {
         <>
             <div className='field'>
                 <label>Brand Logo</label>
+                <label className='input-file ui button fluid green' htmlFor='brandLogo'>
+                    Upload Image <i className='upload icon'></i>
+                </label>
                 <input type='file' name='brandLogo' id='brandLogo' onChange={uploadBrandImg} />
                 {imgError && <div className='ui negative message'>{imgError}</div>}
                 {props.showErrMsg && props.newBrandLogoErr && (
