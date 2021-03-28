@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { fetchCars, updateTotalItems, updatePages, updateCurrentPage, updateStartIndex, updateEndIndex, updateCarsLength } from '../actions';
+import { Helmet } from 'react-helmet';
 
 import FilterForm from './FilterForm';
 import SortDropdown from './dropdown/SortDropdown';
@@ -29,13 +30,18 @@ class ShowList extends React.Component {
     }
     render() {
         return (
-            <div className='carsList-grid'>
-                <FilterForm onClick={this.filterCars} />
-                <SortDropdown />
-                <CarsList props={this.props} filteredCarsArr={this.filteredCarsArr} />
-                <SearchErrorMessage carListLength={this.props.pagination.carsLength} />
-                <Pagination />
-            </div>
+            <>
+                <Helmet>
+                    <title>Assetto Corsa Garage | Cars</title>
+                </Helmet>
+                <div className='carsList-grid'>
+                    <FilterForm onClick={this.filterCars} />
+                    <SortDropdown />
+                    <CarsList props={this.props} filteredCarsArr={this.filteredCarsArr} />
+                    <SearchErrorMessage carListLength={this.props.pagination.carsLength} />
+                    <Pagination />
+                </div>
+            </>
         );
     }
 }

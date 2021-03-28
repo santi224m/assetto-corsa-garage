@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { selectBrand, fetchBrands } from '../../actions';
+import { Helmet } from 'react-helmet';
 
 import FilterCard from '../FilterCard';
 
@@ -37,10 +38,16 @@ class FilterBrands extends React.Component {
 
     render() {
         return (
-            <div className='filter-page'>
-                <p className='filter-title'>Filter by Brand</p>
-                <div className='ui grid brands-grid'>{this.renderBrandCards()}</div>
-            </div>
+            <>
+                <Helmet>
+                    <title>Assetto Corsa Garage | Brands</title>
+                    <meta name='description' content='Filter Assetto Corsa mods by their brands' />
+                </Helmet>
+                <div className='filter-page'>
+                    <p className='filter-title'>Filter by Brand</p>
+                    <div className='ui grid brands-grid'>{this.renderBrandCards()}</div>
+                </div>
+            </>
         );
     }
 }
