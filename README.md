@@ -30,6 +30,24 @@ Create a new branch
 ```
 git checkout -b new-branch-name
 ```
+## Install Dependencies
+Install the dependencies before you run the app
+
+```
+npm install
+```
+
+Sometimes the "react-scripts" file won't install so run the following command:
+
+```
+npm install react-scripts --save
+```
+
+Now you can start the app
+
+```
+npm start
+```
 
 ## Make changes and commit
 
@@ -56,7 +74,9 @@ git push origin <add-your-branch-name>
 ```
 ## Make a pull request
 Now that you pushed your changes to GitHub, you can make a pull request for your code to be reviewed and hopefully merged.
-- Replace with image
+![Annotation 2021-04-08 172630](https://user-images.githubusercontent.com/36117697/114111891-fa2e0f80-988f-11eb-8f5c-08a50a4b7b5b.png)
+
 You add a comment describing what you changed and then click "Create pull request".
-- Replace with image
+![Annotation 2021-04-08 172734](https://user-images.githubusercontent.com/36117697/114111989-36617000-9890-11eb-88b1-67d2e9fc7ea8.png)
+
 Now all you have to do is wait for your code to be reviewed and will you recieve a notification once it is merged or if additional changes need to be made.
