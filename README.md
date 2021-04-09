@@ -67,7 +67,7 @@ module.exports = {
 Replace the "your-key" strings with the corresponding key and save the document.
 
 #### Import JSON file to your firebase
-You can download the following JSON file and import it into your firebase realtime database so that you don't have to mannualy upload mods to your development database.
+You can download the following JSON file and import it into your firebase realtime database so that you don't have to manually upload mods to your development database.
 
 [Download Firebase JSON](https://raw.githubusercontent.com/santi224m/asg-json/main/assettocorsagarage-default-rtdb-export.json)
 
@@ -91,8 +91,6 @@ Now you can start the app
 ```
 npm start
 ```
-
-If this is your first time using your firebase database, then you will have no mods. Sign in and upload a couple test mods in ``` http://localhost:3000/newmod/form ``` .
 
 ## Make changes and commit
 
