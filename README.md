@@ -1,21 +1,21 @@
 <p align="center">
-  <img src="https://i.imgur.com/N7r9Zsu.png" width="240" />
+  <img src="https://i.imgur.com/N7r9Zsu.png" width="150" />
 </p>
 
 Assetto Corsa Garage was created to make it easier for sim racers to find the mods they are looking for. The sim racing community has a lot of mods that users can download, but they are spread all over the internet. And even when mods are on the same site, it can be hard to look through all of them because there is no way of filtering them. Assetto Corsa Garage fixes this by requiring every mod to be uploaded with the same information including: brand, car class, model year, and shifter type. Assetto Corsa Garage doesn't host the mods on the app, but it contains links to the mods on other sites. This app allows sim racers to contribute to the site by allowing them to link their favorite mods for other sim racers to find. This ensures that the newest mods will always be on the site.
 
-## Run app on your local machine
-If you would like to contribute to the site, make the changes on your local machine and then make a pull request.
+## Contribution
+If you would like to contribute to the site, feel free to work on one of the issues and make a pull request. Developers of all skill levels are welcome to contribute. If you need help getting the app to run on your local machine follow the steps below.
 
 ## Fork this repository
-![Annotation 2021-04-08 170334](https://user-images.githubusercontent.com/36117697/114110538-9b1acb80-988c-11eb-9b49-22899f13e453.png)
+![Annotation 2021-04-08 200857](https://user-images.githubusercontent.com/36117697/114123098-7af80600-98a6-11eb-8d0b-9008c69f7246.png)
 
 Fork the repository to add a copy of this repository to your account.
 
 ## Clone the repository
 ![Annotation 2021-04-08 170640](https://user-images.githubusercontent.com/36117697/114110663-f1880a00-988c-11eb-921f-094532cca700.png)
 
-Clone the forked repository to your machine. Copy the url from the above image and use it in the following command on your terminal. The "this-is-you" part should be replaced with your github username.
+Now head to your copy of the repository and clone the forked repository to your machine. Click the green "Code" button and copy the url. You will use this url in the following command on your terminal. The "this-is-you" part should be replaced with your github username.
 
 ```
 git clone https://github.com/this-is-you/assettoCorsaGarage.git
@@ -41,7 +41,7 @@ Before you can run the app, create a [firebase](https://firebase.google.com) acc
 
 Once you get the api keys from firebase, you can move on to the next step.
 
-![Annotation 2021-04-08 175026](https://user-images.githubusercontent.com/36117697/114113382-4f1f5500-9893-11eb-934c-9cd34a554b79.png)
+![Annotation-2021-04-08-201831](https://user-images.githubusercontent.com/36117697/114123890-1b025f00-98a8-11eb-99ba-cd9bb4709362.png)
 
 #### Add api key to config file
 Create a "dev.js" file in the "src/config" directory.
@@ -116,7 +116,7 @@ Now that you pushed your changes to GitHub, you can make a pull request for your
 
 <img src="https://user-images.githubusercontent.com/36117697/114111891-fa2e0f80-988f-11eb-8f5c-08a50a4b7b5b.png" width="650" />
 
-You add a comment describing what you changed and then click "Create pull request".
+You can add a comment describing what you changed and then click "Create pull request".
 
 <img src="https://user-images.githubusercontent.com/36117697/114111989-36617000-9890-11eb-88b1-67d2e9fc7ea8.png" width="650" />
 
