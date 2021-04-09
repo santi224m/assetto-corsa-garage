@@ -30,6 +30,40 @@ Create a new branch
 ```
 git checkout -b new-branch-name
 ```
+
+## Add Firebase API keys
+
+#### Create Firebase account
+Before you can run the app, create a [firebase](https://firebase.google.com) account so that you can run a development database.
+
+Once you get the api keys from firebase, you can move on to the next step.
+
+![Annotation 2021-04-08 175026](https://user-images.githubusercontent.com/36117697/114113382-4f1f5500-9893-11eb-934c-9cd34a554b79.png)
+
+#### Add api key to config file
+Create a "dev.js" file in the "src/config" directory.
+
+![image](https://user-images.githubusercontent.com/36117697/114113479-8db50f80-9893-11eb-9b32-c369126734ff.png)
+
+Copy the following code into your "dev.js" file
+
+```
+module.exports = {
+    firebaseApiKey: 'your-key',
+    firebaseAuthDomain: 'your-key',
+    firebaseProjectId: 'your-key',
+    firebaseStorageBucket: 'your-key',
+    firebaseMessagingSenderId: 'your-key',
+    firebaseAppId: 'your-key',
+    firebaseMeasurementId: 'your-key',
+    firebaseDatabaseURL: 'your-key',
+    adminId: 'your-key',
+};
+```
+
+Replace the "your-key" strings with the corresponding key and save the document.
+
+
 ## Install Dependencies
 Install the dependencies before you run the app
 
@@ -48,6 +82,8 @@ Now you can start the app
 ```
 npm start
 ```
+
+If this is your first time using your firebase database, then you will have no mods. Sign in and upload a couple test mods in ``` http://localhost:3000/newmod/form ``` .
 
 ## Make changes and commit
 
