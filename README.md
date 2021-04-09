@@ -66,6 +66,12 @@ module.exports = {
 
 Replace the "your-key" strings with the corresponding key and save the document.
 
+#### Import JSON file to your firebase
+You can download the following JSON file and import it into your firebase realtime database so that you don't have to mannualy upload mods to your development database.
+
+[Download Firebase JSON](https://raw.githubusercontent.com/santi224m/asg-json/main/assettocorsagarage-default-rtdb-export.json)
+
+![Annotation-2021-04-08-203821](https://user-images.githubusercontent.com/36117697/114125272-f3f95c80-98aa-11eb-97a4-954bf6a5e5af.png)
 
 ## Install Dependencies
 Install the dependencies before you run the app
