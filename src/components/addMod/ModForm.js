@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import * as actions from '../../actions';
@@ -16,6 +16,11 @@ const ModForm = props => {
         if (props.brands.length === 0) {
             props.fetchBrands();
         }
+
+        if (props.cars.length === 0) {
+            props.fetchCars();
+        }
+
     }, []);
 
     const [showErrMsg, setShowErrMsg] = useState(false);
@@ -28,6 +33,7 @@ const ModForm = props => {
     const [classErr, setClassErr] = useState(null);
     const [newBrandLogoErr, setnewBrandLogoErr] = useState(null);
     const [newBrandNameErr, setNewBrandNameErr] = useState(null);
+    const [modUrlWarning, setModUrlWarning] = useState(null);
 
     const imgTypes = ['image/png', 'image/jpeg'];
 
@@ -37,6 +43,11 @@ const ModForm = props => {
         props.form.imgURL === null ? setImgError('Please upload an image of the car') : setImgError(null);
         // Mod URL
         props.form.modURL.length === 0 ? setlinkErr('Please enter a link to the mod') : setlinkErr(null);
+        props.cars.forEach(car => {
+            if (car.modURL === props.form.modURL) {
+                setModUrlWarning('Warning: There is already a mod with this link');
+            }
+        })
         // Brand Dropdown
         props.form.brand === null ? setBrandErr('Please select a brand') : setBrandErr(null);
         // Car model
@@ -220,6 +231,7 @@ const ModForm = props => {
                         <p>{linkErr}</p>
                     </div>
                 )}
+                {modUrlWarning && <div className="ui yellow message">{modUrlWarning}</div>}
             </div>
             <div className='field'>
                 <label>Brand</label>
@@ -291,7 +303,7 @@ const ModForm = props => {
 };
 
 const mapStateToProps = state => {
-    return { brands: Object.values(state.brands), form: state.form, userId: state.oAuth.userId, newBrandForm: state.newBrandForm };
+    return { brands: Object.values(state.brands), cars: Object.values(state.cars), form: state.form, userId: state.oAuth.userId, newBrandForm: state.newBrandForm };
 };
 
 export default connect(mapStateToProps, actions)(ModForm);
