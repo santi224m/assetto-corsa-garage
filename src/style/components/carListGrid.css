@@ -1,0 +1,56 @@
+.carsList-grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.carsList-grid .ui.form {
+    width: 100%;
+    padding-right: 90px;
+}
+
+@media only screen and (max-width: 1199px) {
+    .ui.cards {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 0 60px;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .carsList-grid {
+        padding-top: 0rem;
+    }
+
+    .carsList-grid .ui.cards {
+        grid-template-columns: repeat(1, 1fr);
+        padding: 0;
+    }
+
+    .carsList-grid .ui.form .fields {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        margin: 0;
+    }
+
+    .carsList-grid .ui.form .fields .field {
+        width: 75%;
+        margin-bottom: 1rem;
+        padding: 0;
+    }
+
+    .carsList-grid .ui.red.button {
+        width: 100%;
+    }
+
+    .carsList-grid .ui.form.sort-dropdown {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        padding-top: 25px;
+    }
+
+    .carsList-grid .ui.form.sort-dropdown .ui.selection.dropdown {
+        width: 195px;
+    }
+}

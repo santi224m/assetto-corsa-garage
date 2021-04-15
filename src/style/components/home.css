@@ -1,0 +1,112 @@
+.hero {
+    background: url('../../img/hero.jpg') no-repeat center center/cover;
+    color: #fff;
+    max-width: 100vw;
+    min-height: 50rem;
+    max-height: 55rem;
+    height: 100vh;
+    margin-top: -65px;
+}
+
+.hero .ui.container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.hero .ui.container .text.title {
+    font-size: 60px;
+    line-height: 75px;
+    font-weight: normal;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.hero .ui.container .underline {
+    width: 904px;
+    height: 2px;
+    background-color: #fff;
+    margin: 0 auto;
+}
+
+.hero .ui.form {
+    padding-top: 60px;
+}
+
+.hero .ui.form .three.wide.field {
+    margin: 0 auto;
+    width: 360px !important;
+}
+
+.hero .ui.form .three.wide.field .ui.green.button {
+    width: 100%;
+    margin-top: 18px;
+    padding: 17px 20px;
+    font-size: 17px;
+    font-weight: 400;
+}
+
+.hero .ui.container .ui.form .three.wide.field label {
+    color: #fff;
+    font-weight: 700;
+    padding-bottom: 5px;
+}
+
+.hero .ui.selection.dropdown {
+    padding: 16px 20px;
+    margin-bottom: 12px;
+}
+
+.hero .ui.dropdown:not(.button) > .default.text {
+    color: var(--secondary-color);
+}
+
+.home-page.filter-pages {
+    margin-top: 80px;
+    margin-bottom: 40px;
+}
+
+@media only screen and (max-width: 1199px) {
+    .hero .ui.container .underline {
+        max-width: 700px;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .hero {
+        margin-top: 55px;
+        background: url('../../img/hero.jpg') no-repeat 17% center/cover;
+    }
+
+    .hero .ui.container .underline {
+        display: none;
+    }
+
+    .hero .ui.container .text.title {
+        font-size: 30px;
+        line-height: 38px;
+    }
+
+    .hero .ui.container {
+        padding: 0 20px;
+        margin-top: -67px;
+    }
+
+    .hero .ui.form .three.wide.field {
+        width: 100% !important;
+    }
+
+    .hero .ui.container .ui.form .three.wide.field label {
+        font-size: 1rem;
+    }
+
+    .ui.selection.dropdown .menu {
+        max-height: 22rem;
+    }
+
+    .hero .ui.green.button {
+        width: 100%;
+        padding: 1rem 0;
+    }
+}

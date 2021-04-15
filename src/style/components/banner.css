@@ -1,0 +1,69 @@
+.banner {
+    background-color: var(--dark-color);
+    color: #fff;
+    padding: 50px 0 110px 0;
+}
+
+.banner .banner-title {
+    font-size: 28px;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.banner .banner-title-underline,
+.banner-wbtn-title-underline {
+    max-width: 805px;
+    height: 2px;
+    background-color: #fff;
+}
+
+.banner .banner-content {
+    margin-top: 40px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.banner .banner-content ol {
+    font-size: 18px;
+    padding-left: 18px;
+}
+
+.banner .banner-content ol li {
+    padding-bottom: 12px;
+}
+
+.banner .banner-content .banner-text .banner-button {
+    text-decoration: underline;
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.banner .banner-content .banner-video {
+    overflow: hidden;
+}
+
+/* Banner on newMod page */
+.banner-wbtn-title-underline {
+    max-width: 865px;
+}
+
+.banner-text .ui.button.secondary-color {
+    padding: 16px 64px;
+    margin-top: 30px;
+}
+
+.banner-text .ui.button.secondary-color i {
+    margin: 0;
+    margin-left: 10px;
+}
+
+.banner.bwb {
+    padding: 50px 0 75px 0;
+}
+
+@media only screen and (max-width: 768px) {
+    .banner {
+        display: none;
+    }
+}
