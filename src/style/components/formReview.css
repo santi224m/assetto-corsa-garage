@@ -1,0 +1,28 @@
+.form-review {
+    max-width: 700px;
+    margin: 0 auto;
+    margin-top: 30px;
+}
+
+.form-review h1.ui.header {
+    color: var(--dark-medium-color);
+    font-size: 28px;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 0;
+}
+
+.form-review h3.ui.header {
+    color: var(--dark-medium-color);
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.form-review p {
+    color: var(--secondary-color);
+    font-size: 13px;
+}
+
+.form-review .mod-preview {
+    margin: 60px 0;
+}

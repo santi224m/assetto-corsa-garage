@@ -1,0 +1,31 @@
+:root {
+    --primary-color: #31c885;
+    --primary-color-hover: #2bb376;
+    --secondary-color: #747c93;
+    --secondary-color-hover: #626a80;
+    --dark-color: #0c0c0c;
+    --dark-medium-color: #2e2e2e;
+}
+
+/* General Styles */
+
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: auto;
+    min-height: 100vh;
+    padding-top: 67px;
+    padding-bottom: 110px;
+    position: relative;
+    background: #f9faff;
+    font-family: 'Open Sans', sans-serif;
+}
+
+@media only screen and (max-width: 768px) {
+    body {
+        padding-bottom: 142px;
+    }
+}

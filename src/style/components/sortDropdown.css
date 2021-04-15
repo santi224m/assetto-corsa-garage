@@ -1,0 +1,17 @@
+.ui.form.sort-dropdown {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.ui.form.sort-dropdown label {
+    font-size: 14px;
+    color: var(--secondary-color);
+    padding-right: 12px;
+}
+
+@media only screen and (max-width: 1199px) {
+    .carsList-grid .ui.form {
+        padding-right: 0;
+    }
+}
