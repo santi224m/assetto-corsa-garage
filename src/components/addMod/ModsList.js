@@ -1,22 +1,40 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
-import * as actions from '../../actions';
+import { fetchCars } from '../../actions';
 import Car from '../Car';
 
-class ModsList extends React.Component {
-    constructor(props) {
-        super(props);
-        this.usersCars = [];
-        this.state = { userContribution: 0 };
-    }
+const ModsList = props => {
+    const [userContribution, updateUserContribution] = useState(0);
+    const [userMods, updateUserMods] = useState([]);
 
-    componentDidMount() {
-        if (this.props.cars.length === 0) {
-            this.props.fetchCars();
+    useEffect(() => {
+        if (props.cars.length === 0) {
+            props.fetchCars();
         }
-    }
+    }, []);
 
-    renderCarCards(carsList, userId) {
+    useEffect(() => {
+        let newUserMods = props.cars.filter(car => {
+            return car.createdBy === props.userId;
+        });
+        updateUserMods(newUserMods);
+        updateUserContribution(newUserMods.length);
+    }, [props.cars, props.userId]);
+
+    useEffect(() => {
+        updatePagination();
+    }, [userMods]);
+
+    const updatePagination = () => {
+        if (props.totalItems !== userMods.length) {
+            const newCarAmount = userMods.length;
+            props.updateTotalItems(newCarAmount);
+            props.updatePages(Math.ceil(newCarAmount / props.pageSize));
+            props.updateCurrentPage(1);
+        }
+    };
+
+    const renderCarCards = (carsList, userId) => {
         const cars = carsList
             .filter(car => car.createdBy === userId)
             .sort((a, b) => {
@@ -29,8 +47,17 @@ class ModsList extends React.Component {
                 return 0;
             })
             .map(car => {
+                if (
+                    carsList.indexOf(car) < props.startIndex ||
+                    carsList.indexOf(car) > props.endIndex
+                ) {
+                    return;
+                }
                 const baseWikiURL = 'https://en.wikipedia.org/wiki/';
-                const carToPathName = `${car.brand} ${car.model}`.replace(/ /g, '_');
+                const carToPathName = `${car.brand} ${car.model}`.replace(
+                    / /g,
+                    '_'
+                );
                 const carWikiURL = baseWikiURL + carToPathName;
 
                 return (
@@ -48,21 +75,23 @@ class ModsList extends React.Component {
                 );
             });
 
-        return { cars, carCount: cars.length };
-    }
+        return cars;
+    };
 
-    render() {
-        return (
-            <div className='mods-list'>
-                <h1 className='ui header contribution'>Your contribution ({this.renderCarCards(this.props.cars, this.props.userId).carCount})</h1>
-                <div className='ui cards'>{this.renderCarCards(this.props.cars, this.props.userId).cars}</div>
+    return (
+        <div className='mods-list'>
+            <h1 className='ui header contribution'>
+                Your contribution ({userContribution} mods)
+            </h1>
+            <div className='ui cards'>
+                {renderCarCards(props.cars, props.userId)}
             </div>
-        );
-    }
-}
+        </div>
+    );
+};
 
 const mapStateToProps = state => {
     return { cars: Object.values(state.cars), userId: state.oAuth.userId };
 };
 
-export default connect(mapStateToProps, actions)(ModsList);
+export default connect(mapStateToProps, { fetchCars })(ModsList);

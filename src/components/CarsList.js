@@ -2,7 +2,16 @@ import React, { useEffect } from 'react';
 import { sortByBrand, sortByYear, sortByDateAdded } from '../modules/sort';
 import { renderCars } from '../modules/renderCars';
 
-const CarsList = ({ props }) => {
+const CarsList = ({
+    props,
+    totalItems,
+    updateTotalItems,
+    updatePages,
+    pageSize,
+    updateCurrentPage,
+    startIndex,
+    endIndex,
+}) => {
     let filteredCarsArr = [];
 
     useEffect(() => {
@@ -10,12 +19,11 @@ const CarsList = ({ props }) => {
     }, [filteredCarsArr]);
 
     const updatePagination = () => {
-        if (props.pagination.totalItems !== filteredCarsArr.length) {
+        if (totalItems !== filteredCarsArr.length) {
             const newCarAmount = filteredCarsArr.length;
-            props.updateTotalItems(newCarAmount);
-            props.updatePages(Math.ceil(newCarAmount / props.pagination.pageSize));
-            props.updateCurrentPage(1);
-            props.updateCarsLength(filteredCarsArr.length);
+            updateTotalItems(newCarAmount);
+            updatePages(Math.ceil(newCarAmount / pageSize));
+            updateCurrentPage(1);
         }
     };
 
@@ -24,18 +32,40 @@ const CarsList = ({ props }) => {
         .filter(car => car.verified === true)
         .filter(car => {
             // Looks for which filters are currently selected
-            const brandIsSelected = props.selectedFilters.selectedBrand && props.selectedFilters.selectedBrand !== car.brand;
-            const classIsSelected = props.selectedFilters.selectedClass && props.selectedFilters.selectedClass !== car.carClass;
+            const brandIsSelected =
+                props.selectedFilters.selectedBrand &&
+                props.selectedFilters.selectedBrand !== car.brand;
+            const classIsSelected =
+                props.selectedFilters.selectedClass &&
+                props.selectedFilters.selectedClass !== car.carClass;
             const decadeIsSelected =
                 props.selectedFilters.selectedDecade &&
-                !(props.selectedFilters.selectedDecade + 10 - car.year <= 10 && props.selectedFilters.selectedDecade + 10 - car.year > 0);
-            const shifterIsSelected = props.selectedFilters.selectedShifter && props.selectedFilters.selectedShifter !== car.transmission;
+                !(
+                    props.selectedFilters.selectedDecade + 10 - car.year <=
+                        10 &&
+                    props.selectedFilters.selectedDecade + 10 - car.year > 0
+                );
+            const shifterIsSelected =
+                props.selectedFilters.selectedShifter &&
+                props.selectedFilters.selectedShifter !== car.transmission;
             const carSearchTerm = `${car.brand.toLowerCase()} ${car.model.toLowerCase()} ${car.modURL.toLowerCase()} ${
                 car.year
             } ${car.transmission.toLowerCase()} ${car.carClass.toLowerCase()}`;
-            const searchTermFilter = props.selectedFilters.searchTerm && !carSearchTerm.includes(props.selectedFilters.searchTerm.toLowerCase());
+            const searchTermFilter =
+                props.selectedFilters.searchTerm &&
+                !carSearchTerm.includes(
+                    props.selectedFilters.searchTerm.toLowerCase()
+                );
 
-            if (!(brandIsSelected || classIsSelected || decadeIsSelected || shifterIsSelected || searchTermFilter)) {
+            if (
+                !(
+                    brandIsSelected ||
+                    classIsSelected ||
+                    decadeIsSelected ||
+                    shifterIsSelected ||
+                    searchTermFilter
+                )
+            ) {
                 return car;
             }
         })
@@ -56,7 +86,11 @@ const CarsList = ({ props }) => {
             }
         });
 
-    return <div className='ui cards'>{renderCars(props, filteredCarsArr)}</div>;
+    return (
+        <div className='ui cards'>
+            {renderCars(filteredCarsArr, startIndex, endIndex)}
+        </div>
+    );
 };
 
 export default CarsList;
