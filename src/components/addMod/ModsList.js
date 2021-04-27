@@ -5,6 +5,7 @@ import Car from '../Car';
 
 const ModsList = props => {
     const [userContribution, updateUserContribution] = useState(0);
+    const [userMods, updateUserMods] = useState([]);
 
     useEffect(() => {
         if (props.cars.length === 0) {
@@ -13,16 +14,20 @@ const ModsList = props => {
     }, []);
 
     useEffect(() => {
-        updateUserContribution(props.cars.length);
-    }, [props.cars]);
+        let newUserMods = props.cars.filter(car => {
+            return car.createdBy === props.userId;
+        });
+        updateUserMods(newUserMods);
+        updateUserContribution(newUserMods.length);
+    }, [props.cars, props.userId]);
 
     useEffect(() => {
         updatePagination();
-    }, [props.cars]);
+    }, [userMods]);
 
     const updatePagination = () => {
-        if (props.totalItems !== props.cars.length) {
-            const newCarAmount = props.cars.length;
+        if (props.totalItems !== userMods.length) {
+            const newCarAmount = userMods.length;
             props.updateTotalItems(newCarAmount);
             props.updatePages(Math.ceil(newCarAmount / props.pageSize));
             props.updateCurrentPage(1);
@@ -76,7 +81,7 @@ const ModsList = props => {
     return (
         <div className='mods-list'>
             <h1 className='ui header contribution'>
-                Your contribution ({userContribution})
+                Your contribution ({userContribution} mods)
             </h1>
             <div className='ui cards'>
                 {renderCarCards(props.cars, props.userId)}

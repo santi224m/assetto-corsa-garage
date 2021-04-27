@@ -2,11 +2,10 @@ import React from 'react';
 
 class Pagination extends React.Component {
     componentDidUpdate() {
+        console.log(this.props);
         if (this.props.currentPage === 1 && this.props.startIndex !== 0) {
             this.updatePage(1);
         }
-
-        this.props.updatePages(4);
     }
 
     renderNumbers() {

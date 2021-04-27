@@ -38,20 +38,22 @@ const NewMod = props => {
                         startIndex={startIndex}
                         endIndex={endIndex}
                     />
-                    <Pagination
-                        totalItems={totalItems}
-                        updateTotalItems={updateTotalItems}
-                        currentPage={currentPage}
-                        updateCurrentPage={updateCurrentPage}
-                        pageSize={pageSize}
-                        updatePageSize={updatePageSize}
-                        startIndex={startIndex}
-                        updateStartIndex={updateStartIndex}
-                        endIndex={endIndex}
-                        updateEndIndex={updateEndIndex}
-                        pages={pages}
-                        updatePages={updatePages}
-                    />
+                    {pages > 1 && (
+                        <Pagination
+                            totalItems={totalItems}
+                            updateTotalItems={updateTotalItems}
+                            currentPage={currentPage}
+                            updateCurrentPage={updateCurrentPage}
+                            pageSize={pageSize}
+                            updatePageSize={updatePageSize}
+                            startIndex={startIndex}
+                            updateStartIndex={updateStartIndex}
+                            endIndex={endIndex}
+                            updateEndIndex={updateEndIndex}
+                            pages={pages}
+                            updatePages={updatePages}
+                        />
+                    )}
                 </div>
             </div>
         </>
