@@ -2,14 +2,11 @@ import Car from '../components/Car';
 
 export const renderCars = (filteredCarsArr, startIndex, endIndex) => {
     return filteredCarsArr.map(car => {
-        const paginationStartIndex = startIndex;
-        const paginationEndIndex = endIndex;
-
         // Don't show cars that aren't in pagination range
         if (
             filteredCarsArr &&
-            (filteredCarsArr.indexOf(car) < paginationStartIndex ||
-                filteredCarsArr.indexOf(car) > paginationEndIndex)
+            (filteredCarsArr.indexOf(car) < startIndex ||
+                filteredCarsArr.indexOf(car) > endIndex)
         ) {
             return;
         }
