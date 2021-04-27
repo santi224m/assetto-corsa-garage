@@ -1,25 +1,31 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { updateCurrentPage, updateStartIndex, updateEndIndex } from '../actions';
 
 class Pagination extends React.Component {
     componentDidUpdate() {
-        if (this.props.pagination.currentPage === 1 && this.props.pagination.startIndex !== 0) {
+        if (this.props.currentPage === 1 && this.props.startIndex !== 0) {
             this.updatePage(1);
         }
+
+        this.props.updatePages(4);
     }
 
     renderNumbers() {
         // Turning the page number into an array so that I can map over it
         const pageArr = [];
 
-        for (let i = 0; i < this.props.pagination.pages; i++) {
+        for (let i = 0; i < this.props.pages; i++) {
             pageArr.push(i + 1);
         }
 
         return pageArr.map(num => {
             return (
-                <a key={num} onClick={() => this.updatePage(num)} className={`item ${this.props.pagination.currentPage === num ? 'active' : ''}`}>
+                <a
+                    key={num}
+                    onClick={() => this.updatePage(num)}
+                    className={`item ${
+                        this.props.currentPage === num ? 'active' : ''
+                    }`}
+                >
                     {num}
                 </a>
             );
@@ -29,40 +35,58 @@ class Pagination extends React.Component {
     updatePage(newCurrentPage) {
         this.props.updateCurrentPage(newCurrentPage);
 
-        // Update start and end indexes to redux state
-        const newStartIndex = (newCurrentPage - 1) * this.props.pagination.pageSize;
+        const newStartIndex = (newCurrentPage - 1) * this.props.pageSize;
         this.props.updateStartIndex(newStartIndex);
-        let newEndIndex = Math.min(newStartIndex + this.props.pagination.pageSize - 1, this.props.pagination.totalItems - 1);
-        this.props.updateEndIndex(newEndIndex < this.props.pagination.pageSize - 1 ? this.props.pagination.pageSize : newEndIndex);
+        let newEndIndex = Math.min(
+            newStartIndex + this.props.pageSize - 1,
+            this.props.totalItems - 1
+        );
+        this.props.updateEndIndex(
+            newEndIndex < this.props.pageSize - 1
+                ? this.props.pageSize
+                : newEndIndex
+        );
         window.scrollTo(0, 0);
     }
 
     renderPreviousButtons() {
-        if (this.props.pagination.currentPage === 1) {
-            return <button className='ui button green btn-disabled'>Previous</button>;
+        if (this.props.currentPage === 1) {
+            return (
+                <button className='ui button green btn-disabled'>
+                    Previous
+                </button>
+            );
         }
 
         return (
-            <button className='ui button green' onClick={() => this.updatePage(this.props.pagination.currentPage - 1)}>
+            <button
+                className='ui button green'
+                onClick={() => this.updatePage(this.props.currentPage - 1)}
+            >
                 Previous
             </button>
         );
     }
 
     renderNextButtons() {
-        if (this.props.pagination.currentPage === this.props.pagination.pages) {
-            return <button className='ui button green btn-disabled'>Next</button>;
+        if (this.props.currentPage === this.props.pages) {
+            return (
+                <button className='ui button green btn-disabled'>Next</button>
+            );
         }
 
         return (
-            <button className='ui button green' onClick={() => this.updatePage(this.props.pagination.currentPage + 1)}>
+            <button
+                className='ui button green'
+                onClick={() => this.updatePage(this.props.currentPage + 1)}
+            >
                 Next
             </button>
         );
     }
 
     render() {
-        if (this.props.pagination.pages === 1 || this.props.pagination.pages === 0) {
+        if (this.props.pages === 1 || this.props.pages === 0) {
             return <div></div>;
         }
 
@@ -78,12 +102,4 @@ class Pagination extends React.Component {
     }
 }
 
-const mapStateToProps = state => {
-    return { pagination: state.pagination };
-};
-
-export default connect(mapStateToProps, {
-    updateCurrentPage,
-    updateStartIndex,
-    updateEndIndex,
-})(Pagination);
+export default Pagination;
