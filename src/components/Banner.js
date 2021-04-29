@@ -29,7 +29,7 @@ class Banner extends React.Component {
             <div className='banner-video'>
               <div id='player'>
                 {/* Will insert youtube video here once I create tutorial */}
-                <iframe
+                {/* <iframe
                   width='345'
                   height='190'
                   src='https://www.youtube.com/embed/FhasLd3pYYU'
@@ -37,7 +37,7 @@ class Banner extends React.Component {
                   frameBorder='0'
                   allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
                   allowFullScreen
-                ></iframe>
+                ></iframe> */}
               </div>
             </div>
           </div>
