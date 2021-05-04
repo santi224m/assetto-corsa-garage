@@ -1,12 +1,12 @@
 .car-class-filters-page .ui.grid,
 .decades-filter-page .ui.grid,
 .shifter-filter-page .ui.grid {
-    width: 100%;
-    margin: 0 auto;
+  width: 100%;
+  margin: 0 auto;
 }
 
 .car-class-filters-page .ui.grid > [class*='five wide'].column,
 .decades-filter-page .ui.grid > [class*='five wide'].column,
 .shifter-filter-page .ui.grid > [class*='five wide'].column {
-    max-width: 90%;
+  max-width: 90%;
 }

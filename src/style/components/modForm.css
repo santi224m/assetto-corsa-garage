@@ -1,76 +1,76 @@
 .ui.form.mod-form {
-    max-width: 50rem;
-    margin: 0 auto;
-    margin-top: 40px;
-    padding-bottom: 60px;
+  max-width: 50rem;
+  margin: 0 auto;
+  margin-top: 40px;
+  padding-bottom: 60px;
 }
 
 .ui.form.mod-form .field > label {
-    font-size: 14px;
-    color: var(--secondary-color);
-    font-weight: 400;
-    margin-bottom: 11px;
-    max-width: 149px;
+  font-size: 14px;
+  color: var(--secondary-color);
+  font-weight: 400;
+  margin-bottom: 11px;
+  max-width: 149px;
 }
 
 .ui.form .ui.negative.button,
 .ui.form .ui.secondary-color.button {
-    margin-top: 21px;
+  margin-top: 21px;
 }
 
 .mod-form input[type='file'] {
-    display: none;
+  display: none;
 }
 
 .ui.form.mod-form .field > label.input-file {
-    color: #fff;
+  color: #fff;
 }
 
 .ui.form.mod-form .field > label.input-file i {
-    opacity: 1;
-    padding-left: 15px;
+  opacity: 1;
+  padding-left: 15px;
 }
 
 .ui.form input[type='text'],
 .ui.selection.dropdown,
 .ui.form input[type='number'] {
-    border: 0.5px solid var(--secondary-color);
-    font-family: 'Open Sans', sans-serif;
-    color: var(--dark-medium-color);
+  border: 0.5px solid var(--secondary-color);
+  font-family: 'Open Sans', sans-serif;
+  color: var(--dark-medium-color);
 }
 
 .ui.form input[type='text']:focus,
 .ui.form input[type='number']:focus {
-    color: var(--dark-medium-color);
+  color: var(--dark-medium-color);
 }
 
 .ui.form input[type='text']::placeholder,
 .ui.default.dropdown:not(.button) > .text,
 .ui.dropdown:not(.button) > .default.text,
 .ui.form input[type='number']::placeholder {
-    color: var(--secondary-color);
-    font-size: 13px;
+  color: var(--secondary-color);
+  font-size: 13px;
 }
 
 .ui.form p.info {
-    color: var(--secondary-color);
-    font-size: 13px;
-    margin-top: -7px;
+  color: var(--secondary-color);
+  font-size: 13px;
+  margin-top: -7px;
 }
 
 .form-review .mod-preview {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .mods-list .contribution {
-    width: 100%;
-    border-bottom: 2px solid #444;
-    padding-top: 2rem;
-    padding-bottom: 1rem;
+  width: 100%;
+  border-bottom: 2px solid #444;
+  padding-top: 2rem;
+  padding-bottom: 1rem;
 }
 
 .preview-img img {
-    max-width: 30rem;
+  max-width: 30rem;
 }

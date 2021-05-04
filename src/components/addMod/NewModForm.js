@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../../actions';
 
@@ -6,26 +6,26 @@ import ModForm from './ModForm';
 import ModReview from './ModReview';
 
 class NewModForm extends React.Component {
-    componentWillUnmount() {
-        this.props.clearForm();
-        this.props.clearBrandForm();
+  componentWillUnmount() {
+    this.props.clearForm();
+    this.props.clearBrandForm();
+  }
+
+  renderContent() {
+    if (this.props.form.showReview) {
+      return <ModReview />;
     }
 
-    renderContent() {
-        if (this.props.form.showReview) {
-            return <ModReview />;
-        }
+    return <ModForm />;
+  }
 
-        return <ModForm />;
-    }
-
-    render() {
-        return <>{this.renderContent()}</>;
-    }
+  render() {
+    return <>{this.renderContent()}</>;
+  }
 }
 
 const mapStateToProps = state => {
-    return { form: state.form };
+  return { form: state.form };
 };
 
 export default connect(mapStateToProps, actions)(NewModForm);
