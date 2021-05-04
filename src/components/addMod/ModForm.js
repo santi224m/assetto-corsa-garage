@@ -52,13 +52,9 @@ const ModForm = props => {
       }
     });
     // Brand Dropdown
-    props.form.brand === null
-      ? setBrandErr('Please select a brand')
-      : setBrandErr(null);
+    props.form.brand === null ? setBrandErr('Please select a brand') : setBrandErr(null);
     // Car model
-    props.form.model.length === 0
-      ? setModelErr('Please enter the car model')
-      : setModelErr(null);
+    props.form.model.length === 0 ? setModelErr('Please enter the car model') : setModelErr(null);
     // Year
     props.form.year.length === 0
       ? setYearErr('Please enter the year of the car')
@@ -68,16 +64,13 @@ const ModForm = props => {
       ? setTransmissionErr('Please select a transmission')
       : setTransmissionErr(null);
     // Car class
-    props.form.carClass === null
-      ? setClassErr('Please select a car class')
-      : setClassErr(null);
+    props.form.carClass === null ? setClassErr('Please select a car class') : setClassErr(null);
     // Add a new brand - image
     props.newBrandForm.imgURL === null && props.form.brand === 'New Brand'
       ? setnewBrandLogoErr('Please upload an image of the brand logo')
       : setnewBrandLogoErr(null);
     // Add a new brand - image
-    props.newBrandForm.brandName.length === 0 &&
-    props.form.brand === 'New Brand'
+    props.newBrandForm.brandName.length === 0 && props.form.brand === 'New Brand'
       ? setNewBrandNameErr('Please enter the brand name')
       : setNewBrandNameErr(null);
   }, [props.form, props.newBrandForm]);
@@ -88,19 +81,13 @@ const ModForm = props => {
 
     if (selected && imgTypes.includes(selected.type)) {
       const ref = imagesRef.child(imgId);
-
       const uploadTask = ref.put(selected);
 
       uploadTask.on(
         firebase.storage.TaskEvent.STATE_CHANGED, // or 'state_changed'
         snapshot => {
-          // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
-          var progress =
-            (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-          // console.log('Upload is ' + progress + '% done');
           switch (snapshot.state) {
             case firebase.storage.TaskState.PAUSED: // or 'paused'
-              // console.log('Upload is paused');
               break;
             case firebase.storage.TaskState.RUNNING: // or 'running'
               // console.log('Upload is running');
@@ -128,7 +115,6 @@ const ModForm = props => {
         () => {
           // Upload completed successfully, now we can get the download URL
           uploadTask.snapshot.ref.getDownloadURL().then(downloadURL => {
-            // console.log('File available at', downloadURL);
             props.setFormImageURL(downloadURL);
           });
         }
@@ -156,10 +142,7 @@ const ModForm = props => {
         return (
           <div
             key={brand.id}
-            className={`item ${
-              props.form.brand === brand.brandName ? 'active selected' : ''
-            }`}
-            // className={`item`}
+            className={`item ${props.form.brand === brand.brandName ? 'active selected' : ''}`}
             data-value={brand.brandName}
             onClick={() => props.setFormBrand(brand.brandName)}
             children={brand.brandName}
@@ -175,9 +158,7 @@ const ModForm = props => {
       return (
         <div
           key={value}
-          className={`item ${
-            props.form.transmission === value ? 'active selected' : ''
-          }`}
+          className={`item ${props.form.transmission === value ? 'active selected' : ''}`}
           data-value={value}
           onClick={() => props.setFormTransmission(value)}
           children={value}
@@ -291,21 +272,17 @@ const ModForm = props => {
             <p>{linkErr}</p>
           </div>
         )}
-        {modUrlWarning && (
-          <div className='ui yellow message'>{modUrlWarning}</div>
-        )}
+        {modUrlWarning && <div className='ui yellow message'>{modUrlWarning}</div>}
       </div>
       <div className='field'>
         <label>Brand</label>
         <p className='info'>
-          * If the brand is not in the dropdown, select the "New Brand" option
-          to add it to the database.
+          * If the brand is not in the dropdown, select the "New Brand" option to add it to the
+          database.
         </p>
         <Dropdown inputName='Select a brand' selectedValue={props.form.brand}>
           <div
-            className={`item ${
-              props.form.brand === 'New Brand' ? 'active selected' : ''
-            }`}
+            className={`item ${props.form.brand === 'New Brand' ? 'active selected' : ''}`}
             // className={`item`}
             data-value='New Brand'
             onClick={() => props.setFormBrand('New Brand')}

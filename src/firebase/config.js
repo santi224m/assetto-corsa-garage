@@ -8,14 +8,14 @@ import keys from '../config/keys';
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 var firebaseConfig = {
-    apiKey: keys.firebaseApiKey,
-    authDomain: keys.firebaseAuthDomain,
-    projectId: keys.firebaseProjectId,
-    databaseURL: keys.firebaseDatabaseURL,
-    storageBucket: keys.firebaseStorageBucket,
-    messagingSenderId: keys.firebaseMessagingSenderId,
-    appId: keys.firebaseAppId,
-    measurementId: keys.firebaseMeasurementId,
+  apiKey: keys.firebaseApiKey,
+  authDomain: keys.firebaseAuthDomain,
+  projectId: keys.firebaseProjectId,
+  databaseURL: keys.firebaseDatabaseURL,
+  storageBucket: keys.firebaseStorageBucket,
+  messagingSenderId: keys.firebaseMessagingSenderId,
+  appId: keys.firebaseAppId,
+  measurementId: keys.firebaseMeasurementId
 };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);

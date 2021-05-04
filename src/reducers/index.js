@@ -8,11 +8,11 @@ import modFormReducer from './modFormReducer';
 import newBrandReducer from './newBrandReducer';
 
 export default combineReducers({
-    cars: carsReducer,
-    brands: brandsReducer,
-    selectedFilters: selectedFilterReducer,
-    currentSort: sortReducer,
-    oAuth: oAuthReducer,
-    form: modFormReducer,
-    newBrandForm: newBrandReducer,
+  cars: carsReducer,
+  brands: brandsReducer,
+  selectedFilters: selectedFilterReducer,
+  currentSort: sortReducer,
+  oAuth: oAuthReducer,
+  form: modFormReducer,
+  newBrandForm: newBrandReducer
 });
