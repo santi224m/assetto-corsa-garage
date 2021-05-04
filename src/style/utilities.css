@@ -72,6 +72,10 @@
   flex-wrap: wrap;
 }
 
+.ui.pagination.menu .active.item {
+  padding-top: 10px;
+}
+
 /* Navbar */
 .ui.secondary.pointing.menu {
   background: #fff;

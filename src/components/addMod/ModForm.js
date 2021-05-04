@@ -33,6 +33,7 @@ const ModForm = props => {
   const [newBrandLogoErr, setnewBrandLogoErr] = useState(null);
   const [newBrandNameErr, setNewBrandNameErr] = useState(null);
   const [modUrlWarning, setModUrlWarning] = useState(null);
+  const [imgFileName, setImgFileName] = useState(null);
 
   const imgTypes = ['image/png', 'image/jpeg'];
 
@@ -75,8 +76,10 @@ const ModForm = props => {
       : setNewBrandNameErr(null);
   }, [props.form, props.newBrandForm]);
 
+  // Uploads file to firebase when user drops file
   const changeHandler = e => {
     let selected = e.target.files[0];
+    setImgFileName(selected.name);
     const imgId = uuidv4();
 
     if (selected && imgTypes.includes(selected.type)) {
@@ -84,19 +87,16 @@ const ModForm = props => {
       const uploadTask = ref.put(selected);
 
       uploadTask.on(
-        firebase.storage.TaskEvent.STATE_CHANGED, // or 'state_changed'
+        firebase.storage.TaskEvent.STATE_CHANGED,
         snapshot => {
           switch (snapshot.state) {
-            case firebase.storage.TaskState.PAUSED: // or 'paused'
+            case firebase.storage.TaskState.PAUSED:
               break;
-            case firebase.storage.TaskState.RUNNING: // or 'running'
-              // console.log('Upload is running');
+            case firebase.storage.TaskState.RUNNING:
               break;
           }
         },
         error => {
-          // A full list of error codes is available at
-          // https://firebase.google.com/docs/storage/web/handle-errors
           switch (error.code) {
             case 'storage/unauthorized':
               // User doesn't have permission to access the object
@@ -104,9 +104,6 @@ const ModForm = props => {
             case 'storage/canceled':
               // User canceled the upload
               break;
-
-            // ...
-
             case 'storage/unknown':
               // Unknown error occurred, inspect error.serverResponse
               break;
@@ -174,9 +171,7 @@ const ModForm = props => {
       return (
         <div
           key={className}
-          className={`item ${
-            props.form.carClass === className ? 'active selected' : ''
-          }`}
+          className={`item ${props.form.carClass === className ? 'active selected' : ''}`}
           data-value={className}
           onClick={() => props.setFormCarClass(className)}
           children={className}
@@ -219,22 +214,15 @@ const ModForm = props => {
   };
 
   return (
-    <form
-      className='ui form mod-form'
-      onSubmit={handleSubmit}
-      id='add-mod-form'
-    >
+    <form className='ui form mod-form' onSubmit={handleSubmit} id='add-mod-form'>
       <div className='fields'>
         <div className='field large'>
           <label>Mod Image</label>
-          <label
-            className='input-file ui button fluid green'
-            htmlFor='modImage'
-          >
+          <label className='input-file ui button fluid green' htmlFor='modImage'>
             Upload Image <i className='upload icon'></i>
           </label>
           <label htmlFor='files' id='files-label'>
-            Drag and drop image here
+            {imgFileName ? imgFileName : 'Drag and drop image here'}
             <input
               type='file'
               name='files'
@@ -243,15 +231,8 @@ const ModForm = props => {
               onChange={changeHandler}
             />
           </label>
-          <input
-            type='file'
-            name='modImage'
-            id='modImage'
-            onChange={changeHandler}
-          />
-          {showErrMsg && imgError && (
-            <div className='ui negative message'>{imgError}</div>
-          )}
+          <input type='file' name='modImage' id='modImage' onChange={changeHandler} />
+          {showErrMsg && imgError && <div className='ui negative message'>{imgError}</div>}
           {props.form.imgURL && (
             <div className='preview-img'>
               <img src={props.form.imgURL} />
@@ -357,19 +338,12 @@ const ModForm = props => {
           </div>
         )}
       </div>
-      <Link
-        to='/newmod'
-        className='ui button left floated negative'
-        onClick={props.clearForm}
-      >
+      <Link to='/newmod' className='ui button left floated negative' onClick={props.clearForm}>
         Cancel
       </Link>
       <button type='submit' className='ui button right floated secondary-color'>
         Next
-        <i
-          className='arrow alternate circle right outline icon'
-          style={{ opacity: '1' }}
-        ></i>
+        <i className='arrow alternate circle right outline icon' style={{ opacity: '1' }}></i>
       </button>
     </form>
   );
