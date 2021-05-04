@@ -1,69 +1,69 @@
 #footer {
-    margin-top: 3rem;
-    padding: 24px 0;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-color: #fff;
-    border-top: 3px solid var(--primary-color);
+  margin-top: 3rem;
+  padding: 24px 0;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #fff;
+  border-top: 3px solid var(--primary-color);
 }
 
 #footer .ui.container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 #footer .item {
-    color: var(--dark-medium-color);
-    padding-right: 13px;
-    font-size: 15px;
+  color: var(--dark-medium-color);
+  padding-right: 13px;
+  font-size: 15px;
 }
 
 #footer .item:hover {
-    color: var(--primary-color);
+  color: var(--primary-color);
 }
 
 #footer a.scrollUpButton {
-    color: var(--primary-color);
-    font-size: 1.5rem;
-    cursor: pointer;
-    width: 3rem;
-    text-align: center;
+  color: var(--primary-color);
+  font-size: 1.5rem;
+  cursor: pointer;
+  width: 3rem;
+  text-align: center;
 }
 
 #footer a.disabled {
-    cursor: pointer;
-    color: rgba(255, 255, 255, 0.35);
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.35);
 }
 
 @media only screen and (max-width: 768px) {
-    #footer .ui.container {
-        flex-direction: column-reverse;
-        padding-bottom: 5px;
-    }
+  #footer .ui.container {
+    flex-direction: column-reverse;
+    padding-bottom: 5px;
+  }
 
-    #footer a.scrollUpButton {
-        margin-bottom: 17px;
-    }
+  #footer a.scrollUpButton {
+    margin-bottom: 17px;
+  }
 
-    #footer .item {
-        position: relative;
-        padding-right: 30px;
-    }
+  #footer .item {
+    position: relative;
+    padding-right: 30px;
+  }
 
-    #footer .item:last-child {
-        padding-right: 0;
-    }
+  #footer .item:last-child {
+    padding-right: 0;
+  }
 
-    #footer .item:not(#footer .item:last-child)::after {
-        content: '';
-        width: 2px;
-        height: 100%;
-        background-color: var(--primary-color);
-        position: absolute;
-        top: 0;
-        right: 15px;
-    }
+  #footer .item:not(#footer .item:last-child)::after {
+    content: '';
+    width: 2px;
+    height: 100%;
+    background-color: var(--primary-color);
+    position: absolute;
+    top: 0;
+    right: 15px;
+  }
 }

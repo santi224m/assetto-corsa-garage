@@ -15,32 +15,32 @@ import VerifyMods from './VerifyMods';
 import history from '../history';
 
 class App extends React.Component {
-    render() {
-        return (
-            <>
-                <Router history={history}>
-                    <Header />
-                    <div className='ui container'>
-                        <Switch>
-                            <Route path='/filters/brands' component={FilterBrands} />
-                            <Route path='/filters/class' component={FilterClass} />
-                            <Route path='/filters/decades' component={FilterDecades} />
-                            <Route path='/filters/shifters' component={FilterShifters} />
-                            <Route path='/list' component={ShowList} />
-                            <Route path='/newmod/form' exact component={NewModForm} />
-                            <Route path='/verifymods' exact component={VerifyMods} />
-                        </Switch>
-                    </div>
-                    {/* For routes that don't need container class */}
-                    <Switch>
-                        <Route path='/newmod' exact component={NewMod} />
-                        <Route path='/' exact component={Home} />
-                    </Switch>
-                    <Footer />
-                </Router>
-            </>
-        );
-    }
+  render() {
+    return (
+      <>
+        <Router history={history}>
+          <Header />
+          <div className='ui container'>
+            <Switch>
+              <Route path='/filters/brands' component={FilterBrands} />
+              <Route path='/filters/class' component={FilterClass} />
+              <Route path='/filters/decades' component={FilterDecades} />
+              <Route path='/filters/shifters' component={FilterShifters} />
+              <Route path='/list' component={ShowList} />
+              <Route path='/newmod/form' exact component={NewModForm} />
+              <Route path='/verifymods' exact component={VerifyMods} />
+            </Switch>
+          </div>
+          {/* For routes that don't need container class */}
+          <Switch>
+            <Route path='/newmod' exact component={NewMod} />
+            <Route path='/' exact component={Home} />
+          </Switch>
+          <Footer />
+        </Router>
+      </>
+    );
+  }
 }
 
 export default App;

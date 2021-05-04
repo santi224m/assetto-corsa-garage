@@ -1,96 +1,96 @@
 .pagination-container {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
 }
 
 .ui.pagination.menu {
-    border: none;
+  border: none;
 }
 
 .pagination-container .ui.menu {
-    background-color: transparent;
-    box-shadow: none;
+  background-color: transparent;
+  box-shadow: none;
 }
 
 .ui.pagination.menu .item {
-    color: var(--primary-color);
-    font-weight: 400;
-    font-size: 16px;
-    text-align: center;
-    position: relative;
-    padding: 10px;
+  color: var(--primary-color);
+  font-weight: 400;
+  font-size: 16px;
+  text-align: center;
+  position: relative;
+  padding: 10px;
 }
 
 .ui.menu .item:before {
-    background: #fff;
+  background: #fff;
 }
 
 .ui.pagination.menu .active.item {
-    background: transparent;
-    color: #fff;
-    border-radius: 0;
+  background: transparent;
+  color: #fff;
+  border-radius: 0;
 }
 
 .ui.pagination.menu .item {
-    min-width: 0;
+  min-width: 0;
 }
 
 .ui.pagination.menu .item:hover {
-    color: #fff;
-    background-color: transparent;
+  color: #fff;
+  background-color: transparent;
 }
 
 .ui.menu .item:before {
-    background: transparent;
+  background: transparent;
 }
 
 .ui.pagination.menu .active.item::before,
 .ui.pagination.menu .item:hover::before {
-    content: '';
-    background-color: var(--primary-color);
-    width: 28px;
-    height: 28px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: -100;
+  content: '';
+  background-color: var(--primary-color);
+  width: 28px;
+  height: 28px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -100;
 }
 
 .ui.pagination.menu button {
-    margin: 0 20px;
-    padding: 11px 35px;
+  margin: 0 20px;
+  padding: 11px 35px;
 }
 
 @media only screen and (max-width: 768px) {
-    .pagination-container {
-        margin-top: 0;
-    }
+  .pagination-container {
+    margin-top: 0;
+  }
 
-    .pagination-container .ui.menu {
-        position: relative;
-        padding-bottom: 45px;
-        width: 230px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
+  .pagination-container .ui.menu {
+    position: relative;
+    padding-bottom: 45px;
+    width: 230px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
-    .pagination-container .ui.menu button:first-child {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        margin: 0;
-        padding: 11px 22px;
-    }
+  .pagination-container .ui.menu button:first-child {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    margin: 0;
+    padding: 11px 22px;
+  }
 
-    .pagination-container .ui.menu button:last-child {
-        position: absolute;
-        bottom: 0;
-        right: 0;
-        margin: 0;
-    }
+  .pagination-container .ui.menu button:last-child {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin: 0;
+  }
 }

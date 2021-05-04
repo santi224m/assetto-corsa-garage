@@ -1,46 +1,46 @@
 .ui.card .content:not(.extra) {
-    padding: 9px 0 18px;
+  padding: 9px 0 18px;
 }
 
 .ui.card .content.extra {
-    padding: 0 18px 15px;
+  padding: 0 18px 15px;
 }
 
 .ui.card .content .meta,
 .ui.card .content span {
-    font-size: 16px;
-    color: var(--dark-medium-color);
+  font-size: 16px;
+  color: var(--dark-medium-color);
 }
 
 .ui.card .content .learn-more-btn {
-    background-color: var(--secondary-color);
-    color: #fff;
+  background-color: var(--secondary-color);
+  color: #fff;
 }
 
 .ui.card .content .learn-more-btn:hover {
-    background-color: var(--secondary-color-hover);
+  background-color: var(--secondary-color-hover);
 }
 
 .ui.card .content a {
-    color: #fff;
-    font-size: 14px;
-    font-weight: 400;
-    padding: 15px 90px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 400;
+  padding: 15px 90px;
 }
 
 .ui.card > .content > .header:not(.ui),
 .ui.cards > .card > .content > .header:not(.ui) {
-    font-family: 'Open Sans', sans-serif;
-    font-size: 22px;
-    font-weight: 700;
-    color: var(--dark-medium-color);
-    padding: 10px 0;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--dark-medium-color);
+  padding: 10px 0;
 }
 
 .ui.cards {
-    margin-top: 25px;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-    padding: 0 90px;
+  margin-top: 25px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  padding: 0 90px;
 }

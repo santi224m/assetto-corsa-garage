@@ -47,10 +47,7 @@ const ModsList = props => {
       })
       .filter(car => car.createdBy === userId)
       .map(car => {
-        if (
-          carsList.indexOf(car) < props.startIndex ||
-          carsList.indexOf(car) > props.endIndex
-        ) {
+        if (carsList.indexOf(car) < props.startIndex || carsList.indexOf(car) > props.endIndex) {
           return;
         }
         const baseWikiURL = 'https://en.wikipedia.org/wiki/';
@@ -77,9 +74,7 @@ const ModsList = props => {
 
   return (
     <div className='mods-list'>
-      <h1 className='ui header contribution'>
-        Your contribution ({userContribution} mods)
-      </h1>
+      <h1 className='ui header contribution'>Your contribution ({userContribution} mods)</h1>
       <div className='ui cards'>{renderCarCards(props.cars, props.userId)}</div>
     </div>
   );
