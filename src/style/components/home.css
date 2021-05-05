@@ -5,7 +5,8 @@
   min-height: 50rem;
   max-height: 55rem;
   height: 100vh;
-  margin-top: -65px;
+  /* margin-top: -65px; */
+  display: none;
 }
 
 .hero .ui.container {

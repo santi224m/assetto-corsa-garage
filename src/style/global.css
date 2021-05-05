@@ -1,14 +1,13 @@
 :root {
-  --primary-color: #31c885;
-  --primary-color-hover: #2bb376;
-  --secondary-color: #747c93;
-  --secondary-color-hover: #626a80;
-  --dark-color: #0c0c0c;
-  --dark-medium-color: #2e2e2e;
+  --primary-color: #747c93;
+  --primary-color-hover: #666d80;
+  --secondary-color: #31c885;
+  --secondary-color-hover: #2ba46e;
+  --dark-color: #1a202e;
+  --medium-color: rgba(116, 124, 147, 0.4);
 }
 
 /* General Styles */
-
 * {
   margin: 0;
   box-sizing: border-box;
@@ -17,15 +16,11 @@
 body {
   height: auto;
   min-height: 100vh;
-  padding-top: 67px;
-  padding-bottom: 110px;
   position: relative;
   background: #f9faff;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Raleway', sans-serif;
 }
 
-@media only screen and (max-width: 768px) {
-  body {
-    padding-bottom: 142px;
-  }
+a {
+  text-decoration: none;
 }

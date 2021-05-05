@@ -1,125 +1,20 @@
-.ui {
-  font-family: 'Open Sans', sans-serif;
-}
-
-.btn-disabled {
-  opacity: 0.5;
-}
-
-.btn-disabled:hover {
-  cursor: default;
-}
-
-.ui.button.secondary-color {
-  background-color: var(--secondary-color);
-  color: #fff;
-}
-
-.ui.button.secondary-color:hover {
-  background-color: var(--secondary-color-hover);
-}
-
-/* Semantic UI overwrite */
-.ui.menu {
-  font-family: 'Open Sans', sans-serif;
-}
-
-.ui.grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  width: 93%;
+.container {
+  max-width: 1200px;
   margin: 0 auto;
+  padding: 0;
 }
 
-.ui.grid > [class*='five wide'].column {
-  width: 100% !important;
-  margin: 0 auto;
+.menu.transition.invisible {
+  display: none;
 }
 
-.ui.green.button,
-.ui.green.buttons .button,
-.ui.green.label {
-  background-color: var(--primary-color) !important;
-}
-
-.ui.green.button:hover,
-.ui.green.buttons .button:hover {
-  background-color: var(--primary-color-hover) !important;
-}
-
-.ui.dropdown .menu .selected.item,
-.ui.dropdown.selected {
-  color: rgba(0, 0, 0, 0.85);
-}
-
-.ui.selection.dropdown {
-  padding: 13px 20px;
-}
-
-.ui.card,
-.ui.cards > .card {
-  width: 290px;
-  box-shadow: none !important;
-  border: 1px solid #e8e8e8;
-}
-
-.ui.card > .extra,
-.ui.cards > .card > .extra {
-  border-top: none !important;
-}
-
-.ui.form .fields {
-  flex-wrap: wrap;
-}
-
-.ui.pagination.menu .active.item {
-  padding-top: 10px;
-}
-
-/* Navbar */
-.ui.secondary.pointing.menu {
-  background: #fff;
-  padding: 1rem 0;
-  border: none;
-}
-
-.ui.secondary.pointing.menu .item {
-  padding-left: 10px;
-  padding-right: 10px;
-}
-
-.ui.fluid.image img {
-  border-radius: 4px;
-}
-
-.ui.negative.message {
-  width: 100%;
-}
-@media only screen and (max-width: 1199px) {
-  .ui.grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
+.flipped {
+  transform: rotate(180deg);
 }
 
 @media only screen and (max-width: 768px) {
-  .ui.grid {
-    grid-template-columns: repeat(1, 1fr);
-    align-items: center;
-    flex-direction: column;
-  }
-
-  .ui.grid > [class*='five wide'].column {
-    width: 100% !important;
-  }
-
-  .home-page.filter-pages {
-    margin-top: 40px;
-    margin-bottom: 0px;
-  }
-
-  .ui.link.cards {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  .container {
+    max-width: 100%;
+    padding: 0 20px;
   }
 }

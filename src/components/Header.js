@@ -32,7 +32,7 @@ const Header = props => {
   };
 
   return (
-    <div ref={ref} id='navbar' className='ui large top menu pointing fixed secondary'>
+    <div ref={ref} id='navbar'>
       <HeaderLinksDesktop
         props={props}
         dropDownClicked={dropDownClicked}
