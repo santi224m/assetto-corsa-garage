@@ -8,6 +8,7 @@ import HeaderLinksMobile from './HeaderLinksMobile';
 
 const Header = props => {
   const [dropDownClicked, setDropDownClicked] = useState(false);
+  const [showMobile, setShowMobile] = useState(false);
 
   const ref = useRef();
 
@@ -32,15 +33,19 @@ const Header = props => {
   };
 
   return (
-    <div ref={ref} id='navbar'>
-      <HeaderLinksDesktop
-        props={props}
-        dropDownClicked={dropDownClicked}
-        setDropDownClicked={setDropDownClicked}
-        onSearchSubmit={onSearchSubmit}
-      />
-      <HeaderLinksMobile />
-    </div>
+    <>
+      <div ref={ref} id='navbar' className={`${showMobile ? 'nav-fixed' : ''}`}>
+        <HeaderLinksDesktop
+          props={props}
+          dropDownClicked={dropDownClicked}
+          setDropDownClicked={setDropDownClicked}
+          onSearchSubmit={onSearchSubmit}
+          showMobile={showMobile}
+          setShowMobile={setShowMobile}
+        />
+      </div>
+      <HeaderLinksMobile showMobile={showMobile} setShowMobile={setShowMobile} />
+    </>
   );
 };
 

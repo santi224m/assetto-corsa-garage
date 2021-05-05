@@ -1,12 +1,30 @@
 import React from 'react';
 import SignIn from './SignIn';
 import HeaderLink from './HeaderLink';
+import history from '../history';
 
-const HeaderLinksDesktop = ({ props, dropDownClicked, setDropDownClicked, onSearchSubmit }) => {
+const toggleSidebar = (showMobile, setShowMobile) => {
+  window.scrollTo(0, 0);
+  setShowMobile(!showMobile);
+};
+
+const HeaderLinksDesktop = ({
+  props,
+  dropDownClicked,
+  setDropDownClicked,
+  onSearchSubmit,
+  showMobile,
+  setShowMobile
+}) => {
   return (
     <div className='container'>
       <div className='left'>
-        <img id='asg-logo' src='/img/asg-logo.png' alt='Assetto Corsa Garage' />
+        <img
+          id='asg-logo'
+          src='/img/asg-logo.png'
+          alt='Assetto Corsa Garage'
+          onClick={() => history.push('/')}
+        />
         <HeaderLink path='/' text='Home' />
         <HeaderLink path='/list' text='All Cars' />
         <div onClick={() => setDropDownClicked(!dropDownClicked)} className='dropdown'>
@@ -34,6 +52,14 @@ const HeaderLinksDesktop = ({ props, dropDownClicked, setDropDownClicked, onSear
           />
           <img id='search-btn' src='img/icons/search.svg' alt='Search' />
         </div>
+      </div>
+      <div
+        className={`hamburger-menu ${showMobile ? 'change' : ''}`}
+        onClick={() => toggleSidebar(showMobile, setShowMobile)}
+      >
+        <div className='bar1'></div>
+        <div className='bar2'></div>
+        <div className='bar3'></div>
       </div>
     </div>
   );
