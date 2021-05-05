@@ -1,69 +1,46 @@
 #footer {
-  margin-top: 3rem;
-  padding: 24px 0;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background-color: #fff;
+  padding: 20px 0;
   border-top: 3px solid var(--primary-color);
 }
 
-#footer .ui.container {
+#footer .container {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-#footer .item {
-  color: var(--dark-medium-color);
-  padding-right: 13px;
-  font-size: 15px;
+#footer .copy {
+  font-size: 14px;
 }
 
-#footer .item:hover {
-  color: var(--primary-color);
+#footer .container .right {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 }
 
-#footer a.scrollUpButton {
-  color: var(--primary-color);
-  font-size: 1.5rem;
-  cursor: pointer;
-  width: 3rem;
-  text-align: center;
+#footer .container .right > * {
+  margin-left: 40px;
 }
 
-#footer a.disabled {
-  cursor: pointer;
-  color: rgba(255, 255, 255, 0.35);
+#footer .container .right > *:first-child {
+  margin-left: 0;
 }
 
 @media only screen and (max-width: 768px) {
-  #footer .ui.container {
-    flex-direction: column-reverse;
-    padding-bottom: 5px;
+  #footer {
+    padding: 30px 0;
   }
 
-  #footer a.scrollUpButton {
-    margin-bottom: 17px;
+  #footer .container {
+    flex-direction: column;
   }
 
-  #footer .item {
-    position: relative;
-    padding-right: 30px;
+  #footer .container > * {
+    margin-bottom: 30px;
   }
 
-  #footer .item:last-child {
-    padding-right: 0;
-  }
-
-  #footer .item:not(#footer .item:last-child)::after {
-    content: '';
-    width: 2px;
-    height: 100%;
-    background-color: var(--primary-color);
-    position: absolute;
-    top: 0;
-    right: 15px;
+  #footer .container > *:last-child {
+    margin-bottom: 0;
   }
 }
