@@ -19,8 +19,14 @@ body {
   position: relative;
   background: #f9faff;
   font-family: 'Raleway', sans-serif;
+  color: var(--dark-color);
 }
 
 a {
   text-decoration: none;
+}
+
+#asg-logo {
+  height: 50px;
+  width: auto;
 }

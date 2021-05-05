@@ -19,7 +19,7 @@ class BannerWithButton extends React.Component {
                   button
                 </li>
               </ol>
-              <Link to='/newmod/form' className='ui button secondary-color'>
+              <Link to='/newmod/form' className='btn-primary'>
                 <span>Add New Mod</span>
                 <i style={{ marginLeft: '15px', opacity: '1' }} className='cloud upload icon'></i>
               </Link>

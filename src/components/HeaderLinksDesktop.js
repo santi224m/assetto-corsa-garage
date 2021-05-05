@@ -32,7 +32,7 @@ const HeaderLinksDesktop = ({
             Filters
             <img src='/img/icons/arrow.svg' className={`${dropDownClicked ? 'flipped' : ''}`} />
           </span>
-          <div className={`menu transition ${dropDownClicked ? 'visible' : 'invisible'}`}>
+          <div className={`menu transition ${dropDownClicked ? '' : 'invisible'}`}>
             <HeaderLink path='/filters/brands' text='Brands' />
             <HeaderLink path='/filters/class' text='Class' />
             <HeaderLink path='/filters/decades' text='Decades' />
