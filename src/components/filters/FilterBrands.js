@@ -43,9 +43,11 @@ class FilterBrands extends React.Component {
           <title>Assetto Corsa Garage | Brands</title>
           <meta name='description' content='Filter Assetto Corsa mods by their brands' />
         </Helmet>
-        <div className='filter-page'>
-          <p className='filter-title'>Filter by Brand</p>
-          <div className='ui grid brands-grid'>{this.renderBrandCards()}</div>
+        <div className='filter-page filter-brands'>
+          <div className='container'>
+            <p className='filter-title'>Filter by Brand</p>
+            <div className='cards-grid'>{this.renderBrandCards()}</div>
+          </div>
         </div>
       </>
     );

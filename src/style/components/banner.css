@@ -2,7 +2,7 @@
   background-color: var(--dark-color);
   background: url('../../img/banner-bg.jpg') no-repeat center center/cover;
   color: #fff;
-  padding: 50px 0 110px 0;
+  padding: 50px 0 80px 0;
   position: relative;
 }
 
@@ -20,27 +20,19 @@
   z-index: 1;
 }
 
-.banner .ui.container {
+.banner .container {
   z-index: 10;
   position: inherit;
 }
 
 .banner .banner-title {
   font-size: 28px;
-  font-weight: 600;
+  font-weight: 700;
   text-transform: uppercase;
-  margin-bottom: 10px;
-}
-
-.banner .banner-title-underline,
-.banner-wbtn-title-underline {
-  max-width: 805px;
-  height: 2px;
-  background-color: #fff;
 }
 
 .banner .banner-content {
-  margin-top: 40px;
+  margin-top: 25px;
   display: flex;
   justify-content: space-between;
 }
@@ -54,41 +46,24 @@
   padding-bottom: 12px;
 }
 
-.banner .banner-content .banner-text .banner-button {
-  text-decoration: underline;
-  color: var(--primary-color);
-  font-weight: 600;
-}
-
 .banner .banner-content .banner-video {
   overflow: hidden;
 }
 
 /* Banner on newMod page */
-.banner-wbtn-title-underline {
-  max-width: 865px;
-}
-
-.banner-text .ui.button.secondary-color {
+.banner-text .btn-primary {
   padding: 16px 64px;
   margin-top: 30px;
 }
 
-.banner-text .ui.button.secondary-color i {
-  margin: 0;
-  margin-left: 10px;
-}
-
-.banner.bwb {
-  padding: 50px 0 75px 0;
-}
-
-#home-page .banner {
-  margin-bottom: -40px;
+#upload-btn div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 @media only screen and (max-width: 768px) {
-  .banner {
-    display: none;
+  .banner .banner-title {
+    font-size: 20px;
   }
 }

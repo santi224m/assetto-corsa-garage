@@ -58,13 +58,22 @@ const NewBrand = props => {
     <>
       <div className='field'>
         <label>Brand Logo</label>
-        <label className='input-file ui button fluid green' htmlFor='brandLogo'>
-          Upload Image <i className='upload icon'></i>
+        <label className='input-file btn-secondary' htmlFor='brandLogo'>
+          <div>
+            Upload Image
+            <img src='/img/icons/upload.svg' alt='upload' />
+          </div>
         </label>
-        <input type='file' name='brandLogo' id='brandLogo' onChange={uploadBrandImg} />
-        {imgError && <div className='ui negative message'>{imgError}</div>}
+        <input
+          type='file'
+          name='brandLogo'
+          id='brandLogo'
+          onChange={uploadBrandImg}
+          style={{ display: 'none' }}
+        />
+        {imgError && <div className='negative message'>{imgError}</div>}
         {props.showErrMsg && props.newBrandLogoErr && (
-          <div className='ui negative message'>
+          <div className='negative message'>
             <p>{props.newBrandLogoErr}</p>
           </div>
         )}
@@ -83,7 +92,7 @@ const NewBrand = props => {
           onChange={e => props.setBrandFormName(e.target.value)}
         />
         {props.showErrMsg && props.newBrandNameErr && (
-          <div className='ui negative message'>
+          <div className='negative message'>
             <p>{props.newBrandNameErr}</p>
           </div>
         )}

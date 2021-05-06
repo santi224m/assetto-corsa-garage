@@ -1,0 +1,74 @@
+#filter-button {
+  margin-top: 70px;
+  margin-bottom: 15px;
+}
+
+#filter-button div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#filter-button div img {
+  padding-left: 10px;
+}
+
+#filters {
+  background-color: #fff;
+  border-radius: 4px;
+  -webkit-box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.16);
+  -moz-box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.16);
+  box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.16);
+  margin-bottom: 25px;
+  padding: 30px 108px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#filters .field {
+  max-width: 196px;
+  margin: 0 7px;
+}
+
+#filters .field .selection.dropdown {
+  min-width: 196px;
+}
+
+.sort-dropdown {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.sort-dropdown label {
+  padding-right: 15px;
+  font-size: 14px;
+  color: var(--primary-color);
+}
+
+.sort-dropdown .selection.dropdown {
+  min-width: 196px;
+}
+
+@media only screen and (max-width: 768px) {
+  #filter-button {
+    margin-top: 40px;
+  }
+
+  #filters {
+    flex-direction: column;
+    padding: 25px 60px;
+  }
+
+  #filters .field {
+    margin-bottom: 20px;
+    width: 100%;
+  }
+
+  #filters .field .btn-negative {
+    width: 100%;
+  }
+}

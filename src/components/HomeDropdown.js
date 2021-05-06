@@ -19,30 +19,30 @@ class HomeDropdown extends React.Component {
 
   render() {
     return (
-      <div className='ui form'>
-        <div className='three wide field'>
+      <div className='form'>
+        <div className='field'>
           <label>Brand</label>
           <Dropdown inputName='Any' selectedValue={this.props.selectedFilters.selectedBrand}>
             {renderBrandsOptions(this.props)}
           </Dropdown>
         </div>
 
-        <div className='three wide field'>
+        <div className='field'>
           <label>Shifter</label>
           <Dropdown inputName='Any' selectedValue={this.props.selectedFilters.selectedShifter}>
             {renderShifterOptions(this.props)}
           </Dropdown>
         </div>
 
-        <div className='three wide field'>
+        <div className='field'>
           <label>Class</label>
           <Dropdown inputName='Any' selectedValue={this.props.selectedFilters.selectedClass}>
             {renderClassOptions(this.props)}
           </Dropdown>
         </div>
 
-        <div className='three wide field'>
-          <Link to='/list' className='ui green button' onClick={() => window.scrollTo(0, 0)}>
+        <div className='field'>
+          <Link to='/list' className='btn-primary btn-large' onClick={() => window.scrollTo(0, 0)}>
             Search
           </Link>
         </div>

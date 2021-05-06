@@ -1,41 +1,65 @@
 import React from 'react';
 import SignIn from './SignIn';
 import HeaderLink from './HeaderLink';
+import history from '../history';
 
-const HeaderLinksDesktop = ({ props, dropDownClicked, setDropDownClicked, onSearchSubmit }) => {
+const toggleSidebar = (showMobile, setShowMobile) => {
+  window.scrollTo(0, 0);
+  setShowMobile(!showMobile);
+};
+
+const HeaderLinksDesktop = ({
+  props,
+  dropDownClicked,
+  setDropDownClicked,
+  onSearchSubmit,
+  showMobile,
+  setShowMobile
+}) => {
   return (
-    <div className='ui container'>
-      <HeaderLink path='/' className='asg-logo item header' text='Assetto Corsa Garage' />
-      <HeaderLink path='/' className='item desktop-link' text='Home' />
-      <HeaderLink path='/list' className='item desktop-link' text='All Cars' />
-      <div
-        onClick={() => setDropDownClicked(!dropDownClicked)}
-        className={`desktop-link ui dropdown link item ${dropDownClicked ? 'active visible' : ''}`}
-      >
-        <span className='text'>Filters</span>
-        <img src='/img/icons/DownArrow.svg' className='asg-icon down-arrow' />
-        <div className={`menu transition ${dropDownClicked ? 'visible' : ''}`}>
-          <HeaderLink path='/filters/brands' className='item asg' text='Brands' />
-          <HeaderLink path='/filters/class' className='item asg' text='Class' />
-          <HeaderLink path='/filters/decades' className='item asg' text='Decades' />
-          <HeaderLink path='/filters/shifters' className='item asg' text='Shifters' />
-        </div>
-      </div>
-      <div className='right menu'>
-        <SignIn />
-        <div className='ui search'>
-          <div className='ui icon input'>
-            <input
-              type='text'
-              className='prompt'
-              placeholder='Search'
-              value={props.selectedFilters.searchTerm}
-              onChange={e => props.filterSearch(e.target.value)}
-              onKeyPress={e => onSearchSubmit(e)}
-            />
-            <i className='search icon'></i>
+    <div className='container'>
+      <div className='left'>
+        <img
+          id='asg-logo'
+          src='/img/asg-logo.png'
+          alt='Assetto Corsa Garage'
+          onClick={() => history.push('/')}
+        />
+        <HeaderLink path='/' text='Home' />
+        <HeaderLink path='/list' text='All Cars' />
+        <div onClick={() => setDropDownClicked(!dropDownClicked)} className='dropdown'>
+          <span className='dropdownLink'>
+            Filters
+            <img src='/img/icons/arrow.svg' className={`${dropDownClicked ? 'flipped' : ''}`} />
+          </span>
+          <div className={`menu transition ${dropDownClicked ? '' : 'invisible'}`}>
+            <HeaderLink path='/filters/brands' text='Brands' />
+            <HeaderLink path='/filters/class' text='Class' />
+            <HeaderLink path='/filters/decades' text='Decades' />
+            <HeaderLink path='/filters/shifters' text='Shifters' />
           </div>
         </div>
+      </div>
+      <div className='right'>
+        <SignIn />
+        <div className='search-bar'>
+          <input
+            type='text'
+            placeholder='Search'
+            value={props.selectedFilters.searchTerm}
+            onChange={e => props.filterSearch(e.target.value)}
+            onKeyPress={e => onSearchSubmit(e)}
+          />
+          <img id='search-btn' src='/img/icons/search.svg' alt='Search' />
+        </div>
+      </div>
+      <div
+        className={`hamburger-menu ${showMobile ? 'change' : ''}`}
+        onClick={() => toggleSidebar(showMobile, setShowMobile)}
+      >
+        <div className='bar1'></div>
+        <div className='bar2'></div>
+        <div className='bar3'></div>
       </div>
     </div>
   );

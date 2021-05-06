@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 class Footer extends React.Component {
   scrollTop() {
@@ -16,25 +15,21 @@ class Footer extends React.Component {
 
   render() {
     return (
-      <div className='ui inverted vertical footer segment' id='footer'>
-        <div className='ui container'>
-          <div className='footer-links'>
-            <Link to='/' className='item' onClick={() => this.scrollTop()}>
-              Home
-            </Link>
-            <Link to='/list' className='item' onClick={() => this.scrollTop()}>
-              All Cars
-            </Link>
-            <a href='https://github.com/santi224m/assettoCorsaGarage' className='item'>
-              Contribute
+      <div id='footer'>
+        <div className='container'>
+          <img src='/img/asg-logo.png' alt='Assetto Corsa Garage' id='asg-logo' />
+          <p className='copy'>&copy; Assetto Corsa Garage 2021</p>
+          <div className='right'>
+            <a href='https://github.com/santi224m/assettoCorsaGarage'>
+              <img src='/img/icons/github.svg' alt='GitHub' />
             </a>
+            <img
+              className='btn-scroll'
+              src='/img/icons/scroll-up.svg'
+              alt='Scroll Up'
+              onClick={() => this.animatedScrollTop()}
+            />
           </div>
-          <a
-            className='ui right floated inverted scrollUpButton'
-            onClick={() => this.animatedScrollTop()}
-          >
-            <img src='/img/icons/footerUpArrow.svg' alt='Up Arrow' />
-          </a>
         </div>
       </div>
     );

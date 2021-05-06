@@ -6,7 +6,6 @@ class Banner extends React.Component {
       <div className='banner'>
         <div className='ui container'>
           <h3 className='banner-title'>Help other sim racers by contributing to the site</h3>
-          <div className='banner-title-underline'></div>
           <div className='banner-content'>
             <div className='banner-text'>
               <ol>
