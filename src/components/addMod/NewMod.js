@@ -28,7 +28,7 @@ const NewMod = props => {
       </Helmet>
       <div>
         <BannerWithButton />
-        <div className='ui container new-mod-page'>
+        <div className='container new-mod-page'>
           <ModsList
             totalItems={totalItems}
             updateTotalItems={updateTotalItems}

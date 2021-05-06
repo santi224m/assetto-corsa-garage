@@ -24,6 +24,7 @@ class Footer extends React.Component {
               <img src='/img/icons/github.svg' alt='GitHub' />
             </a>
             <img
+              className='btn-scroll'
               src='/img/icons/scroll-up.svg'
               alt='Scroll Up'
               onClick={() => this.animatedScrollTop()}

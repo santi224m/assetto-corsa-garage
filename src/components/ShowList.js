@@ -37,33 +37,35 @@ const ShowList = props => {
         <title>Assetto Corsa Garage | Cars</title>
       </Helmet>
       <div className='carsList-grid'>
-        <FilterForm />
-        <SortDropdown />
-        <CarsList
-          props={props}
-          totalItems={totalItems}
-          updateTotalItems={updateTotalItems}
-          updatePages={updatePages}
-          pageSize={pageSize}
-          updateCurrentPage={updateCurrentPage}
-          startIndex={startIndex}
-          endIndex={endIndex}
-        />
-        <SearchErrorMessage carListLength={totalItems} />
-        <Pagination
-          totalItems={totalItems}
-          updateTotalItems={updateTotalItems}
-          currentPage={currentPage}
-          updateCurrentPage={updateCurrentPage}
-          pageSize={pageSize}
-          updatePageSize={updatePageSize}
-          startIndex={startIndex}
-          updateStartIndex={updateStartIndex}
-          endIndex={endIndex}
-          updateEndIndex={updateEndIndex}
-          pages={pages}
-          updatePages={updatePages}
-        />
+        <div className='container'>
+          <FilterForm />
+          <SortDropdown />
+          <CarsList
+            props={props}
+            totalItems={totalItems}
+            updateTotalItems={updateTotalItems}
+            updatePages={updatePages}
+            pageSize={pageSize}
+            updateCurrentPage={updateCurrentPage}
+            startIndex={startIndex}
+            endIndex={endIndex}
+          />
+          <SearchErrorMessage carListLength={totalItems} />
+          <Pagination
+            totalItems={totalItems}
+            updateTotalItems={updateTotalItems}
+            currentPage={currentPage}
+            updateCurrentPage={updateCurrentPage}
+            pageSize={pageSize}
+            updatePageSize={updatePageSize}
+            startIndex={startIndex}
+            updateStartIndex={updateStartIndex}
+            endIndex={endIndex}
+            updateEndIndex={updateEndIndex}
+            pages={pages}
+            updatePages={updatePages}
+          />
+        </div>
       </div>
     </>
   );

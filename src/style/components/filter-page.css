@@ -1,0 +1,23 @@
+.filter-title {
+  text-align: center;
+  font-size: 45px;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin: 60px auto;
+}
+
+.filter-page .cards-grid {
+  margin-bottom: 52px;
+}
+
+/* Brands Page */
+.filter-page.filter-brands .cards-grid .filter-card {
+  background-color: #fff;
+  border-radius: 4px;
+}
+
+@media only screen and (max-width: 768px) {
+  .filter-title {
+    font-size: 30px;
+  }
+}

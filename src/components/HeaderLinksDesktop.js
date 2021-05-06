@@ -50,7 +50,7 @@ const HeaderLinksDesktop = ({
             onChange={e => props.filterSearch(e.target.value)}
             onKeyPress={e => onSearchSubmit(e)}
           />
-          <img id='search-btn' src='img/icons/search.svg' alt='Search' />
+          <img id='search-btn' src='/img/icons/search.svg' alt='Search' />
         </div>
       </div>
       <div

@@ -1,6 +1,7 @@
 #footer {
   padding: 20px 0;
   border-top: 3px solid var(--primary-color);
+  background-color: #fff;
 }
 
 #footer .container {
@@ -21,6 +22,10 @@
 
 #footer .container .right > * {
   margin-left: 40px;
+}
+
+#footer .btn-scroll {
+  cursor: pointer;
 }
 
 #footer .container .right > *:first-child {

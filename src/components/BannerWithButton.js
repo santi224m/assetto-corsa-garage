@@ -19,9 +19,11 @@ class BannerWithButton extends React.Component {
                   button
                 </li>
               </ol>
-              <Link to='/newmod/form' className='btn-primary'>
-                <span>Add New Mod</span>
-                <i style={{ marginLeft: '15px', opacity: '1' }} className='cloud upload icon'></i>
+              <Link to='/newmod/form' id='upload-btn' className='btn-primary'>
+                <div>
+                  <span>Add New Mod</span>
+                  <img className='btn-icon' src='/img/icons/upload.svg' alt='Upload' />
+                </div>
               </Link>
             </div>
             <div className='banner-video'>

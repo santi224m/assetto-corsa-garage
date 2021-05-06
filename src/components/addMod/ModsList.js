@@ -74,8 +74,8 @@ const ModsList = props => {
 
   return (
     <div className='mods-list'>
-      <h1 className='ui header contribution'>Your contribution ({userContribution} mods)</h1>
-      <div className='ui cards'>{renderCarCards(props.cars, props.userId)}</div>
+      <h1 className='contribution'>Your contribution ({userContribution} mods)</h1>
+      <div className='mod-cards'>{renderCarCards(props.cars, props.userId)}</div>
     </div>
   );
 };

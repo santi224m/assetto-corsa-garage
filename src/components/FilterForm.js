@@ -32,22 +32,6 @@ class FilterForm extends React.Component {
     this.props.resetFilters();
   }
 
-  renderShowFiltersLink() {
-    if (this.state.showFilters) {
-      return (
-        <>
-          Hide Filters <i className='filter icon'></i>
-        </>
-      );
-    } else {
-      return (
-        <>
-          Show Filters <i className='filter icon'></i>
-        </>
-      );
-    }
-  }
-
   handleResetButton(props) {
     props.resetFilters();
     props.selectSort('nameDown');
@@ -59,55 +43,50 @@ class FilterForm extends React.Component {
         <div className='show-filter-btn'>
           <a
             id='filter-button'
-            className='ui button left floated secondary-color'
+            className='btn-primary'
             onClick={() => this.setState({ showFilters: !this.state.showFilters })}
           >
-            {this.renderShowFiltersLink()}
+            <div>
+              {this.state.showFilters ? 'Hide Filters' : 'Show Filters'}
+              <img src='/img/icons/filter.svg' alt='Filter' />
+            </div>
           </a>
         </div>
         <div
           id='filters'
-          className={`ui form transition ${this.state.showFilters ? 'visible' : 'hidden'}`}
+          className={`form transition ${this.state.showFilters ? 'visible' : 'hidden'}`}
         >
-          <div className='fields'>
-            <div className='field'>
-              <Dropdown inputName='Brand' selectedValue={this.props.selectedFilters.selectedBrand}>
-                {renderBrandsOptions(this.props)}
-              </Dropdown>
-            </div>
+          <div className='field'>
+            <Dropdown inputName='Brand' selectedValue={this.props.selectedFilters.selectedBrand}>
+              {renderBrandsOptions(this.props)}
+            </Dropdown>
+          </div>
 
-            <div className='field'>
-              <Dropdown inputName='Class' selectedValue={this.props.selectedFilters.selectedClass}>
-                {renderClassOptions(this.props)}
-              </Dropdown>
-            </div>
+          <div className='field'>
+            <Dropdown inputName='Class' selectedValue={this.props.selectedFilters.selectedClass}>
+              {renderClassOptions(this.props)}
+            </Dropdown>
+          </div>
 
-            <div className='field'>
-              <Dropdown
-                inputName='Decade'
-                selectedValue={this.props.selectedFilters.selectedDecade}
-              >
-                {renderDecadesOptions(this.props)}
-              </Dropdown>
-            </div>
+          <div className='field'>
+            <Dropdown inputName='Decade' selectedValue={this.props.selectedFilters.selectedDecade}>
+              {renderDecadesOptions(this.props)}
+            </Dropdown>
+          </div>
 
-            <div className='field'>
-              <Dropdown
-                inputName='Shifter'
-                selectedValue={this.props.selectedFilters.selectedShifter}
-              >
-                {renderShifterOptions(this.props)}
-              </Dropdown>
-            </div>
+          <div className='field'>
+            <Dropdown
+              inputName='Shifter'
+              selectedValue={this.props.selectedFilters.selectedShifter}
+            >
+              {renderShifterOptions(this.props)}
+            </Dropdown>
+          </div>
 
-            <div className='field'>
-              <button
-                className={`ui button red`}
-                onClick={() => this.handleResetButton(this.props)}
-              >
-                Reset Filters
-              </button>
-            </div>
+          <div className='field'>
+            <button className={`btn-negative`} onClick={() => this.handleResetButton(this.props)}>
+              Reset Filters
+            </button>
           </div>
         </div>
       </>

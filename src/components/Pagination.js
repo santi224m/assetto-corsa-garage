@@ -16,7 +16,7 @@ class Pagination extends React.Component {
         <a
           key={num}
           onClick={() => this.updatePage(num)}
-          className={`item ${this.props.currentPage === num ? 'active' : ''}`}
+          className={`page-btn ${this.props.currentPage === num ? 'active' : ''}`}
         >
           {num}
         </a>
@@ -38,14 +38,11 @@ class Pagination extends React.Component {
 
   renderPreviousButtons() {
     if (this.props.currentPage === 1) {
-      return <button className='ui button green btn-disabled'>Previous</button>;
+      return <button className='btn-primary btn-disabled'>Previous</button>;
     }
 
     return (
-      <button
-        className='ui button green'
-        onClick={() => this.updatePage(this.props.currentPage - 1)}
-      >
+      <button className='btn-primary' onClick={() => this.updatePage(this.props.currentPage - 1)}>
         Previous
       </button>
     );
@@ -53,14 +50,11 @@ class Pagination extends React.Component {
 
   renderNextButtons() {
     if (this.props.currentPage === this.props.pages) {
-      return <button className='ui button green btn-disabled'>Next</button>;
+      return <button className='btn-primary btn-disabled'>Next</button>;
     }
 
     return (
-      <button
-        className='ui button green'
-        onClick={() => this.updatePage(this.props.currentPage + 1)}
-      >
+      <button className='btn-primary' onClick={() => this.updatePage(this.props.currentPage + 1)}>
         Next
       </button>
     );
@@ -73,7 +67,7 @@ class Pagination extends React.Component {
 
     return (
       <div className='pagination-container'>
-        <div className='ui pagination menu'>
+        <div className='pagination '>
           {this.renderPreviousButtons()}
           {this.renderNumbers()}
           {this.renderNextButtons()}

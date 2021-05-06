@@ -13,13 +13,14 @@ import './style/components/brands-page.css';
 import './style/components/carClassFilters.css';
 import './style/components/card.css';
 import './style/components/pagination.css';
-import './style/components/sortDropdown.css';
 import './style/components/carListGrid.css';
 import './style/components/footer.css';
 import './style/components/modForm.css';
 import './style/components/banner.css';
 import './style/components/formReview.css';
 import './style/components/filter-card.css';
+import './style/components/filter-page.css';
+import './style/components/filter-form.css';
 
 const composeEnhancers =
   (typeof window !== 'undefined' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || compose;

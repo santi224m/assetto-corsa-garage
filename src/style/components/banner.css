@@ -51,13 +51,15 @@
 }
 
 /* Banner on newMod page */
-.banner-wbtn-title-underline {
-  max-width: 865px;
-}
-
 .banner-text .btn-primary {
   padding: 16px 64px;
   margin-top: 30px;
+}
+
+#upload-btn div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 @media only screen and (max-width: 768px) {

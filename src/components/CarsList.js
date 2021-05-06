@@ -81,7 +81,7 @@ const CarsList = ({
       }
     });
 
-  return <div className='ui cards'>{renderCars(filteredCarsArr, startIndex, endIndex)}</div>;
+  return <div className='mod-cards'>{renderCars(filteredCarsArr, startIndex, endIndex)}</div>;
 };
 
 export default CarsList;
