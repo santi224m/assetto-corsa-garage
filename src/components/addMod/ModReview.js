@@ -36,7 +36,7 @@ class ModReview extends React.Component {
   renderMessage() {
     return (
       <>
-        <h3 className='ui header'>Verified Mods: {this.props.user.modsVerified}</h3>
+        <h3 className='header'>Verified Mods: {this.props.user.modsVerified}</h3>
         <p>
           Your mod has to be verified by us before it appears on the cars lists. Once you have 5
           verified mods, your uploads no longer have to be verified.
@@ -49,7 +49,7 @@ class ModReview extends React.Component {
     const previewForm = this.props.form;
     return (
       <div className='form-review'>
-        <h1 className='ui header'>Mod Preview</h1>
+        <h1 className='header'>MOD PREVIEW</h1>
         {this.props.user.modsVerified < 5 && this.renderMessage()}
         <p>* The Learn More link is auto generated later.</p>
 
@@ -64,19 +64,17 @@ class ModReview extends React.Component {
             carClass={previewForm.carClass}
           />
         </div>
-
-        <button
-          className='ui button secondary-color'
-          onClick={() => this.props.setFormShowReview(false)}
-        >
-          Back
-        </button>
-        <button
-          className='ui button green right floated'
-          onClick={() => this.uploadMod(this.props.form, this.props.user)}
-        >
-          Post Mod
-        </button>
+        <div className='buttons-container'>
+          <button className='btn-primary' onClick={() => this.props.setFormShowReview(false)}>
+            Back
+          </button>
+          <button
+            className='btn-secondary'
+            onClick={() => this.uploadMod(this.props.form, this.props.user)}
+          >
+            Post Mod
+          </button>
+        </div>
       </div>
     );
   }

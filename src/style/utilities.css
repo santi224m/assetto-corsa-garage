@@ -158,6 +158,8 @@
   text-align: center;
   cursor: pointer;
   outline: none;
+  font-size: 14px;
+  font-family: 'Raleway', sans-serif;
   -webkit-user-select: none; /* Safari */
   -moz-user-select: none; /* Firefox */
   -ms-user-select: none; /* IE10+/Edge */
@@ -197,6 +199,13 @@
 
 .btn-icon {
   padding-left: 9px;
+}
+
+.buttons-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 /* Messages */
