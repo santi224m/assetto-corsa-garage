@@ -187,12 +187,16 @@
 .mobile-nav-header {
   padding: 25px;
   padding-bottom: 5px;
+  padding-top: 50px;
   margin-bottom: 20px;
-  font-size: 30px;
+  font-size: 50px;
   color: var(--primary-color);
-  border-bottom: 1px solid var(--primary-color);
   width: 200px;
   text-align: center;
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+/Edge */
+  user-select: none; /* Standard */
 }
 
 #navbar.nav-fixed {
